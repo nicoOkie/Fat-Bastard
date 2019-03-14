@@ -34,5 +34,3 @@
 ><http://mhdofficiel.fr/>
 >
 >NB: J'aime bien l'idée de la demande de souscription à la news letter ainsi que le site de gogol bordelo. En revenche les sites de MHD et -M- ont un style administratif qui me déplaît.
-
-
