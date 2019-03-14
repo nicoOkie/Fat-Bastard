@@ -2,14 +2,16 @@
 
 ## 14/03/2019 Sprint 0
 
-### Rôles de au sein de l´equipe
+### Rôles au sein de l´equipe
 
 - Product Owner : Amélie
-- Projetc Manager : Tony
+- Project Manager : Tony
 - Lead dev Front : Nico
 - Lead Dev Back : Karine
 - Git Master : Nico
-- Autres...
+- API Youtube : Tony
+- API Facebook : Amélie
+- Newsletter : Karine
 
 ### Message du client
 
@@ -34,3 +36,5 @@
 ><http://mhdofficiel.fr/>
 >
 >NB: J'aime bien l'idée de la demande de souscription à la news letter ainsi que le site de gogol bordelo. En revenche les sites de MHD et -M- ont un style administratif qui me déplaît.
+
+Nous avons écrit les users stories du projet et rédigé une partie du cahier des charges. Peut-être un peu de mise en forme à prévoir !
