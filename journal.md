@@ -38,3 +38,10 @@
 >NB: J'aime bien l'idée de la demande de souscription à la news letter ainsi que le site de gogol bordelo. En revenche les sites de MHD et -M- ont un style administratif qui me déplaît.
 
 Nous avons écrit les users stories du projet et rédigé une partie du cahier des charges. Peut-être un peu de mise en forme à prévoir !
+
+### 15/03/2019 Sprint 0
+
+-Création de différents wireframes via divers sites/logiciels, concertation le midi sur les idées à garder.
+-Création du wireframe final, étoffage du cahier des charges.
+-Avancées sur le MCD et dico de données (difficulté : savoir comment créer une nouvelle table et la relier à la BDD de WP).
+-Recherches sur les API de YouTube sur les possibilités de l'intégration vidéo.
