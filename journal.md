@@ -45,3 +45,12 @@ Nous avons écrit les users stories du projet et rédigé une partie du cahier d
 - Création du wireframe final, étoffage du cahier des charges.
 - Avancées sur le MCD et dico de données (difficulté : savoir comment créer une nouvelle table et la relier à la BDD de WP).
 - Recherches sur les API de YouTube sur les possibilités de l'intégration vidéo.
+
+### 18/03/2019 Sprint 0
+
+- Présentation du wireframe final à toute l'équipe
+- Fin du MCD et dico de données
+- Explication rapide globale de React aux WP et WP aux React
+- Fin user stories, définition des tâches du prochain sprint
+- Exposition des choix techniques, nouvelles problèmatiques (qui va gérer le formulaire, comment gérer les metadonnées FB, comment connecter le back et le front)
+- Fin de recherche sur l'API Youtube pour intégrer les vidéos
