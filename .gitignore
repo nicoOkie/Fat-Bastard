@@ -2,3 +2,7 @@
 /vendor
 
 /content/plugins/*
+
+/content/languages
+/content/upgrade
+/content/uploads
