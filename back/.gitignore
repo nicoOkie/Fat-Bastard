@@ -3,7 +3,6 @@
 
 /wp-config.php
 
-
 /content/plugins/*
 
 /content/debug.log
@@ -11,3 +10,4 @@
 /content/languages
 /content/upgrade
 /content/uploads
+
