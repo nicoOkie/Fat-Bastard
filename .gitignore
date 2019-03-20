@@ -1,6 +1,6 @@
 /wp
 /vendor
-
+/wp-config.php
 /content/plugins/*
 
 /content/languages
