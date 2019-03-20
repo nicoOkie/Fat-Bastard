@@ -16,28 +16,21 @@
  *
  * @package WordPress
  */
-
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Nom de la base de données de WordPress. */
 define('DB_NAME', 'votre_nom_de_bdd');
-
 /** Utilisateur de la base de données MySQL. */
 define('DB_USER', 'votre_utilisateur_de_bdd');
-
 /** Mot de passe de la base de données MySQL. */
 define('DB_PASSWORD', 'votre_mdp_de_bdd');
-
 /** Adresse de l’hébergement MySQL. */
 define('DB_HOST', 'localhost');
-
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
-define('DB_CHARSET', 'utf8');
-
+define('DB_CHARSET', 'utf8mb4');
 /** Type de collation de la base de données.
   * N’y touchez que si vous savez ce que vous faites.
   */
 define('DB_COLLATE', '');
-
 /**#@+
  * Clés uniques d’authentification et salage.
  *
@@ -57,7 +50,6 @@ define('AUTH_SALT',        'put your unique phrase here');
 define('SECURE_AUTH_SALT', 'put your unique phrase here');
 define('LOGGED_IN_SALT',   'put your unique phrase here');
 define('NONCE_SALT',       'put your unique phrase here');
-
 /**#@-*/
 /**
  * Préfixe de base de données pour les tables de WordPress.
@@ -67,7 +59,26 @@ define('NONCE_SALT',       'put your unique phrase here');
  * N’utilisez que des chiffres, des lettres non-accentuées, et des caractères soulignés !
  */
 $table_prefix  = 'wp_';
-
+/**
+ * On modifie le chemin vers le répertoire wp-content
+ * @link https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
+ */
+define( 'WP_CONTENT_DIR', __DIR__ . '/content' );
+/**
+ * On modifie l'URL de la page d'accueil
+ * @link https://codex.wordpress.org/Editing_wp-config.php#WP_HOME
+ */
+define( 'WP_HOME', 'http://put_your_wordpress_home_url_here' );
+/**
+ * On modifie le chemin HTTP vers le répertoire wp-content
+ * @link https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
+ */
+define( 'WP_CONTENT_URL', rtrim( WP_HOME, '/' ) . '/content' );
+/**
+ * On modifie le chemin HTTP vers le cœur de WordPress (wp)
+ * @link https://codex.wordpress.org/Editing_wp-config.php#WP_SITEURL
+ */
+define( 'WP_SITEURL', rtrim( WP_HOME, '/' ) . '/wp' );
 /**
  * Pour les développeurs : le mode déboguage de WordPress.
  *
@@ -83,48 +94,63 @@ $table_prefix  = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
-
-define( 'WP_HOME', 'http://put_your_home_url_here' );
-define( 'WP_SITEURL', rtrim( WP_HOME, '/' ) . '/wp' );
-define( 'WP_CONTENT_DIR', __DIR__ . '/content' );
-define( 'WP_CONTENT_URL', rtrim( WP_HOME, '/' ) . '/content' );
-
-// Environnement de production
+/*
+La constante ENVIRONMENT stocke le nom de l'environnment dans lequel nous sommes. On peut avoir pour valeur :
+    - development
+    - staging (préproduction)
+    - production
+*/
 define( 'ENVIRONMENT', 'production' );
-// Environnement de développement
-// define( 'ENVIRONMENT', 'development' );
-// Environement de préproduction
-// define( 'ENVIRONMENT', 'staging' );
-
+/**
+ * Je vérifie que la constante ENVIRONMENT est définie
+ * @link http://php.net/defined
+ */
 if ( defined( 'ENVIRONMENT' ) ) {
-    if ( ENVIRONMENT === 'development' ) {
-        define( 'WP_DEBUG_DISPLAY', true );
-        define( 'WP_DEBUG_LOG', false );
-        define( 'DISALLOW_FILE_MODS', false );
-        define( 'EMPTY_TRASH_DAYS', 0 );
+    if ( 'development' === ENVIRONMENT ) {
+        // On est en env de développement
+        define( 'DISALLOW_FILE_MODS' , false );
+        define( 'EMPTY_TRASH_DAYS', 1 );
         define( 'WP_POST_REVISIONS', false );
-    } else if ( ENVIRONMENT === 'production' ) {
+        define( 'WP_DEBUG_DISPLAY', true );
+        define( 'WP_DEBUG_LOG', true );
+    } elseif ( 'staging' === ENVIRONMENT ) {
+        // On est en env de préproduction
+        define( 'DISALLOW_FILE_MODS' , true );
+        define( 'WP_POST_REVISIONS', 2 );
+        define( 'EMPTY_TRASH_DAYS', 1 );
+        define( 'WP_DEBUG_DISPLAY', true );
+        define( 'WP_DEBUG_LOG', true );
+    } elseif ( 'production' === ENVIRONMENT ) {
+        // On est en env de production
+        define( 'DISALLOW_FILE_MODS' , true );
+        define( 'WP_POST_REVISIONS', 7 );
+        define( 'EMPTY_TRASH_DAYS', 30 );
         define( 'WP_DEBUG_DISPLAY', false );
         define( 'WP_DEBUG_LOG', true );
-        define( 'DISALLOW_FILE_MODS', true );
-        define( 'WP_POST_REVISIONS', 7 );
-    } else {
-        echo 'Unknown environement.';
-        exit;
     }
 } else {
-    echo 'No environment is specified.';
+    echo 'Aucun environnement de défini dans le fichier wp-config.php.';
     exit;
 }
 define( 'FS_METHOD', 'direct' );
 define( 'DISALLOW_FILE_EDIT', true );
+/**
+ * Permet d'accéder à l'interface de réparation de la base de données si à true (URL : /wp-admin/maint/repair.php).
+ */
+define( 'WP_ALLOW_REPAIR', false );
+/**
+ * Désactivation de la mise à jour automatique
+ * @link https://codex.wordpress.org/Configuring_Automatic_Background_Updates
+ * @link https://codex.wordpress.org/Editing_wp-config.php#Disable_WordPress_Auto_Updates
+ */
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
-define( 'WP_AUTO_UPDATE_CORE', false );
-
+/**
+ * Désactivation des mises à jour du cœur de WordPress
+ */
+define( 'WP_AUTO_UPDATE_CORE', true );
 /* C’est tout, ne touchez pas à ce qui suit ! */
 /** Chemin absolu vers le dossier de WordPress. */
 if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . '/');
-    
+	define('ABSPATH', dirname(__FILE__) . '/');
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');
