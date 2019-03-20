@@ -28,7 +28,7 @@ define('DB_USER', 'wordpress_projet_fat');
 define('DB_PASSWORD', 'wordpress_projet_fat');
 
 /** Adresse de l’hébergement MySQL. */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '92.243.8.90');
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -84,7 +84,7 @@ $table_prefix  = 'fat_';
  */
 define('WP_DEBUG', true);
 
-define( 'WP_HOME', 'http://localhost/projet/fanfare-et-rock-n-roll' );
+define( 'WP_HOME', 'http://localhost/fat-apotheose/' );
 define( 'WP_SITEURL', rtrim( WP_HOME, '/' ) . '/wp' );
 define( 'WP_CONTENT_DIR', __DIR__ . '/content' );
 define( 'WP_CONTENT_URL', rtrim( WP_HOME, '/' ) . '/content' );
