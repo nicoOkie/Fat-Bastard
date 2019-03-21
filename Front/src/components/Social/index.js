@@ -3,10 +3,10 @@
  */
 import React from 'react';
 import {
-  FaYoutubePlay,
   FaFacebookSquare,
+  FaYoutube,
+  FaEnvelope,
   FaInstagram,
-  FaEnvelopeO,
 } from 'react-icons/fa';
 
 /**
@@ -21,12 +21,12 @@ import './social.scss';
   */
 
 const Social = () => (
-  <div id="social">
-    <FaEnvelopeO />
-    <FaFacebookSquare />
-    <FaYoutubePlay />
-    <FaInstagram />
-  </div>
+  <nav id="social">
+    <FaEnvelope />
+    <a href="" target="_blank"><FaFacebookSquare /></a>
+    <a href="" target="_blank"><FaYoutube /></a>
+    <a href="" target="_blank"><FaInstagram /></a>
+  </nav>
 );
 
 export default Social;
