@@ -4,6 +4,7 @@
 /wp-config.php
 
 /content/plugins/*
+!/content/plugins/the-fat-bastard-settings
 
 /content/debug.log
 
