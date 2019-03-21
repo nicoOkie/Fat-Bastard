@@ -6,13 +6,21 @@ import React from 'react';
 /**
  * Local import
  */
-import './app.scss';
+import Nav from 'src/components/Nav';
+import Main from 'src/components/Main';
+import Footer from 'src/components/Footer';
 
+// Styles
+import './app.scss';
 /**
  * Code
  */
 const App = () => (
-  <div id="app">Hello depuis React</div>
+  <div id="app">
+    <Nav />
+    <Main />
+    <Footer />
+  </div>
 );
 
 /**
