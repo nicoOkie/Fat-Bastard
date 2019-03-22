@@ -5,9 +5,10 @@ import React from 'react';
 import {
   FaFacebookSquare,
   FaYoutubeSquare,
-  FaEnvelope,
+  FaEnvelopeSquare,
   FaInstagram,
 } from 'react-icons/fa';
+ 
 
 /**
  * Local Import
@@ -22,10 +23,10 @@ import './social.scss';
 
 const Social = () => (
   <nav className="social">
-    <FaEnvelope />
-    <a href="" target="_blank"><FaFacebookSquare /></a>
-    <a href="" target="_blank"><FaYoutubeSquare /></a>
-    <a href="" target="_blank"><FaInstagram /></a>
+    <div className="social-link"><FaEnvelopeSquare /></div>
+    <a href="" className="social-link" target="_blank"><FaFacebookSquare /></a>
+    <a href="" className="social-link" target="_blank"><FaYoutubeSquare /></a>
+    <a href="" className="social-link" target="_blank"><FaInstagram /></a>
   </nav>
 );
 

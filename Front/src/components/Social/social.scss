@@ -1,9 +1,12 @@
 // Social
 
 .social {
-  background-color: #9a5f2e;
   display: flex;
   align-items: stretch;
   font-size: 1.4em;
+
+  &-link {
+    padding: 0 .5em;
+  }
 }
 
