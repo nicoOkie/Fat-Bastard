@@ -11,9 +11,9 @@ if ( ! defined( 'WPINC' ) ) {
     exit;
 }
 
-add_action('init', 'thefat_register_post_type');
+add_action('init', 'the_fat_register_post_type');
 
-function thefat_register_post_type()
+function the_fat_register_post_type()
 {
     register_post_type(
         'tourdates',
@@ -43,8 +43,7 @@ function thefat_register_post_type()
             'supports'            => [
                 'title',
                 'editor',
-                'thumbnail',
-                'excerpt'
+                'custom-fields'
             ],
             'has_archive'         => true, 
             'can_export'          => true, 
@@ -53,4 +52,58 @@ function thefat_register_post_type()
         ]
     );   
     
+}
+
+add_action( 'add_meta_boxes', 'the_fat_custom_box' );
+	
+function the_fat_custom_box()
+{
+    add_meta_box(
+        'the_fat_box_id',           // Unique ID
+        'Détails du concert',  // Box title
+        'the_fat_custom_box_html',  // Content callback, must be of type callable
+        [ 'tourdates' ]            // Post type
+        
+    );
+}
+
+function the_fat_custom_box_html( $post )
+{
+    $concert_dates = get_post_meta(
+        $post->ID,
+        'the_fat_concert_dates',
+        true
+    );
+
+    $array = [
+        'Date de concert',
+        'Ville',
+        'Lieu',
+        'Statut'
+    ];
+
+    foreach ($array as $value){
+    ?>
+        <div style="margin: 1rem 1rem;">
+            <label style="font-weight: bold;" for="the_fat_concert_dates"><?= $value ?></label>
+            <input type="text" name="the_fat_concert_dates" id="the_fat_concert_dates" value="<?= $concert_dates; ?>" />
+        </div>
+    <?php
+
+    }
+}
+
+add_action( 'save_post', 'the_fat_save_postdata' );
+	
+function the_fat_save_postdata( $post_id )
+{
+    // On vérifie que le champ o_redirect_to_redirect_url a bien été envoyé
+    if ( array_key_exists( 'the_fat_concert_dates', $_POST ) ) {
+        update_post_meta(
+            $post_id,
+            'the_fat_concert_dates',
+            $concert_dates
+        );
+    
+    }
 }
