@@ -1,1 +1,17 @@
 // Css de Nav
+
+.nav {
+  background-color: #fedcba;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  text-transform: uppercase;
+
+  &-nav {
+    &-link {
+      padding: 0 .5em;
+    }
+  }
+}

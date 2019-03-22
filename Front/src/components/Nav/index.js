@@ -16,17 +16,17 @@ import './nav.scss';
  */
 const Nav = () => (
   <div className="nav">
-    <nav>
-      <a href="#">Accueil</a>
-      <a href="#">News</a>
-      <a href="#">Tour</a>
-      <a href="#">Disocgraphie</a>
-      <a href="#">Media</a>
-      <a href="#">À Propos</a>
-      <a href="#">Contact</a>
+    <nav className="nav-nav">
+      <a href="#" className="nav-nav-link">Accueil</a>
+      <a href="#" className="nav-nav-link">News</a>
+      <a href="#" className="nav-nav-link">Tour</a>
+      <a href="#" className="nav-nav-link">Disocgraphie</a>
+      <a href="#" className="nav-nav-link">Media</a>
+      <a href="#" className="nav-nav-link">À Propos</a>
+      <a href="#" className="nav-nav-link">Contact</a>
     </nav>
 
-    <Social />
+    <Social className="nav-social" />
   </div>
 );
 

@@ -15,7 +15,7 @@ import './main.scss';
  * Code
  */
 const Main = () => (
-  <div id="Main">
+  <div id="main">
     <Section />
   </div>
 );
