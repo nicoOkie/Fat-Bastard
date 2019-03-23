@@ -77,9 +77,6 @@ function fat_register_post_type()
             'hierarchical'        => false, 
             'supports'            => [
                 'title',
-                'editor',
-                'thumbnail',
-                'custom-fields',
             ],
             'has_archive'         => true, 
             'can_export'          => true, 
@@ -102,3 +99,102 @@ register_deactivation_hook(
         flush_rewrite_rules();
     }
 );
+
+add_action( 'add_meta_boxes', 'fat_discography_custom_box' );
+
+function fat_discography_custom_box()
+{
+    add_meta_box(
+        'fat_discography_box_id',          
+        'Détail de l\'album', 
+        'fat_discography_custom_box_html',  
+        'discography'                   
+    );
+}
+
+function fat_discography_custom_box_html( $post )
+{
+    $date = get_post_meta(
+        $post->ID,
+        '_release_date',
+        true
+    );
+
+    $producter = get_post_meta(
+        $post->ID,
+        '_producter_name',
+        true
+    );
+
+    $first_side = get_post_meta(
+        $post->ID,
+        '_album_first_side',
+        true
+    );
+
+    $second_side = get_post_meta(
+        $post->ID,
+        '_album_second_side',
+        true
+    );
+
+?>
+
+    <div>
+        <label for="release_date">Date de sortie</label>
+        <input type="date" name="release_date" id="release_date" value="<?= $date; ?>" />
+    </div>
+    <div>
+        <label for="producter_name">Producteur</label>
+        <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>" />
+    </div>
+    <div>
+        <label for="album_first_side">Pochette recto</label>
+        <input type="file" name="album_first_side" id="album_first_side" value="<?= $first_side; ?>" />
+    </div>
+    <div>
+        <label for="album_second_side">Pochette verso</label>
+        <input type="file" name="album_second_side" id="album_second_side" value="<?= $second_side; ?>" />
+    </div>
+
+    
+<?php
+}
+
+add_action( 'save_post', 'fat_discography_save_postdata' );
+
+function fat_discography_save_postdata( $post_ID )
+{
+
+    if ( isset($_POST['release_date']) ) {
+        update_post_meta(
+            $post_ID,
+            '_release_date',
+            $_POST['release_date']
+        );
+    }
+
+    if ( isset($_POST['producter_name']) ) {
+        update_post_meta(
+            $post_ID,
+            '_producter_name',
+            $_POST['producter_name']
+        );
+    }
+
+    if ( isset($_POST['album_first_side']) ) {
+        update_post_meta(
+            $post_ID,
+            '_album_first_side',
+            $_POST['album_first_side']
+        );
+    }
+
+    if ( isset($_POST['album_second_side']) ) {
+        update_post_meta(
+            $post_ID,
+            '_album_second_side',
+            $_POST['album_second_side']
+        );
+    }
+}

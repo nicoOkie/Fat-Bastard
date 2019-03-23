@@ -4,7 +4,7 @@
 /wp-config.php
 
 /content/plugins/*
-!/content/plugins/fat-settings
+!/content/plugins/fat-settings.php
 /content/debug.log
 
 /content/languages
