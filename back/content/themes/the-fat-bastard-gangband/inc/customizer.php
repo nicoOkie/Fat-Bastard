@@ -2,6 +2,7 @@
 
 require get_theme_file_path('inc/customizer/background-images.php');
 require get_theme_file_path('inc/customizer/section-medias.php');
+require get_theme_file_path('inc/customizer/sections-title.php');
 
 
 add_action('customize_register', 'fat_customize_register');
@@ -21,5 +22,5 @@ function fat_customize_register($wp_customize)
 
     fat_register_customizer_background_images($wp_customize, $panel_id);
     fat_register_customizer_section_medias($wp_customize, $panel_id);
-    
+    fat_register_customizer_sections_title($wp_customize, $panel_id);
 }

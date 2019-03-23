@@ -52,7 +52,7 @@ function fat_register_customizer_background_images($wp_customize, $panel_id)
             $wp_customize,
             'fat_theme_homepage_photo_discography',
             [
-                'label'   => 'Photo "Discographie"',
+                'label'   => 'Photo "Discography"',
                 'section' => $section_id
             ]
         )
@@ -82,7 +82,22 @@ function fat_register_customizer_background_images($wp_customize, $panel_id)
             $wp_customize,
             'fat_theme_homepage_photo_about',
             [
-                'label'   => 'Photo "A propos de"',
+                'label'   => 'Photo "About"',
+                'section' => $section_id
+            ]
+        )
+    );
+
+    $wp_customize->add_setting(
+        'fat_theme_homepage_photo_contact'
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Media_Control(
+            $wp_customize,
+            'fat_theme_homepage_photo_contact',
+            [
+                'label'   => 'Photo "Contact"',
                 'section' => $section_id
             ]
         )
