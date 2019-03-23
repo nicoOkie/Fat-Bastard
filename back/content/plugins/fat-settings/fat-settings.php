@@ -34,7 +34,7 @@ function fat_register_post_type()
             'show_ui'             => true, 
             'show_in_nav_menus'   => true, 
             'show_in_admin_bar'   => true,
-            'menu_position'       => 4,
+            'menu_position'       => 5,
             'menu_icon'           => 'dashicons-groups',
             'hierarchical'        => true, 
             'supports'            => [
@@ -43,6 +43,43 @@ function fat_register_post_type()
                 'thumbnail',
                 'custom-fields',
                 'page-attributes'
+            ],
+            'has_archive'         => true, 
+            'can_export'          => true, 
+            'delete_with_user'    => false,
+            'show_in_rest'        => true 
+        ]
+    );
+
+    register_post_type(
+        'discography', 
+        [
+            'labels' => [ 
+                'name'               => 'Discographie',
+                'singular_name'      => 'Album',
+                'add_new_item'       => 'Ajouter un nouvel album',
+                'edit_item'          => 'Editer l\'album',
+                'new_item'           => 'Nouvel album',
+                'view_item'          => 'Voir l\'album',
+                'view_items'         => 'Voir les albums',
+                'search_items'       => 'Rechercher des albums',
+                'not_found'          => 'Aucun album trouvé',
+                'not_found_in_trash' => 'Aucun album trouvé dans la corbeille',
+                'all_items'          => 'Tous les albums',
+                'archives'           => 'Archives des albums'
+            ], 
+            'publicly_queryable'  => true, 
+            'show_ui'             => true, 
+            'show_in_nav_menus'   => true, 
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 4,
+            'menu_icon'           => 'dashicons-media-audio',
+            'hierarchical'        => false, 
+            'supports'            => [
+                'title',
+                'editor',
+                'thumbnail',
+                'custom-fields',
             ],
             'has_archive'         => true, 
             'can_export'          => true, 
