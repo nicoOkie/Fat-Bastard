@@ -1,7 +1,7 @@
 /**
  * NPM import
  */
-import React from 'react';
+import React, { useState } from 'react';
 
 /**
  * Local import
@@ -15,11 +15,14 @@ import './nav.scss';
 /**
  * Code
  */
+
 const Nav = () => {
-  const width = window.innerWidth;
+  const [width, setWidth] = useState(window.innerWidth);
+  const handleResize = () => setWidth(window.innerWidth);
+  window.addEventListener('resize', handleResize);
   return (
     <div className="nav">
-      {width > 600 ? <FullScreen /> : <Menu />}
+      {width > 850 ? <FullScreen /> : <Menu />}
     </div>
   );
 };
