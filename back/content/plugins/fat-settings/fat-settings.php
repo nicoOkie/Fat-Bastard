@@ -14,7 +14,7 @@ add_action( 'init', 'fat_register_post_type' );
 function fat_register_post_type()
 {
     register_post_type(
-        'groupe', 
+        'group', 
         [
             'labels' => [ 
                 'name'               => 'Groupe',
@@ -41,7 +41,6 @@ function fat_register_post_type()
                 'title',
                 'editor',
                 'thumbnail',
-                'custom-fields',
                 'page-attributes'
             ],
             'has_archive'         => true, 
@@ -140,21 +139,21 @@ function fat_discography_custom_box_html( $post )
 
 ?>
 
-    <div>
-        <label for="release_date">Date de sortie</label>
-        <input type="date" name="release_date" id="release_date" value="<?= $date; ?>" />
+    <div style="margin:30px 0px 20px;">
+        <label for="release_date" style="font-weight:bold;font-size:1.2rem;margin-right:17px;">Date de sortie</label>
+        <input type="date" name="release_date" id="release_date" value="<?= $date; ?>"" style="height: 30px;" />
     </div>
-    <div>
-        <label for="producter_name">Producteur</label>
-        <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>" />
+    <div style="margin-bottom: 20px;">
+        <label for="producter_name" style="font-weight:bold;font-size:1.2rem;margin-right:44px;">Producteur</label>
+        <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>"style="height:30px;" />
     </div>
-    <div>
-        <label for="album_first_side">Pochette recto</label>
-        <input type="file" name="album_first_side" id="album_first_side" value="<?= $first_side; ?>" />
+    <div style="margin-bottom: 20px;">
+        <label for="album_first_side" style="font-weight:bold;font-size:1.2rem;margin-right:10px;">Pochette recto</label>
+        <input type="file" name="album_first_side" id="album_first_side" value="<?= $first_side; ?>"style="height:30px;" />
     </div>
-    <div>
-        <label for="album_second_side">Pochette verso</label>
-        <input type="file" name="album_second_side" id="album_second_side" value="<?= $second_side; ?>" />
+    <div style="margin-bottom: 20px;">
+        <label for="album_second_side" style="font-weight:bold;font-size:1.2rem;margin-right:8px;">Pochette verso</label>
+        <input type="file" name="album_second_side" id="album_second_side" value="<?= $second_side; ?>"style="height:30px;"  />
     </div>
 
     
