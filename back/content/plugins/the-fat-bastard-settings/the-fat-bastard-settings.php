@@ -54,16 +54,29 @@ function the_fat_register_post_type()
     
 }
 
+register_activation_hook(
+    __FILE__,
+    function() {
+        fat_register_post_type();
+        flush_rewrite_rules();
+    }
+);
+register_deactivation_hook(
+    __FILE__,
+    function() {
+        flush_rewrite_rules();
+    }
+);
+
 add_action( 'add_meta_boxes', 'the_fat_custom_box' );
 	
 function the_fat_custom_box()
 {
     add_meta_box(
-        'the_fat_box_id',           // Unique ID
-        'Détails du concert',  // Box title
-        'the_fat_custom_box_html',  // Content callback, must be of type callable
-        [ 'tourdates' ]            // Post type
-        
+        'the_fat_box_id',
+        'Détails du concert',
+        'the_fat_custom_box_html',
+        'tourdates'
     );
 }
 
@@ -75,35 +88,117 @@ function the_fat_custom_box_html( $post )
         true
     );
 
-    $array = [
-        'Date de concert',
-        'Ville',
-        'Lieu',
-        'Statut'
-    ];
+    $concert_city = get_post_meta(
+        $post->ID,
+        'the_fat_concert_city',
+        true
+    );
 
-    foreach ($array as $value){
+    $concert_venue = get_post_meta(
+        $post->ID,
+        'the_fat_concert_venue',
+        true
+    );
+
+    $concert_status = get_post_meta(
+        $post->ID,
+        'the_fat_concert_status',
+        true
+    );
+
+    $url_google_maps = get_post_meta(
+        $post->ID,
+        'the_fat_url_google_maps',
+        true
+    );
+
+    $url_billetterie = get_post_meta(
+        $post->ID,
+        'the_fat_url_billetterie',
+        true
+    );
     ?>
-        <div style="margin: 1rem 1rem;">
-            <label style="font-weight: bold;" for="the_fat_concert_dates"><?= $value ?></label>
-            <input type="text" name="the_fat_concert_dates" id="the_fat_concert_dates" value="<?= $concert_dates; ?>" />
-        </div>
-    <?php
 
-    }
+    <table>
+        <tbody>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_dates">Date de concert</label></th>
+                <td style="padding:1.5rem;"><input type="date" name="the_fat_concert_dates" id="the_fat_concert_dates" value="<?= $concert_dates; ?>" /></td>
+            </tr>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_city">Ville</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_city" id="the_fat_concert_city" value="<?= $concert_city; ?>" /></td>
+            </tr>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_venue">Salle / Lieu</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_venue" id="the_fat_concert_venue" value="<?= $concert_venue; ?>" /></td>
+            </tr>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_status">Statut</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_status" id="the_fat_concert_status" value="<?= $concert_status; ?>" /></td>
+            </tr>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_url_google_maps">Lien Google Maps</label></th>
+                <td style="padding:1.5rem;"><input type="url" name="the_fat_url_google_maps" id="the_fat_url_google_maps" value="<?= $url_google_maps; ?>" /></td>
+            </tr>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_url_billetterie">Billetterie</label></th>
+                <td style="padding:1.5rem;"><input type="url" name="the_fat_url_billetterie" id="the_fat_url_billetterie" value="<?= $url_billetterie; ?>" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <?php
 }
 
 add_action( 'save_post', 'the_fat_save_postdata' );
 	
 function the_fat_save_postdata( $post_id )
 {
-    // On vérifie que le champ o_redirect_to_redirect_url a bien été envoyé
-    if ( array_key_exists( 'the_fat_concert_dates', $_POST ) ) {
+    if ( isset($_POST['the_fat_concert_dates']) ) {
         update_post_meta(
             $post_id,
             'the_fat_concert_dates',
-            $concert_dates
+            $_POST['the_fat_concert_dates']
         );
-    
+    }
+
+    if ( isset($_POST['the_fat_concert_city']) ) {
+        update_post_meta(
+            $post_id,
+            'the_fat_concert_city',
+            $_POST['the_fat_concert_city']
+        );
+    }
+
+    if ( isset($_POST['the_fat_concert_venue']) ) {
+        update_post_meta(
+            $post_id,
+            'the_fat_concert_venue',
+            $_POST['the_fat_concert_venue']
+        );
+    }
+
+    if ( isset($_POST['the_fat_concert_status']) ) {
+        update_post_meta(
+            $post_id,
+            'the_fat_concert_status',
+            $_POST['the_fat_concert_status']
+        );
+    }
+
+    if ( isset($_POST['the_fat_url_google_maps']) ) {
+        update_post_meta(
+            $post_id,
+            'the_fat_url_google_maps',
+            $_POST['the_fat_url_google_maps']
+        );
+    }
+
+    if ( isset($_POST['the_fat_url_billetterie']) ) {
+        update_post_meta(
+            $post_id,
+            'the_fat_url_billetterie',
+            $_POST['the_fat_url_billetterie']
+        );
     }
 }
