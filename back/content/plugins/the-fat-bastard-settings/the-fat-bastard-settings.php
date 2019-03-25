@@ -98,12 +98,6 @@ function the_fat_custom_box_html( $post )
         true
     );
 
-    $concert_status = get_post_meta(
-        $post->ID,
-        'the_fat_concert_status',
-        true
-    );
-
     $url_google_maps = get_post_meta(
         $post->ID,
         'the_fat_url_google_maps',
@@ -130,10 +124,6 @@ function the_fat_custom_box_html( $post )
             <tr>
                 <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_venue">Salle / Lieu</label></th>
                 <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_venue" id="the_fat_concert_venue" value="<?= $concert_venue; ?>" /></td>
-            </tr>
-            <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_status">Statut</label></th>
-                <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_status" id="the_fat_concert_status" value="<?= $concert_status; ?>" /></td>
             </tr>
             <tr>
                 <th style="text-align:left; padding:1.5rem;"><label for="the_fat_url_google_maps">Lien Google Maps</label></th>
@@ -173,14 +163,6 @@ function the_fat_save_postdata( $post_id )
             $post_id,
             'the_fat_concert_venue',
             $_POST['the_fat_concert_venue']
-        );
-    }
-
-    if ( isset($_POST['the_fat_concert_status']) ) {
-        update_post_meta(
-            $post_id,
-            'the_fat_concert_status',
-            $_POST['the_fat_concert_status']
         );
     }
 
