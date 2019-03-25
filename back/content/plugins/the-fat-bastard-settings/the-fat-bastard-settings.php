@@ -41,9 +41,7 @@ function the_fat_register_post_type()
             'menu_icon'           => 'dashicons-calendar-alt',
             'hierarchical'        => false, 
             'supports'            => [
-                'title',
-                'editor',
-                'custom-fields'
+                'title'
             ],
             'has_archive'         => true, 
             'can_export'          => true, 
@@ -57,7 +55,7 @@ function the_fat_register_post_type()
 register_activation_hook(
     __FILE__,
     function() {
-        fat_register_post_type();
+        the_fat_register_post_type();
         flush_rewrite_rules();
     }
 );
