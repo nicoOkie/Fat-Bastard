@@ -137,6 +137,10 @@ register_deactivation_hook(
     }
 );
 
+/* 
+ * Ajout de metabox au CPT tourdates
+ */
+
 add_action( 'add_meta_boxes', 'the_fat_custom_box' );
 	
 function the_fat_custom_box()
@@ -254,6 +258,10 @@ function the_fat_save_postdata( $post_id )
     }
 }
 
+/* 
+ * Ajout de metabox au CPT discography
+ */
+
 add_action( 'add_meta_boxes', 'fat_discography_custom_box' );
 
 function fat_discography_custom_box()
@@ -352,3 +360,90 @@ function fat_discography_save_postdata( $post_ID )
         );
     }
 }
+
+/*
+ * Modification des colonnes d'administration des dates de concert
+ */
+
+add_filter('manage_tourdates_posts_columns', 'custom_tourdates_columns');
+
+function custom_tourdates_columns($columns)
+{
+    $columns = [
+        'cb'            => '',
+        'title'         => 'Liste des concerts',
+        'concert_date'  => 'Date',
+        'city'          => 'Ville',
+        'venue'         => 'lieu'
+    ];
+    return $columns;
+}
+
+add_action('manage_tourdates_posts_custom_column', 'custom_tourdates_columns_content');
+
+function custom_tourdates_columns_content($column)
+{
+    global $post;
+
+    switch($column) {
+        case 'concert_date':
+            echo get_post_meta($post->ID, 'the_fat_concert_dates', TRUE);
+            break;
+        case 'city':
+            echo get_post_meta($post->ID, 'the_fat_concert_city', TRUE);
+            break;
+        case 'venue':
+            echo get_post_meta($post->ID, 'the_fat_concert_venue', TRUE);
+            break;
+    }
+}
+
+/*
+ * Modification des colonnes d'administration de la discographie
+ */
+
+add_filter('manage_discography_posts_columns', 'custom_discography_columns');
+
+function custom_discography_columns($columns)
+{
+    $columns = [
+        'cb'            => '',
+        'title'         => 'Nom de l\'album',
+        'release_date'  => 'Date de sortie',
+        'producter'     => 'Producteur',
+    ];
+
+    $columns = array_slice($columns, 0, true) + ['album_jacket' => 'Pochette de l\'album'] + array_slice($columns, 1, count($columns) - 1, true); 
+
+    return $columns;
+}
+
+add_action('manage_discography_posts_custom_column', 'custom_discography_columns_content');
+
+function custom_discography_columns_content($column)
+{
+    global $post;
+
+    switch($column) {
+        case 'release_date':
+            echo get_post_meta($post->ID, '_release_date', TRUE);
+            break;
+        case 'producter':
+            echo get_post_meta($post->ID, '_producter_name', TRUE);
+            break;
+    }
+}
+
+
+/*
+ * Modification des colonnes d'administration du groupe
+ */
+add_filter('manage_group_posts_columns', 'custom_group_columns');
+
+
+function custom_group_columns($columns)
+{
+    $columns['title'] = 'Groupe / Musiciens';
+    return $columns;
+}
+
