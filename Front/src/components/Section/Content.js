@@ -6,6 +6,7 @@ import React from 'react';
 /**
  * Local import
  */
+import Tour from 'src/components/Tour';
 
 // Styles
 
@@ -15,7 +16,7 @@ import React from 'react';
  */
 const Content = () => (
   <div id="Content">
-    Je suis du contenu
+    <Tour />
   </div>
 );
 
