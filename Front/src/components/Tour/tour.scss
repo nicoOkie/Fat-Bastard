@@ -1,1 +1,13 @@
 // CSS Tour
+
+.tour {
+  padding: 2em 2em;
+  text-align: center;
+
+  &-date {
+    display: grid;
+    margin-bottom: 1em;
+    padding: 1em 1em;
+    border: 1px solid black;
+  }
+}

@@ -2,6 +2,7 @@
  * NPM Import
  */
 import React from 'react';
+import Proptypes from 'prop-types';
 
 
 /**
@@ -13,11 +14,19 @@ import React from 'react';
  * Code
  */
 
-const Date = () => (
+const Date = ({ date, city, venue }) => (
   <div className="tour-date">
-    Je suis une date de tournée
+    <div className="tour-date-item">{date}</div>
+    <div className="tour-date-item">{city}</div>
+    <div className="tour-date-item">{venue}</div>
   </div>
 );
+
+Date.propTypes = {
+  date: Proptypes.string.isRequired,
+  city: Proptypes.string.isRequired,
+  venue: Proptypes.string.isRequired,
+};
 
 /**
  * Export
