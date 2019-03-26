@@ -5,6 +5,7 @@ import React from 'react';
 // import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
+
 /**
  * Local import
  */
@@ -27,12 +28,9 @@ const Header = ({ name, title, bgp }) => (
             amount: 0.7,
           },
         ]}
-        style={{
-          height: '60vh',
-        }}
-        >
-          <h1 className="header-title">{title}</h1>
-        </ParallaxBanner>
+      >
+        <h1 className="header-title">{title}</h1>
+      </ParallaxBanner>
     </ParallaxProvider>
   </React.Fragment>
 );
