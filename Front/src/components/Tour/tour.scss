@@ -1,0 +1,56 @@
+// CSS Tour
+
+.tour {
+  padding: 2em 2em 2em 0;
+  text-align: center;
+
+  &-date {
+    margin-bottom: 1.5em;
+    padding: 1em 2.5em;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 20% 30% 30% 10% 10%;
+    grid-template-areas: "date city venue map ticket";
+    justify-items: start;
+    align-items: center;
+
+    &-date {
+      grid-area: date;
+      font-weight: 600;
+      line-height: 1.3em;
+
+      &-star {
+        font-size: .6em;
+        transform: rotate(-25deg);
+      }
+
+      &-year {
+        padding-left: .2em;
+        letter-spacing: .15em;
+        font-weight: 400;
+        font-style: italic; 
+      }
+    }
+
+    &-city {
+      grid-area: city;
+      font-variant: small-caps;
+      font-size: 1.4em;
+    }
+
+    &-venue {
+      grid-area: venue;
+      font-weight: 100;
+    }
+
+    &-map {
+      grid-area: map;
+      justify-self: center;
+    }
+
+    &-ticket {
+      grid-area: ticket;
+      justify-self: center;
+    }
+  }
+}

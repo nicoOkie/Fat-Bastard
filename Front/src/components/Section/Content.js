@@ -8,6 +8,8 @@ import Proptypes from 'prop-types';
  * Local import
  */
 import Contact from 'src/components/Contact';
+import Tour from 'src/components/Tour';
+
 // Styles
 
 
@@ -17,6 +19,7 @@ import Contact from 'src/components/Contact';
 const Content = ({ id }) => (
   <div>
     {id === 'contact' && <Contact />}
+    {id === 'tour' && <Tour />}
   </div>
 );
 
