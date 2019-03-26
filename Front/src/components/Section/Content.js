@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Local import
  */
-
+import Contact from 'src/components/Contact';
 // Styles
 
 
@@ -15,7 +15,7 @@ import React from 'react';
  */
 const Content = () => (
   <div id="Content">
-    Je suis du contenu
+    <Contact />
   </div>
 );
 
