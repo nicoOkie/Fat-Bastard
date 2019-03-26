@@ -1,0 +1,13 @@
+/vendor
+/wp
+
+/wp-config.php
+
+/content/plugins/*
+
+!/content/plugins/fat-settings.php
+/content/debug.log
+
+/content/languages
+/content/upgrade
+

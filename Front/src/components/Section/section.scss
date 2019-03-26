@@ -1,0 +1,14 @@
+// CSS de Section
+
+.header {
+  position: relative;
+
+  &-title {
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
+  }
+}
