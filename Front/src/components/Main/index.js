@@ -7,6 +7,7 @@ import React from 'react';
  * Local import
  */
 import Section from 'src/components/Section';
+import sectionData from 'src/sections';
 
 
 // Styles
@@ -16,7 +17,9 @@ import './main.scss';
  */
 const Main = () => (
   <div id="main">
-    <Section />
+    {sectionData.map(section => (
+      <Section key={section.name} {...section} />
+    ))}
   </div>
 );
 
