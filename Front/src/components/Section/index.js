@@ -22,7 +22,7 @@ const Section = ({
   background,
   content,
 }) => (
-  <div className="section">
+  <div id={name} className="section">
     <Header title={title} bgp={background} name={name} />
     <Content content={content} id={name} />
   </div>

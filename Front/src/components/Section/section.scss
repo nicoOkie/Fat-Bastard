@@ -1,7 +1,7 @@
 // CSS de Section
 
 .header {
-  position: relative; 
+  // position: relative;
 
   &-title {
     position: absolute;
@@ -11,4 +11,8 @@
     font-weight: bold;
     color: white;
   }
+}
+
+.content {
+  margin: 2em 0;
 }
