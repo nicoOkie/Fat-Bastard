@@ -7,8 +7,9 @@ import Proptypes from 'prop-types';
 /**
  * Local import
  */
-import Contact from 'src/components/Contact';
+import News from 'src/components/News';
 import Tour from 'src/components/Tour';
+import Contact from 'src/components/Contact';
 
 // Styles
 
@@ -18,6 +19,7 @@ import Tour from 'src/components/Tour';
  */
 const Content = ({ id }) => (
   <div>
+    {id === 'news' && <News />}
     {id === 'contact' && <Contact />}
     {id === 'tour' && <Tour />}
   </div>

@@ -1,1 +1,14 @@
 // CSS News
+
+.news {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  justify-content: space-between;
+
+  &-article {
+    margin: 4em 0;
+    width: 100%;
+    padding: 2em 1em;
+    border: 1px solid black;
+  }
+}

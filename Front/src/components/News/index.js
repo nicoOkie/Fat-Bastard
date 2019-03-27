@@ -7,6 +7,7 @@ import React from 'react';
 /**
  * Local Import
  */
+import Article from './Article';
 
 // Styles
 import './news.scss';
@@ -15,8 +16,10 @@ import './news.scss';
  * Code
  */
 const News = () => (
-  <div className="news">
-    Des nouvelles fariches comme la rosée du  matin !
+  <div className="news special-width">
+    <Article />
+    <Article />
+    <Article />
   </div>
 );
 
