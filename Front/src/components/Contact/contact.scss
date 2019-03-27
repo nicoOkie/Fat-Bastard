@@ -3,6 +3,7 @@
     margin: 0 auto;
     &-booking {
         padding: 3vh;
+        text-align: center;
     }
     &-bookingTitle {
         margin-bottom: 10px; 
@@ -23,7 +24,6 @@
 
         &-booking {
             width: 50%;
-            text-align: center;
         }
         &-form {
             width: 50%;
