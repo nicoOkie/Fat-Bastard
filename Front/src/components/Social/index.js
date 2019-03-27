@@ -8,7 +8,7 @@ import {
   FaEnvelopeSquare,
   FaInstagram,
 } from 'react-icons/fa';
- 
+
 
 /**
  * Local Import

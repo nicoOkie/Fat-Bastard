@@ -4,7 +4,7 @@ export default {
             id: 1,
             date: '20/03/2019',
             city: 'London',
-            Venue: 'Wembley',
+            venue: 'Wembley',
             map: {
                 lat: 51.553497786,
                 long: -0.274498902,
@@ -14,9 +14,9 @@ export default {
         },
         {
             id: 2,
-            date: '20/03/2019',
+            date: '20/04/2019',
             city: 'Saint-Denis',
-            Venue: 'Stade de France',
+            venue: 'Stade de France',
             map: {
                 lat: 48.9177,
                 long: 2.3504800000000614,
@@ -26,9 +26,9 @@ export default {
         },
         {
             id: 3,
-            date: '20/03/2019',
+            date: '20/05/2019',
             city: 'Pompeï',
-            Venue: 'Pompeï',
+            venue: 'Pompeï',
             map: {
                 lat: 40.7509216,
                 long: 14.4895621,
@@ -38,9 +38,9 @@ export default {
         },
         {
             id: 4,
-            date: '20/03/2019',
+            date: '20/06/2019',
             city: 'Amsterdam',
-            Venue: 'Ziggo Dome',
+            venue: 'Ziggo Dome',
             map: {
                 lat: 52.3134068,
                 long: 4.937123,
@@ -50,9 +50,9 @@ export default {
         },
         {
             id: 5,
-            date: '20/03/2019',
+            date: '20/06/2019',
             city: 'Lyon',
-            Venue: 'Stade de Gerland',
+            venue: 'Stade de Gerland',
             map: {
                 lat: 45.7237761,
                 long: 4.8322542,
