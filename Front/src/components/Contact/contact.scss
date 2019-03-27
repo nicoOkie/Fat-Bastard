@@ -1,13 +1,45 @@
-
-
+#Contact {
+    &-Booking {
+        padding: 3vh;
+    }
+    &-BookingTitle {
+        margin-bottom: 10px; 
+    }
+    &-BookingDiv {
+        margin-top: 40px;
+    }
+    &-BookingType {
+        margin-bottom: 20px;
+    }
+}
 @media screen and (min-width: 850px) {
     #Contact {
         display: flex;
+
+        &-Booking {
+            width: 50%;
+        }
+        &-Form {
+            width: 50%;
+        }
     }
-    #ContactBooking {
-        width: 50%;
-    }
-    #ContactForm {
-        width: 50%;
-    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 3vh;
+}
+
+input, select, textarea {
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 1em;
+    border: 3px solid grey;
+    border-radius: 5px;
+}
+
+#title-form {
+    margin-bottom: 10px;
 }

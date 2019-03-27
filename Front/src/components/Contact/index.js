@@ -6,8 +6,8 @@ import React from 'react';
 /**
  * Local import
  */
-import ContactForm from 'src/components/ContactForm';
-import ContactBooking from 'src/components/ContactBooking';
+import ContactForm from './ContactForm';
+import ContactBooking from './ContactBooking';
 // Styles
 import './contact.scss';
 

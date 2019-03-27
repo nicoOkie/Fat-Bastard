@@ -7,13 +7,12 @@ import React from 'react';
  * Local import
  */
 // Styles
-import './contactform.scss';
 
 /**
  * Code
  */
 const ContactForm = () => (
-  <div id="ContactForm">
+  <div id="Contact-Form">
     <form action="" method="post">
       <h3 id="title-form">Vous pouvez contacter le groupe ici :</h3>
       <select id="contact-choice" required>
