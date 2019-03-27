@@ -35,3 +35,20 @@ require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 dbDelta($newsletter_sql);
 dbDelta($alert_sql);
+
+function get_custom_table_newsletter($user_id) 
+{
+	global $wpdb;
+
+	$newsletter_table_name = $wpdb->prefix . 'newsletter';
+
+	$newsletter_data = $wpdb->get_results(
+		$wpdb->prepare("
+		SELECT *
+		FROM $newsletter_table_name
+		",
+		$user_id
+		)
+	);
+	return array('données' => $newsletter_data);
+}
