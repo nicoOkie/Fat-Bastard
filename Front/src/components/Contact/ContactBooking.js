@@ -14,8 +14,8 @@ import bookingData from 'src/booking';
  * Code
  */
 const ContactBooking = () => (
-    <div id="Contact-Booking">
-        <h3 id="Contact-BookingTitle">Ou ici :</h3>
+    <div id="contact-booking">
+        <h3 id="contact-bookingTitle">Ou ici :</h3>
         {bookingData.map(booking => (
       <ContactBookers key={booking.contactType} {...booking} />
     ))}
