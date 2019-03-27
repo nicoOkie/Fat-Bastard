@@ -9,7 +9,7 @@ import React from 'react';
 import Nav from 'src/components/Nav';
 import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
-
+import Home from 'src/components/Home';
 // Styles
 import './app.scss';
 /**
@@ -18,6 +18,7 @@ import './app.scss';
 const App = () => (
   <div id="app">
     <Nav />
+    <Home />
     <Main />
     <Footer />
   </div>

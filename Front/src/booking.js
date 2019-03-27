@@ -18,6 +18,6 @@ export default [
     contactTitle: 'Belka',
     contactName: 'Alexis',
     contactTel: '+33 6 64 92 07',
-    contactMail: 'alex.bastardprod@gmail.com, thefatbastardgangband@gmail.com',
+    contactMail: 'alex.bastardprod@gmail.com',
   },
 ];

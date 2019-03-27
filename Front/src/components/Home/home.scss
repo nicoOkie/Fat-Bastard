@@ -1,0 +1,32 @@
+.home {
+    margin-top: 6vh;
+    height: 94vh;
+    background-color: #FEEFD4;
+
+    &-logo {
+        height: 62vh;
+        width: 100%;
+    }
+
+    &-flexlogo {
+        height: 32vh;
+        display: flex;
+        padding-bottom: 100px;
+    }
+
+    &-tigre {
+        width: 25%;
+    }
+
+    &-phono {
+        width: 25%;
+    }
+
+    &-main {
+        width: 25%;
+    }
+    
+    &-balkan {
+        width: 25%;
+    }
+}

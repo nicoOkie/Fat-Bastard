@@ -13,9 +13,9 @@ import Proptypes from 'prop-types';
  * Code
  */
 const ContactBookers = ({ contactType, contactTitle, contactName, contactTel, contactMail }) => (
-     <div id="Contact-BookingDiv">
+     <div id="contact-bookingDiv">
         <div id="booking">
-            <h2 id="Contact-BookingType">{contactType}</h2>
+            <h2 id="contact-bookingType">{contactType}</h2>
             <div>
                 <p>{contactTitle}</p>
                 <p>{contactName}</p>
