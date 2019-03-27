@@ -18,7 +18,7 @@ import Contact from 'src/components/Contact';
  * Code
  */
 const Content = ({ id }) => (
-  <div>
+  <div className="content">
     {id === 'news' && <News />}
     {id === 'contact' && <Contact />}
     {id === 'tour' && <Tour />}

@@ -2,32 +2,52 @@
 
 .news {
 
-  &-split {
-    height: 10px;
-    width: 100%;
-    background: url('../../../../assets/barre-hr.png') left;
-    background-size: 1200px 10px;
-  }
-
   &-article {
     display: grid;
-    grid-template-columns: 20% 50%;
+    grid-template-columns: 1fr 15% 55% 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-      "header header"
-      "date content"
-      "cat content";
+      "split split split split"
+      ". header header ."
+      ". date content ."
+      ". cat content .";
+      justify-content: center;
+
+      &-split {
+        grid-area: split;
+        margin: 3em 0;
+        height: 10px;
+        width: 100%;
+        background: url('../../../../assets/barre-hr.png');
+        background-size: 100% 10px;
+      }
 
       &-header {
         grid-area: header;
+        padding-left: 2rem;
+        font-size: 1.3em;
+        font-weight: 700;
       }
     
       &-aside {
         grid-area: date;
+        padding-left: 2rem;
+        margin-top: 1rem;
+        // justify-self: center;
+
       }
     
       &-section {
         grid-area: content;
+        margin-top: 1em;
+
+        &-img {
+          max-width: 100%;
+        }
+
+        &-content {
+          margin-top: 1rem;
+        }
         }
   }  
 }
