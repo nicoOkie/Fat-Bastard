@@ -14,7 +14,7 @@ export default {
         },
         {
             id: 2,
-            date: '20/03/2019',
+            date: '20/04/2019',
             city: 'Saint-Denis',
             venue: 'Stade de France',
             map: {
@@ -26,7 +26,7 @@ export default {
         },
         {
             id: 3,
-            date: '20/03/2019',
+            date: '20/05/2019',
             city: 'Pompeï',
             venue: 'Pompeï',
             map: {
@@ -38,7 +38,7 @@ export default {
         },
         {
             id: 4,
-            date: '20/03/2019',
+            date: '20/06/2019',
             city: 'Amsterdam',
             venue: 'Ziggo Dome',
             map: {
@@ -50,7 +50,7 @@ export default {
         },
         {
             id: 5,
-            date: '20/03/2019',
+            date: '20/06/2019',
             city: 'Lyon',
             venue: 'Stade de Gerland',
             map: {
