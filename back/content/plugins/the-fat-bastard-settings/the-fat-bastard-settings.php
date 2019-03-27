@@ -71,7 +71,7 @@ function the_fat_register_post_type()
             'show_ui'             => true, 
             'show_in_nav_menus'   => true, 
             'show_in_admin_bar'   => true,
-            'menu_position'       => 8,
+            'menu_position'       => 9,
             'menu_icon'           => 'dashicons-groups',
             'hierarchical'        => true, 
             'supports'            => [
@@ -113,6 +113,31 @@ function the_fat_register_post_type()
             'hierarchical'        => false, 
             'supports'            => [
                 'title',
+            ],
+            'has_archive'         => true, 
+            'can_export'          => true, 
+            'delete_with_user'    => false,
+            'show_in_rest'        => true 
+        ]
+    );
+
+    register_post_type(
+        'gallery', 
+        [
+            'labels' => [ 
+                'name'               => 'Galerie photos',
+                'singular_name'      => 'Galerie',
+            ], 
+            'publicly_queryable'  => true, 
+            'show_ui'             => true, 
+            'show_in_nav_menus'   => true, 
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 8,
+            'menu_icon'           => 'dashicons-format-gallery',
+            'hierarchical'        => false, 
+            'supports'            => [
+                'title',
+                'editor'
             ],
             'has_archive'         => true, 
             'can_export'          => true, 
