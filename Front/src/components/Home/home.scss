@@ -1,32 +1,42 @@
 .home {
     margin-top: 6vh;
     height: 94vh;
-    background-color: #FEEFD4;
-
+    background-color: #F7F1E3;
     &-logo {
         height: 62vh;
         width: 100%;
     }
-
     &-flexlogo {
         height: 32vh;
         display: flex;
-        padding-bottom: 100px;
+        padding-bottom: 20vh;
+        justify-content: center;
     }
+    &-circle {
+        width: 15%;
+        margin: 0 2vh;
+    }
+}
 
-    &-tigre {
-        width: 25%;
+// Tablettes
+@media (min-width: 768px) {
+    .home {
+        &-logo {
+            padding: 8vh;
+        }
     }
+}
 
-    &-phono {
-        width: 25%;
-    }
-
-    &-main {
-        width: 25%;
-    }
-    
-    &-balkan {
-        width: 25%;
+// Desktops and laptops
+@media screen and (min-width: 1224px) {
+    .home {
+        &-flexlogo {
+            margin: 0 200px;
+        }
+        &-circle {
+            width: 150px;
+            padding: 0 2vh;
+            margin: 0 2vh;
+        }
     }
 }

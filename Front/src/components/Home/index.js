@@ -7,7 +7,6 @@ import React from 'react';
  * Local import
  */
 import headerbackgroundData from 'src/headerbackground';
-
 // Styles
 import './home.scss';
 /**
@@ -25,20 +24,17 @@ const Home = () => {
 
   return (
     <div className="home" id="home">
-      <img alt="le logo du groupe" className="home-logo" src={`${backgroundLogo}`} />
+      <img className="home-logo" src={`${backgroundLogo}`} alt="bannière" />
       <div className="home-flexlogo">
-        <img alt="badge" className="home-tigre" src={backgroundTigre} />
-        <img alt="badge" className="home-phono" src={backgroundPhono} />
-        <img alt="badge" className="home-main" src={backgroundMain} />
-        <img alt="badge" className="home-balkan" src={backgroundBalkan} />
+        <img className="home-circle" src={`${backgroundTigre}`} alt="badge" />
+        <img className="home-circle" src={`${backgroundPhono}`} alt="badge" />
+        <img className="home-circle" src={`${backgroundMain}`} alt="badge" />
+        <img className="home-circle" src={`${backgroundBalkan}`} alt="badge" />
       </div>
     </div>
   );
 };
 
-// PropTypes
-
-// href={`mailto:${contactMail}`}
 /**
  * Export
  */
