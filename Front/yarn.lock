@@ -5590,6 +5590,7 @@ react-redux@^6.0.1:
 react-scroll-parallax@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-scroll-parallax/-/react-scroll-parallax-2.0.4.tgz#13285f735b12b3cad5ee65842300e188c386eeed"
+  integrity sha512-BBpHiHLX0OD+5rPep3exRu5ZyZTLj7PFcP1PO2nPwVCOZKY+smhR8nyTsvkBHQEucS3gjRr8iITNWxiB4oTTCw==
   dependencies:
     prop-types "^15.5.10"
 
