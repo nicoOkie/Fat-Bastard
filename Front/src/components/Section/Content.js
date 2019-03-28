@@ -21,12 +21,11 @@ import Dummy from 'src/components/Dummy';
 const Content = ({ id }) => (
   <div className="content">
     {id === 'news' && <News />}
-    {id === 'about' && <Dummy />}
+    {id === 'tour' && <Tour />}
     {id === 'disco' && <Dummy />}
     {id === 'media' && <Dummy />}
-    {id === 'news' && <Dummy />}
+    {id === 'about' && <Dummy />}
     {id === 'contact' && <Contact />}
-    {id === 'tour' && <Tour />}
   </div>
 );
 
