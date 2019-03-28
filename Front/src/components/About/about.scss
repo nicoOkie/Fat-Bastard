@@ -1,0 +1,84 @@
+.about {
+    &-group {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 2em;
+    }
+    &-person {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        padding: 1vh 4vh;
+    }
+    &-picture {
+        width: 50%;
+        height: 100px;
+    }
+    &-picturetext {
+        width: 50%;
+        margin: auto 10px;
+    }
+    &-text {
+        padding: 7vh;
+    }
+    &-text h1 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    &-text p {
+        margin-top: 3vh;
+    }
+}
+
+// Tablettes
+@media (min-width: 768px) and (max-width: 1224px) {
+    .about {
+        &-text {
+            padding-bottom: 4em;
+        }
+        &-text h1 {
+            font-size: 30px;
+        }
+        &-text p {
+            font-size: 1.5em;
+        }
+        &-picturetext {
+            font-size: 1.5em;
+        }
+}
+}
+
+// Desktops and laptops
+@media screen and (min-width: 1224px) {
+    .about {
+        &-text {
+            padding: 10vh;
+            margin: 0 25%;
+            width: 800px;
+        }
+        &-text h1 {
+            font-size: 30px;
+        }
+        &-text p {
+            font-size: 1.2em;
+            margin-top: 3vh;
+            width: auto;
+        }
+        &-picturetext {
+            display: none;
+        }
+        &-person {
+            width: 33%;
+        }
+        &-group {
+            padding-left: 30vh;
+            padding-right: 30vh;
+        }
+        &-group :nth-child(n+4) {
+            width: 25%;
+        }
+        &-picture {
+            width: 100px;
+        }
+    }
+}
