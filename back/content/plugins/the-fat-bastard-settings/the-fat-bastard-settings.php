@@ -303,25 +303,25 @@ function fat_discography_custom_box_html( $post )
 {
     $date = get_post_meta(
         $post->ID,
-        '_release_date',
+        'release_date',
         true
     );
 
     $producter = get_post_meta(
         $post->ID,
-        '_producter_name',
+        'producter_name',
         true
     );
 
     $first_side = get_post_meta(
         $post->ID,
-        '_album_first_side',
+        'album_first_side',
         true
     );
 
     $second_side = get_post_meta(
         $post->ID,
-        '_album_second_side',
+        'album_second_side',
         true
     );
 
@@ -356,7 +356,7 @@ function fat_discography_save_postdata( $post_ID )
     if ( isset($_POST['release_date']) ) {
         update_post_meta(
             $post_ID,
-            '_release_date',
+            'release_date',
             $_POST['release_date']
         );
     }
@@ -364,7 +364,7 @@ function fat_discography_save_postdata( $post_ID )
     if ( isset($_POST['producter_name']) ) {
         update_post_meta(
             $post_ID,
-            '_producter_name',
+            'producter_name',
             $_POST['producter_name']
         );
     }
@@ -372,7 +372,7 @@ function fat_discography_save_postdata( $post_ID )
     if ( isset($_POST['album_first_side']) ) {
         update_post_meta(
             $post_ID,
-            '_album_first_side',
+            'album_first_side',
             $_POST['album_first_side']
         );
     }
@@ -380,11 +380,141 @@ function fat_discography_save_postdata( $post_ID )
     if ( isset($_POST['album_second_side']) ) {
         update_post_meta(
             $post_ID,
-            '_album_second_side',
+            'album_second_side',
             $_POST['album_second_side']
         );
     }
 }
+
+/* 
+ * Ajout de metabox au CPT group
+ */
+
+add_action( 'add_meta_boxes', 'fat_group_custom_box' );
+
+function fat_group_custom_box()
+{
+    add_meta_box(
+        'fat_group_box_id',          
+        'Informations sur le musicien', 
+        'fat_group_custom_box_html',  
+        'group'                   
+    );
+}
+
+function fat_group_custom_box_html( $post )
+{
+    $first_name = get_post_meta(
+        $post->ID,
+        'first_name',
+        true
+    );
+
+    $last_name = get_post_meta(
+        $post->ID,
+        'last_name',
+        true
+    );
+
+    $nickname = get_post_meta(
+        $post->ID,
+        'last_name',
+        true
+    );
+
+    $instruments = get_post_meta(
+        $post->ID,
+        'instruments',
+        true
+    );
+
+?>
+
+    <div style="margin:30px 0px 20px;">
+        <label for="first_name" style="font-weight:bold;font-size:1.2rem;margin-right:49px;">Prénom</label>
+        <input type="text" name="first_name" id="first_name" value="<?= $first_name; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="last_name" style="font-weight:bold;font-size:1.2rem;margin-right:76px;">Nom</label>
+        <input type="text" name="last_name" id="last_name" value="<?= $last_name; ?>"style="height:30px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="nickname" style="font-weight:bold;font-size:1.2rem;margin-right:49px;">Surnom</label>
+        <input type="text" name="nickname" id="nickname" value="<?= $nickname; ?>"style="height:30px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="instruments" style="font-weight:bold;font-size:1.2rem;margin-right:8px;">Instruments</label>
+        <input type="text" name="instruments" id="instruments" value="<?= $instruments; ?>"style="height:30px;"  />
+    </div>
+
+    
+<?php
+}
+
+add_action( 'save_post', 'fat_group_save_postdata' );
+
+function fat_group_save_postdata( $post_ID )
+{
+
+    if ( isset($_POST['first_name']) ) {
+        update_post_meta(
+            $post_ID,
+            'first_name',
+            $_POST['first_name']
+        );
+    }
+
+    if ( isset($_POST['last_name']) ) {
+        update_post_meta(
+            $post_ID,
+            'last_name',
+            $_POST['last_name']
+        );
+    }
+
+    if ( isset($_POST['nickname']) ) {
+        update_post_meta(
+            $post_ID,
+            'nickname',
+            $_POST['nickname']
+        );
+    }
+
+    if ( isset($_POST['instruments']) ) {
+        update_post_meta(
+            $post_ID,
+            'instruments',
+            $_POST['instruments']
+        );
+    }
+}
+
+/*
+ * Custom-fields -> API REST
+ */
+
+ add_action('rest_api_init', 'fat_custom_fields_rest_api');
+
+ function fat_custom_fields_rest_api()
+ {
+     register_rest_field(
+        [
+         'tourdates',
+         'discography',
+         'group',
+        ],
+         'custom_fields',
+        [
+            'get_callback'    => function($data){
+                return get_post_meta($data['id']);
+            },
+            'update_callback' => null,
+            'schema'          => null,
+
+        ]
+     );
+ }
+
 
 /*
  * Modification des colonnes d'administration des dates de concert
@@ -468,7 +598,40 @@ add_filter('manage_group_posts_columns', 'custom_group_columns');
 
 function custom_group_columns($columns)
 {
-    $columns['title'] = 'Groupe / Musiciens';
+    $columns = [
+        'cb'            => '',
+        'title'       => 'Groupe / Musiciens',
+        'photo'       => '',
+        'first_name'  => 'Prénom',
+        'last_name'   => 'Nom',
+        'nickname'    => 'Surnom',
+        'instruments' => 'Instruments'
+    ];
     return $columns;
+}
+
+add_action('manage_group_posts_custom_column', 'custom_group_columns_content');
+
+function custom_group_columns_content($column)
+{
+    global $post;
+
+    switch($column) {
+        case 'photo':
+            echo the_post_thumbnail([100, 100]);
+            break;
+        case 'first_name':
+            echo get_post_meta($post->ID, 'first_name', TRUE);
+            break;
+        case 'last_name':
+            echo get_post_meta($post->ID, 'last_name', TRUE);
+            break;
+        case 'nickname':
+            echo get_post_meta($post->ID, 'nickname', TRUE);
+            break;
+        case 'instruments':
+            echo get_post_meta($post->ID, 'instruments', TRUE);
+            break;    
+    }
 }
 
