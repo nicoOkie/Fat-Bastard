@@ -7,8 +7,8 @@
   left: 0;
   right: 0;
   background-color:#002F3F;
-  color: #F7F1E3;
-  height: 6vh;
+  color: #FEEFD4;
+  height: 9vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +19,12 @@
     &-link {
       padding: 0 .4em;
     }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .nav {
+    height: 6vh;
   }
 }
 

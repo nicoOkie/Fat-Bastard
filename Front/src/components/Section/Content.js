@@ -7,8 +7,10 @@ import Proptypes from 'prop-types';
 /**
  * Local import
  */
-import Contact from 'src/components/Contact';
+import News from 'src/components/News';
 import Tour from 'src/components/Tour';
+import Contact from 'src/components/Contact';
+import Dummy from 'src/components/Dummy';
 
 // Styles
 
@@ -17,9 +19,13 @@ import Tour from 'src/components/Tour';
  * Code
  */
 const Content = ({ id }) => (
-  <div>
-    {id === 'contact' && <Contact />}
+  <div className="content">
+    {id === 'news' && <News />}
     {id === 'tour' && <Tour />}
+    {id === 'disco' && <Dummy />}
+    {id === 'media' && <Dummy />}
+    {id === 'about' && <Dummy />}
+    {id === 'contact' && <Contact />}
   </div>
 );
 

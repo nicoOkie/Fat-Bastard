@@ -1,0 +1,42 @@
+.home {
+    margin-top: 6vh;
+    height: 94vh;
+    background-color: #F7F1E3;
+    &-logo {
+        height: 62vh;
+        width: 100%;
+    }
+    &-flexlogo {
+        height: 32vh;
+        display: flex;
+        padding-bottom: 20vh;
+        justify-content: center;
+    }
+    &-circle {
+        width: 15%;
+        margin: 0 2vh;
+    }
+}
+
+// Tablettes
+@media (min-width: 768px) {
+    .home {
+        &-logo {
+            padding: 8vh;
+        }
+    }
+}
+
+// Desktops and laptops
+@media screen and (min-width: 1224px) {
+    .home {
+        &-flexlogo {
+            margin: 0 200px;
+        }
+        &-circle {
+            width: 150px;
+            padding: 0 2vh;
+            margin: 0 2vh;
+        }
+    }
+}
