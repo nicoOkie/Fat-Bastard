@@ -18,10 +18,12 @@ import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 const Header = ({ name, title, bgp }) => (
   <React.Fragment>
     <ParallaxProvider>
+    <div className="header">
       <ParallaxBanner
         id={name}
         style={{
           height: '74vh',
+          'background-position': 'top',
         }}
         layers={[
           {
@@ -32,6 +34,7 @@ const Header = ({ name, title, bgp }) => (
       >
         <h1 className="header-title">{title}</h1>
       </ParallaxBanner>
+      </div>
     </ParallaxProvider>
   </React.Fragment>
 );
