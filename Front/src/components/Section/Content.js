@@ -7,10 +7,10 @@ import Proptypes from 'prop-types';
 /**
  * Local import
  */
-import Contact from 'src/components/Contact';
+import News from 'src/components/News';
 import Tour from 'src/components/Tour';
+import Contact from 'src/components/Contact';
 import Dummy from 'src/components/Dummy';
-// eslint-disable-next-line import/no-unresolved
 import About from 'src/components/About';
 
 // Styles
@@ -20,13 +20,13 @@ import About from 'src/components/About';
  * Code
  */
 const Content = ({ id }) => (
-  <div>
-    {id === 'about' && <About />}
+  <div className="content">
+    {id === 'news' && <News />}
+    {id === 'tour' && <Tour />}
     {id === 'disco' && <Dummy />}
     {id === 'media' && <Dummy />}
-    {id === 'news' && <Dummy />}
+    {id === 'about' && <About />}
     {id === 'contact' && <Contact />}
-    {id === 'tour' && <Tour />}
   </div>
 );
 
