@@ -27,3 +27,6 @@ const target = document.getElementById('root');
 
 // rendu de react-dom : react VERS dom
 render(rootComponent, target);
+
+// Chargement des data
+// store.dispatch(loadFromApi());

@@ -1,22 +1,31 @@
 /**
  * Npm import
  */
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 
 /**
  * Local import
  */
 import reducer from 'src/store/reducer';
 
+// Middlewares
+import fatMiddleware from './fatMiddleware';
+
+// eslint-disable-next-line no-underscore-dangle
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// Composition des enchancers
+const enhancers = composeEnhancers(
+  applyMiddleware(fatMiddleware),
+);
+
 /**
  * Store
  */
-/* eslint-disable no-underscore-dangle */
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  enhancers,
 );
-/* eslint-enable */
 
 /**
  * Export

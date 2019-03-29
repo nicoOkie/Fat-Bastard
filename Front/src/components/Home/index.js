@@ -6,7 +6,6 @@ import React from 'react';
 /**
  * Local import
  */
-// import headerbackgroundData from 'src/headerbackground';
 import balkan from '../../assets/images/Balkan.svg';
 import logo from '../../assets/images/Logo_FAT.svg';
 import main from '../../assets/images/Main.svg';
@@ -31,28 +30,6 @@ const Home = () => (
   </div>
 );
 
-
-// const Home = () => {
-//   const {
-//     backgroundTigre,
-//     backgroundPhono,
-//     backgroundLogo,
-//     backgroundMain,
-//     backgroundBalkan,
-//   } = headerbackgroundData;
-
-//   return (
-//     <div className="home" id="home">
-//       <img className="home-logo" src={`${backgroundLogo}`} alt="bannière" />
-//       <div className="home-flexlogo">
-//         <img className="home-circle" src={`${backgroundTigre}`} alt="badge" />
-//         <img className="home-circle" src={`${backgroundPhono}`} alt="badge" />
-//         <img className="home-circle" src={`${backgroundMain}`} alt="badge" />
-//         <img className="home-circle" src={`${backgroundBalkan}`} alt="badge" />
-//       </div>
-//     </div>
-//   );
-// };
 
 /**
  * Export
