@@ -12,6 +12,7 @@ import Tour from 'src/components/Tour';
 import Contact from 'src/components/Contact';
 import Dummy from 'src/components/Dummy';
 import About from 'src/components/About';
+import Disco from '../Disco';
 
 // Styles
 
@@ -23,7 +24,7 @@ const Content = ({ id }) => (
   <div className="content">
     {id === 'news' && <News />}
     {id === 'tour' && <Tour />}
-    {id === 'disco' && <Dummy />}
+    {id === 'disco' && <Disco />}
     {id === 'media' && <Dummy />}
     {id === 'about' && <About />}
     {id === 'contact' && <Contact />}
