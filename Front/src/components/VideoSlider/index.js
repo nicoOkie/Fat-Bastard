@@ -17,8 +17,8 @@ import './videoSlider.scss';
  */
 const VideoSlider = () => {
   const settings = {
-    className: 'carousel-video',
     infinite: true,
+    arroes: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -43,13 +43,15 @@ const VideoSlider = () => {
   };
 
   return (
-    <Slider {...settings}>
-      <div className="carousel-video-single">Vid 1</div>
-      <div className="carousel-video-single">Vid 2</div>
-      <div className="carousel-video-single">Vid 3</div>
-      <div className="carousel-video-single">Vid 4</div>
-      <div className="carousel-video-single">Vid 5</div>
-    </Slider>
+    <div className="slick-slider slick-initialized">
+      <Slider {...settings}>
+        <div className="carousel-video-single">Vid 1</div>
+        <div className="carousel-video-single">Vid 2</div>
+        <div className="carousel-video-single">Vid 3</div>
+        <div className="carousel-video-single">Vid 4</div>
+        <div className="carousel-video-single">Vid 5</div>
+      </Slider>
+    </div>
   );
 };
 

@@ -20,7 +20,6 @@ const Media = () => (
       Video principale
     </div>
     <div className="media-video-carousel">
-      <button type="button" className="slick-arrow slick-prev" />
       <VideoSlider />
     </div>
   </div>
