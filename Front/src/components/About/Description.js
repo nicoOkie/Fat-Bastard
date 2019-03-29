@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Local import
  */
-import descript from 'src/descript';
+import descriptData from 'src/descript';
 
 // Styles
 
@@ -15,14 +15,14 @@ import descript from 'src/descript';
  * Code
  */
 const Description = () => {
-  const { bidule } = descript;
+  const { title, texts } = descriptData;
 
   return (
     <div className="about-description">
       <div className="about-text">
-        <h1>{bidule[0].aboutTitle}</h1>
-        {bidule.map(chose => (
-          <p {...chose}>{chose.aboutText}</p>
+        <h1>{title}</h1>
+        {texts.map(text => (
+          <p>{text}</p>
         ))}
       </div>
     </div>
