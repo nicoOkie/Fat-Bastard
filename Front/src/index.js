@@ -13,6 +13,9 @@ import App from 'src/components/App';
 
 import store from 'src/store';
 
+import { loadSectionHeaders } from 'src/store/reducer';
+
+
 /**
  * Render
  */
@@ -27,3 +30,6 @@ const target = document.getElementById('root');
 
 // rendu de react-dom : react VERS dom
 render(rootComponent, target);
+
+// Chargement des data
+store.dispatch(loadSectionHeaders());

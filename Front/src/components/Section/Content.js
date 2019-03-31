@@ -10,7 +10,7 @@ import Proptypes from 'prop-types';
 import News from 'src/components/News';
 import Tour from 'src/components/Tour';
 import Contact from 'src/components/Contact';
-import Dummy from 'src/components/Dummy';
+import Media from 'src/components/Media';
 import Discography from 'src/components/Discography';
 import About from 'src/components/About';
 
@@ -24,8 +24,8 @@ const Content = ({ id }) => (
   <div className="content">
     {id === 'news' && <News />}
     {id === 'tour' && <Tour />}
+    {id === 'media' && <Media />}
     {id === 'disco' && <Discography />}
-    {id === 'media' && <Dummy />}
     {id === 'about' && <About />}
     {id === 'contact' && <Contact />}
   </div>
