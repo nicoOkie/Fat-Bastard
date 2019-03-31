@@ -10,7 +10,11 @@
   width: 85%;
   margin: 0 auto;
 
-  @media screen and (min-width: 850px) {
-    width: 50vw;
+  @media screen and (min-width: 900px) {
+    width: 80vw;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 75vw;
   }
 }
