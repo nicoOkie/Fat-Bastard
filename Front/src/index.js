@@ -13,7 +13,7 @@ import App from 'src/components/App';
 
 import store from 'src/store';
 
-import { loadSectionHeaders } from 'src/store/reducer';
+import { loadSectionTitles } from 'src/store/reducer';
 
 
 /**
@@ -32,4 +32,4 @@ const target = document.getElementById('root');
 render(rootComponent, target);
 
 // Chargement des data
-store.dispatch(loadSectionHeaders());
+store.dispatch(loadSectionTitles());
