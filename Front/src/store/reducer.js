@@ -6,14 +6,18 @@ const initialState = {
   musicians: [],
   galery: [],
   albums: [],
-  status: '',
+  tourDates: [],
 };
 
 /**
  * Types
  */
+// Sections import
 export const LOAD_SECTION_TITLES = 'LOAD_SECTION_TITLES';
 export const RECEIVED_SECTION_TITLE = 'RECEIVED_SECTION_TITLE';
+// Tour Import
+export const LOAD_TOUR_DATES = 'LOAD_TOUR_DATES';
+export const RECEIVED_TOUR_DATES = 'RECEIVED_TOUR_DATES';
 
 /**
  * Reducer
@@ -23,14 +27,23 @@ const reducer = (state = initialState, action = {}) => {
     case LOAD_SECTION_TITLES:
       return {
         ...state,
-        status: 'loading',
       };
 
     case RECEIVED_SECTION_TITLE:
       return {
         ...state,
         sectionTitles: action.data,
-        status: 'loaded',
+      };
+
+    case LOAD_TOUR_DATES:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_TOUR_DATES:
+      return {
+        ...state,
+        tourDates: action.data,
       };
 
     default:
@@ -42,12 +55,23 @@ const reducer = (state = initialState, action = {}) => {
  * Action Creators
  */
 
+// Sections Import
 export const loadSectionTitles = () => ({
   type: LOAD_SECTION_TITLES,
 });
 
 export const receivedSectionTitles = data => ({
   type: RECEIVED_SECTION_TITLE,
+  data,
+});
+
+// Tour Import
+export const loadTourDates = () => ({
+  type: LOAD_TOUR_DATES,
+});
+
+export const receivedTourDates = data => ({
+  type: RECEIVED_TOUR_DATES,
   data,
 });
 

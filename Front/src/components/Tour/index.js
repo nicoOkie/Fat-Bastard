@@ -2,13 +2,13 @@
  * NPM Import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /**
  * Local Import
  */
 import Date from './Date';
-import Data from '../../../../data';
 
 // Styles
 import './tour.scss';
@@ -16,18 +16,19 @@ import './tour.scss';
 /**
  * Code
  */
-const Tour = () => {
-  const { tour } = Data;
+const Tour = ({ dates }) => (
+  <div className="tour special-width">
+    {dates.map(date => (
+      <Date key={date.id} {...date.custom_fields} />
+    ))}
+  </div>
+);
 
-  return (
-    <div className="tour special-width">
-      {tour.map(date => (
-        <Date key={date.id} {...date} />
-      ))}
-    </div>
-  );
+Tour.propTypes = {
+  dates: PropTypes.arrayOf(
+    PropTypes.object.isRequired,
+  ).isRequired,
 };
-
 /**
  * Export
  */

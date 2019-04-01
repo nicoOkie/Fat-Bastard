@@ -8,7 +8,7 @@ import Proptypes from 'prop-types';
  * Local import
  */
 import News from 'src/components/News';
-import Tour from 'src/components/Tour';
+import Tour from 'src/containers/Tour';
 import Contact from 'src/components/Contact';
 import Media from 'src/components/Media';
 import Discography from 'src/components/Discography';

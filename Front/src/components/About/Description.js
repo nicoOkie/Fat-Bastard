@@ -22,7 +22,7 @@ const Description = () => {
       <div className="about-text">
         <h1>{title}</h1>
         {texts.map(text => (
-          <p>{text}</p>
+          <p key={text}>{text}</p>
         ))}
       </div>
     </div>
