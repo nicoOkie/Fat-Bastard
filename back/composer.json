@@ -10,7 +10,8 @@
         "johnpbloch/wordpress": "^5.1",
         "wpackagist-plugin/advanced-custom-fields":"5.7.12",
         "wpackagist-plugin/contact-form-7":"5.1.1",
-        "wpackagist-plugin/akismet":"4.1.1"
+        "wpackagist-plugin/akismet":"4.1.1",
+        "wpackagist-plugin/newsletter":"5.9.0"
     },
 
     "require-dev": {
