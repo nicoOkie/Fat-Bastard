@@ -2,23 +2,35 @@
  * Initial State
  */
 const initialState = {
-  message: 'Hello',
+  sectionHeaders: [],
+  musicians: [],
+  galery: [],
+  albums: [],
+  status: '',
 };
 
 /**
  * Types
  */
-const DO_SOMETHING = 'DO_SOMETHING';
+export const LOAD_SECTION_HEADERS = 'LOAD_SECTION_HEADERS';
+export const RECEIVED_SECTION_HEADERS = 'RECEIVED_SECTION_HEADERS';
 
 /**
  * Reducer
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
+    case LOAD_SECTION_HEADERS:
       return {
         ...state,
-        message: action.message,
+        status: 'loading',
+      };
+
+    case RECEIVED_SECTION_HEADERS:
+      return {
+        ...state,
+        sectionHeaders: action.data,
+        status: 'loaded',
       };
 
     default:
@@ -29,15 +41,21 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
+
+export const loadSectionHeaders = () => ({
+  type: LOAD_SECTION_HEADERS,
+});
+
+export const receivedSectionHeaders = data => ({
+  type: RECEIVED_SECTION_HEADERS,
+  data,
 });
 
 /**
  * Selectors
  */
 
+// Bonus : getSlug pour le active menu
 
 /**
  * Export

@@ -26,8 +26,8 @@ const Discomobile = () => {
     <Slider {...settings}>
       {coverdata.map(cover => (
         <div key={cover.id} className="discomobile" {...cover}>
-          <img src={cover.cover} alt={`cover-${cover.name}`} />
-          <p>{cover.name}</p>
+          <img className="discomobile-pic" src={cover.cover} alt={`cover-${cover.name}`} />
+          <p className="discomobile-text">{cover.name}</p>
         </div>
       ))}
     </Slider>
