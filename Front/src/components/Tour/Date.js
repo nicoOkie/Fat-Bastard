@@ -20,8 +20,8 @@ const Date = ({
   the_fat_concert_city: city,
   the_fat_concert_dates: date,
   the_fat_concert_venue: venue,
-  the_fat_url_billeterie: tickets,
-  the_fat_google_maps: map,
+  the_fat_url_billetterie: tickets,
+  the_fat_url_google_maps: map,
 }) => {
   const splitDate = date[0].split('-');
 
@@ -57,17 +57,17 @@ Date.propTypes = {
   the_fat_concert_venue: Proptypes.arrayOf(
     Proptypes.string.isRequired,
   ).isRequired,
-  the_fat_url_billeterie: Proptypes.arrayOf(
+  the_fat_url_billetterie: Proptypes.arrayOf(
     Proptypes.string.isRequired,
   ),
-  the_fat_google_maps: Proptypes.arrayOf(
+  the_fat_url_google_maps: Proptypes.arrayOf(
     Proptypes.string.isRequired,
   ),
 };
 
 Date.defaultProps = {
-  the_fat_url_billeterie: ['#'],
-  the_fat_google_maps: ['#'],
+  the_fat_url_billetterie: ['#'],
+  the_fat_url_google_maps: ['#'],
 };
 
 /**
