@@ -2,21 +2,25 @@ export default [
   {
     id: 1,
     cover: '/src/assets/images/cover_one.jpg',
-    name: 'live',
+    overcover: '/src/assets/images/Tigre.svg',
+    name: 'Du monde aux balkans',
   },
   {
     id: 2,
     cover: '/src/assets/images/cover_two.jpg',
-    name: 'live',
+    overcover: '/src/assets/images/Main.svg',
+    name: 'Live',
   },
   {
     id: 3,
     cover: '/src/assets/images/cover_three.jpg',
-    name: 'live',
+    overcover: '/src/assets/images/Phono.svg',
+    name: 'No border',
   },
   {
     id: 4,
     cover: '/src/assets/images/cover_four.png',
-    name: 'live',
+    overcover: '/src/assets/images/Balkan.svg',
+    name: 'Bohemian Groove',
   },
 ];
