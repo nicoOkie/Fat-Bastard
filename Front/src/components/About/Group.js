@@ -20,7 +20,7 @@ const Group = () => {
   return (
     <div className="about-group">
       {allmusicien.map(truc => (
-        <div className="about-person" {...truc}>
+        <div className="about-person" key={truc.musicien} {...truc}>
           <img className="about-picture" src={`${truc.musicienpicture}`} alt="person" />
           <p className="about-picturetext">{truc.musicien}</p>
         </div>

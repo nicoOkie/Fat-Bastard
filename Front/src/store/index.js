@@ -10,13 +10,17 @@ import reducer from 'src/store/reducer';
 
 // Middlewares
 import sectionMiddleware from './sectionsMiddleware';
+import tourMiddleware from './tourMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Composition des enchancers
 const enhancers = composeEnhancers(
-  applyMiddleware(sectionMiddleware),
+  applyMiddleware(
+    sectionMiddleware,
+    tourMiddleware,
+  ),
 );
 
 /**

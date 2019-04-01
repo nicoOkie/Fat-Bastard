@@ -16,7 +16,6 @@ const sectionMiddleware = store => next => (action) => {
         .get('http://localhost/fat-apotheose/back/wp-json/fat/v1/customizer/section/titles')
         .then(({ data }) => {
           store.dispatch(receivedSectionTitles(data));
-          console.log(data);
         })
         .catch(() => (
           console.log('Hoooooooooo !')
