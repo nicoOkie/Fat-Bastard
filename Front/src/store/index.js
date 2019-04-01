@@ -9,14 +9,14 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import reducer from 'src/store/reducer';
 
 // Middlewares
-import fatMiddleware from './fatMiddleware';
+import sectionMiddleware from './sectionsMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Composition des enchancers
 const enhancers = composeEnhancers(
-  applyMiddleware(fatMiddleware),
+  applyMiddleware(sectionMiddleware),
 );
 
 /**
