@@ -18,16 +18,14 @@ import './videoSlider.scss';
 const VideoSlider = () => {
   const settings = {
     infinite: true,
-    arroes: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    swapToSlide: true,
     responsive: [
       {
         breakpoint: 850,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -43,15 +41,13 @@ const VideoSlider = () => {
   };
 
   return (
-    <div className="slick-slider slick-initialized">
-      <Slider {...settings}>
-        <div className="carousel-video-single">Vid 1</div>
-        <div className="carousel-video-single">Vid 2</div>
-        <div className="carousel-video-single">Vid 3</div>
-        <div className="carousel-video-single">Vid 4</div>
-        <div className="carousel-video-single">Vid 5</div>
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      <div className="carousel-video-single">Vid jashdfk j hasdk jfhakjs hdfk jhas dj f kh aksjd h f 1</div>
+      <div className="carousel-video-single">Vid 2</div>
+      <div className="carousel-video-single">Vid 3</div>
+      <div className="carousel-video-single">Vid 4</div>
+      <div className="carousel-video-single">Vid 5</div>
+    </Slider>
   );
 };
 

@@ -8,6 +8,7 @@ import React from 'react';
  * Local import
  */
 import VideoSlider from 'src/components/VideoSlider';
+import Gallery from 'src/components/Gallery';
 
 // Styles
 import './media.scss';
@@ -16,12 +17,17 @@ import './media.scss';
  */
 const Media = () => (
   <div className="media special-width">
-    <div className="media-video-one">
-      Video principale
-    </div>
-    <div className="media-video-carousel">
-      <VideoSlider />
-    </div>
+    <section className="media-video">
+      <div className="media-video-one">
+        Video principale
+      </div>
+
+      <div className="media-video-carousel">
+        <VideoSlider />
+      </div>
+    </section>
+
+    <Gallery />
   </div>
 );
 
