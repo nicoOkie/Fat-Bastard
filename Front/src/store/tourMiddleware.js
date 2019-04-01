@@ -14,7 +14,6 @@ const tourMiddleware = store => next => (action) => {
       axios
         .get('http://localhost/fat-apotheose/back/wp-json/wp/v2/tourdates')
         .then(({ data }) => {
-          console.log(data);
           store.dispatch(receivedTourDates(data));
         })
         .catch(() => (
