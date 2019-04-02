@@ -24,7 +24,7 @@ const Tour = ({ dates, loaded }) => {
     const newDates = dates.map(date => (
       {
         id: date.id,
-        date: date.custom_fields[date],
+        date: date.custom_fields.date,
       }
     ));
     console.log(newDates);
