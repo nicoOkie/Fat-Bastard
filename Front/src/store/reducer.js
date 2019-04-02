@@ -1,4 +1,9 @@
 /**
+ * Local imports
+ */
+import { cleanTourDates } from 'src/utils/tourCleaner';
+
+/**
  * Initial State
  */
 const initialState = {
@@ -51,7 +56,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.loadedData,
           tourdates: true,
         },
-        tourDates: action.data,
+        tourDates: cleanTourDates(action.data),
       };
 
     default:

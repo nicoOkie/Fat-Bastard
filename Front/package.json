@@ -47,6 +47,7 @@
     "@babel/polyfill": "^7.2.5",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-burger-menu": "^2.6.5",
