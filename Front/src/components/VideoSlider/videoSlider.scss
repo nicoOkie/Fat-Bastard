@@ -1,1 +1,15 @@
 // CSS VideoSlider
+
+.carousel-video-single {
+  background-color: rgb(230, 67, 67);
+  height: 15vh;
+  padding: 0 .5em;
+
+  @media screen and (min-width: 750px) {
+    height: 20vh;
+  }
+
+  @media screen and (min-width: 750px) {
+    height: 18vh;
+  }
+}

@@ -6,13 +6,25 @@
   
   &-video-one {
     background-color: rgb(47, 187, 47);
-    height: 15vh;
+    height: 20vh;
+
+    @media screen and (min-width: 750px) {
+      height: 35vh;
+    }
+    
+    @media screen and (min-width: 1024px) {
+      height: 40vh;
+      padding: 0 2em;
+    }
   }
 
   &-video-carousel {
     background-color: rgb(101, 101, 190);
-    height: 10vh;
-    width: 65%;
-    margin: 1.5vh auto;
+    width: 90%;
+    margin: 5vh auto;
+
+    @media screen and (min-width:1024px){
+       width: 93%;
+    }
   }
 }

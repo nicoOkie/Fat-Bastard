@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 /**
  * Local import
  */
-import FullScreen from './Fullscreen';
+import FullScreen from 'src/containers/Fullscreen';
 import Menu from './Menu';
 
 // Styles
@@ -22,7 +22,7 @@ const Nav = () => {
   window.addEventListener('resize', handleResize);
   return (
     <div className="nav">
-      {width > 850 ? <FullScreen /> : <Menu />}
+      {width > 899 ? <FullScreen /> : <Menu />}
     </div>
   );
 };

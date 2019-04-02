@@ -2,7 +2,7 @@
  * Initial State
  */
 const initialState = {
-  sectionHeaders: [],
+  sectionTitles: [],
   musicians: [],
   galery: [],
   albums: [],
@@ -12,24 +12,24 @@ const initialState = {
 /**
  * Types
  */
-export const LOAD_SECTION_HEADERS = 'LOAD_SECTION_HEADERS';
-export const RECEIVED_SECTION_HEADERS = 'RECEIVED_SECTION_HEADERS';
+export const LOAD_SECTION_TITLES = 'LOAD_SECTION_TITLES';
+export const RECEIVED_SECTION_TITLE = 'RECEIVED_SECTION_TITLE';
 
 /**
  * Reducer
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case LOAD_SECTION_HEADERS:
+    case LOAD_SECTION_TITLES:
       return {
         ...state,
         status: 'loading',
       };
 
-    case RECEIVED_SECTION_HEADERS:
+    case RECEIVED_SECTION_TITLE:
       return {
         ...state,
-        sectionHeaders: action.data,
+        sectionTitles: action.data,
         status: 'loaded',
       };
 
@@ -42,12 +42,12 @@ const reducer = (state = initialState, action = {}) => {
  * Action Creators
  */
 
-export const loadSectionHeaders = () => ({
-  type: LOAD_SECTION_HEADERS,
+export const loadSectionTitles = () => ({
+  type: LOAD_SECTION_TITLES,
 });
 
-export const receivedSectionHeaders = data => ({
-  type: RECEIVED_SECTION_HEADERS,
+export const receivedSectionTitles = data => ({
+  type: RECEIVED_SECTION_TITLE,
   data,
 });
 

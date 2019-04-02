@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -13,21 +14,24 @@ import Social from 'src/components/Social';
 /**
  * Code
  */
-const Fullscreen = () => (
+const Fullscreen = ({ menuItems }) => (
   <>
     <nav className="nav-nav">
       <a href="#home" className="nav-nav-link">Accueil</a>
-      <a href="#news" className="nav-nav-link">News</a>
-      <a href="#tour" className="nav-nav-link">Tour</a>
-      <a href="#disco" className="nav-nav-link">Discographie</a>
-      <a href="#media" className="nav-nav-link">Media</a>
-      <a href="#about" className="nav-nav-link">À Propos</a>
-      <a href="#contact" className="nav-nav-link">Contact</a>
+      {menuItems.map(link => (
+        <a href={`#${link}`} className="nav-nav-link">{link}</a>
+      ))}
     </nav>
 
     <Social className="nav-social" />
   </>
 );
+
+Fullscreen.propTypes = {
+  menuItems: PropTypes.arrayOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
+};
 
 /**
  * Export
