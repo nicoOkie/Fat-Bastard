@@ -7,6 +7,10 @@ const initialState = {
   galery: [],
   albums: [],
   tourDates: [],
+  loadedData: {
+    sectionTitles: false,
+    tourdates: false,
+  },
 };
 
 /**
@@ -43,6 +47,10 @@ const reducer = (state = initialState, action = {}) => {
     case RECEIVED_TOUR_DATES:
       return {
         ...state,
+        loadedData: {
+          ...state.loadedData,
+          tourdates: true,
+        },
         tourDates: action.data,
       };
 

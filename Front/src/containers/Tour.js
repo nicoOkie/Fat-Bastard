@@ -20,6 +20,7 @@ import Tour from 'src/components/Tour';
  */
 const mapStateToProps = state => ({
   dates: state.tourDates,
+  loaded: state.loadedData.tourdates,
 });
 
 /* === Actions ===

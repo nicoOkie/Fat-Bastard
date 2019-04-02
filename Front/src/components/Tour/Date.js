@@ -23,11 +23,11 @@ const Date = ({
   the_fat_url_billetterie: tickets,
   the_fat_url_google_maps: map,
 }) => {
-  const splitDate = date[0].split('-');
+  // const splitDate = date[0].split('-');
 
   return (
     <div className="tour-date">
-      <div className="tour-date-date">
+      {/* <div className="tour-date-date">
         <p>
           {splitDate[2]}
           <MdStar className="tour-date-date-star" />
@@ -42,7 +42,7 @@ const Date = ({
       </a>
       <a href={tickets[0]} className="tour-date-ticket">
         <FaTicketAlt />
-      </a>
+      </a> */}
     </div>
   );
 };

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { orderBy } from 'lodash';
 
 
 /**
@@ -16,13 +17,28 @@ import './tour.scss';
 /**
  * Code
  */
-const Tour = ({ dates }) => (
-  <div className="tour special-width">
-    {dates.map(date => (
-      <Date key={date.id} {...date.custom_fields} />
-    ))}
-  </div>
-);
+const Tour = ({ dates, loaded }) => {
+
+  if (loaded) {
+    console.log(dates);
+    const newDates = dates.map(date => (
+      {
+        id: date.id,
+        date: date.custom_fields[date],
+      }
+    ));
+    console.log(newDates);
+  }
+
+
+  return (
+    <div className="tour special-width">
+      {/* {dates.map(date => (
+        <Date key={date.id} {...date.custom_fields} />
+      ))} */}
+    </div>
+  );
+};
 
 Tour.propTypes = {
   dates: PropTypes.arrayOf(
