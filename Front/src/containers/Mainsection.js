@@ -18,12 +18,32 @@ import Main from 'src/components/Main';
  *  - ownProps : les props passées au container
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
-const mapStateToProps = state => ({
-  backgroundItems: state.sectionBackground,
-  menuItems: state.sectionTitles,
-  titlesLoad: state.titlesLoaded,
-  backgroundLoad: state.backgroundLoaded,
-});
+
+const mapStateToProps = (state) => {
+  const {
+    titlesLoaded,
+    backgroundLoaded,
+    sectionTitles,
+    sectionBackground,
+  } = state;
+  const unitedItems = [];
+  let i = 0;
+  if (sectionBackground.length !== 0 && sectionTitles.length !== 0) {
+    for (i = 0; i < sectionBackground.length; i += 1) {
+      const unitedItem = {
+        title: sectionTitles[i],
+        background: sectionBackground[i],
+      };
+      unitedItems.push(unitedItem);
+    }
+  }
+
+  return ({
+    unitedItems,
+    titlesLoaded,
+    backgroundLoaded,
+  });
+};
 
 /* === Actions ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation

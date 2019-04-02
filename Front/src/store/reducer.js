@@ -5,8 +5,11 @@ const initialState = {
   sectionTitles: [],
   sectionDisco: [],
   sectionAbout: [],
+  sectionBackground: [],
   sectionAboutDescription: [],
   aboutLoaded: false,
+  backgroundLoaded: false,
+  titlesLoaded: false,
 };
 
 /**

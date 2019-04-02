@@ -15,24 +15,22 @@ import './main.scss';
  * Code
  */
 const Main = ({
-  menuItems,
-  backgroundItems,
-  titlesLoad,
-  backgroundLoad,
-}) => {
-  if (backgroundLoad && titlesLoad === true) {
-  <div id="main">
-    {menuItems.map(section => (
-      <Section key={section.title} {...section} {...backgroundItems} />
+  unitedItems,
+  titlesLoaded,
+  backgroundLoaded,
+}) => (
+  <>
+    {(titlesLoaded && backgroundLoaded && (
+      <div id="main">
+        {unitedItems.map(unitedItem => (
+          <Section key={unitedItem.title} {...unitedItem} />
+        ))}
+      </div>
+    )) || (
+      <p>Waiting</p>
     )}
-  </div>
-     } else {
-    <p>Waiting</p>
-     }
-    
-    };
- 
-
+  </>
+);
 
 // {loaded ? (
 //   <div className="about-text">

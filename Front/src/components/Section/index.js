@@ -29,10 +29,8 @@ const Section = ({
 // Props validation
 
 Section.propTypes = {
-  name: Proptypes.string.isRequired,
   title: Proptypes.string.isRequired,
   background: Proptypes.string.isRequired,
-  content: Proptypes.string.isRequired,
 };
 
 

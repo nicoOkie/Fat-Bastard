@@ -20,7 +20,7 @@ const Discography = () => {
   const handleResize = () => setWidth(window.innerWidth);
   window.addEventListener('resize', handleResize);
   return (
-    <div className="discography">
+    <div id="disco" className="discography">
       {width > 1224 ? <Discoscreen /> : <Discomobile />}
     </div>
   );
