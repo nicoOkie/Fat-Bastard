@@ -182,31 +182,31 @@ function the_fat_custom_box_html( $post )
 {
     $concert_dates = get_post_meta(
         $post->ID,
-        'the_fat_concert_dates',
+        'date',
         true
     );
 
     $concert_city = get_post_meta(
         $post->ID,
-        'the_fat_concert_city',
+        'city',
         true
     );
 
     $concert_venue = get_post_meta(
         $post->ID,
-        'the_fat_concert_venue',
+        'venue',
         true
     );
 
     $url_google_maps = get_post_meta(
         $post->ID,
-        'the_fat_url_google_maps',
+        'map',
         true
     );
 
     $url_billetterie = get_post_meta(
         $post->ID,
-        'the_fat_url_billetterie',
+        'tickets',
         true
     );
     ?>
@@ -214,24 +214,24 @@ function the_fat_custom_box_html( $post )
     <table>
         <tbody>
             <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_dates">Date de concert</label></th>
-                <td style="padding:1.5rem;"><input type="date" name="the_fat_concert_dates" id="the_fat_concert_dates" value="<?= $concert_dates; ?>" /></td>
+                <th style="text-align:left; padding:1.5rem;"><label for="date">Date de concert</label></th>
+                <td style="padding:1.5rem;"><input type="date" name="date" id="date" value="<?= $concert_dates; ?>" /></td>
             </tr>
             <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_city">Ville</label></th>
-                <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_city" id="the_fat_concert_city" value="<?= $concert_city; ?>" /></td>
+                <th style="text-align:left; padding:1.5rem;"><label for="city">Ville</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="city" id="city" value="<?= $concert_city; ?>" /></td>
             </tr>
             <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_concert_venue">Salle / Lieu</label></th>
-                <td style="padding:1.5rem;"><input type="text" name="the_fat_concert_venue" id="the_fat_concert_venue" value="<?= $concert_venue; ?>" /></td>
+                <th style="text-align:left; padding:1.5rem;"><label for="venue">Salle / Lieu</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="venue" id="venue" value="<?= $concert_venue; ?>" /></td>
             </tr>
             <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_url_google_maps">Lien Google Maps</label></th>
-                <td style="padding:1.5rem;"><input type="url" name="the_fat_url_google_maps" id="the_fat_url_google_maps" value="<?= $url_google_maps; ?>" /></td>
+                <th style="text-align:left; padding:1.5rem;"><label for="map">Lien Google Maps</label></th>
+                <td style="padding:1.5rem;"><input type="url" name="map" id="map" value="<?= $url_google_maps; ?>" /></td>
             </tr>
             <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="the_fat_url_billetterie">Billetterie</label></th>
-                <td style="padding:1.5rem;"><input type="url" name="the_fat_url_billetterie" id="the_fat_url_billetterie" value="<?= $url_billetterie; ?>" /></td>
+                <th style="text-align:left; padding:1.5rem;"><label for="tickets">Billetterie</label></th>
+                <td style="padding:1.5rem;"><input type="url" name="tickets" id="tickets" value="<?= $url_billetterie; ?>" /></td>
             </tr>
         </tbody>
     </table>
@@ -242,43 +242,43 @@ add_action( 'save_post', 'the_fat_save_postdata' );
 	
 function the_fat_save_postdata( $post_id )
 {
-    if ( isset($_POST['the_fat_concert_dates']) ) {
+    if ( isset($_POST['date']) ) {
         update_post_meta(
             $post_id,
-            'the_fat_concert_dates',
-            $_POST['the_fat_concert_dates']
+            'date',
+            $_POST['date']
         );
     }
 
-    if ( isset($_POST['the_fat_concert_city']) ) {
+    if ( isset($_POST['city']) ) {
         update_post_meta(
             $post_id,
-            'the_fat_concert_city',
-            $_POST['the_fat_concert_city']
+            'city',
+            $_POST['city']
         );
     }
 
-    if ( isset($_POST['the_fat_concert_venue']) ) {
+    if ( isset($_POST['venue']) ) {
         update_post_meta(
             $post_id,
-            'the_fat_concert_venue',
-            $_POST['the_fat_concert_venue']
+            'venue',
+            $_POST['venue']
         );
     }
 
-    if ( isset($_POST['the_fat_url_google_maps']) ) {
+    if ( isset($_POST['map']) ) {
         update_post_meta(
             $post_id,
-            'the_fat_url_google_maps',
-            $_POST['the_fat_url_google_maps']
+            'map',
+            $_POST['map']
         );
     }
 
-    if ( isset($_POST['the_fat_url_billetterie']) ) {
+    if ( isset($_POST['tickets']) ) {
         update_post_meta(
             $post_id,
-            'the_fat_url_billetterie',
-            $_POST['the_fat_url_billetterie']
+            'tickets',
+            $_POST['tickets']
         );
     }
 }
@@ -542,13 +542,13 @@ function custom_tourdates_columns_content($column)
 
     switch($column) {
         case 'concert_date':
-            echo get_post_meta($post->ID, 'the_fat_concert_dates', TRUE);
+            echo get_post_meta($post->ID, 'date', TRUE);
             break;
         case 'city':
-            echo get_post_meta($post->ID, 'the_fat_concert_city', TRUE);
+            echo get_post_meta($post->ID, 'city', TRUE);
             break;
         case 'venue':
-            echo get_post_meta($post->ID, 'the_fat_concert_venue', TRUE);
+            echo get_post_meta($post->ID, 'venue', TRUE);
             break;
     }
 }
