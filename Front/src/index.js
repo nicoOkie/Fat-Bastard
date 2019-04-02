@@ -13,7 +13,7 @@ import App from 'src/components/App';
 
 import store from 'src/store';
 
-import { loadSectionTitles, loadTourDates } from 'src/store/reducer';
+import { loadSectionTitles, loadTourDates, loadPictures } from 'src/store/reducer';
 
 
 /**
@@ -34,3 +34,4 @@ render(rootComponent, target);
 // Chargement des data
 store.dispatch(loadSectionTitles());
 store.dispatch(loadTourDates());
+store.dispatch(loadPictures());
