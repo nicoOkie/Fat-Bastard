@@ -107,3 +107,32 @@ function fat_customizer_media_photos_endpoint()
         ]
     );
 }
+
+add_action('rest_api_init', 'fat_contact_form_endpoint');
+
+function fat_contact_form_endpoint()
+{
+    register_rest_route(
+        'fat/v1',
+        'contact-form',
+        [
+            'method'   => 'POST',
+            'callback' => function(){
+                $name = '';
+                $email = '';
+                $subject = '';
+                $message = '';
+
+                $contact_data = [
+                    'name'    => $name,
+                    'email'   => $email,
+                    'subject' => $subject,
+                    'message' => $message
+                ];
+
+                return $contact_data;
+
+            }
+        ]
+    );
+}

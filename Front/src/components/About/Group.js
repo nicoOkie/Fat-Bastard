@@ -2,11 +2,11 @@
  * NPM import
  */
 import React from 'react';
+// import PropTypes from 'prop-types';
 
 /**
  * Local import
  */
-import aboutpictureData from 'src/aboutpicture';
 
 // Styles
 import './about.scss';
@@ -14,20 +14,22 @@ import './about.scss';
 /**
  * Code
  */
-const Group = () => {
-  const { allmusicien } = aboutpictureData;
+const Group = ({ aboutItems }) => (
+  <div className="about-group">
+    {aboutItems.map(about => (
+      <div key={about.id} className="about-person" {...about}>
+        <img className="about-picture" src={about.musicienpicture} alt="person" />
+        <p className="about-picturetext">{about.custom_fields.first_name}</p>
+      </div>
+    ))}
+  </div>
+);
 
-  return (
-    <div className="about-group">
-      {allmusicien.map(truc => (
-        <div className="about-person" key={truc.musicien} {...truc}>
-          <img className="about-picture" src={`${truc.musicienpicture}`} alt="person" />
-          <p className="about-picturetext">{truc.musicien}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
+// Group.propTypes = {
+//   aboutItems: PropTypes.arrayOf(
+//     PropTypes.string.isRequired,
+//   ).isRequired,
+// };
 
 /**
  * Export
