@@ -6,11 +6,11 @@ import React from 'react';
 /**
  * Local import
  */
-import Group from './Group';
-import Description from './Description';
+import Group from 'src/containers/Aboutgroup';
+import Description from 'src/containers/Aboutdescription';
 
 // Styles
-
+import './about.scss';
 
 /**
  * Code

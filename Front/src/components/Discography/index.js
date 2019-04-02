@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 /**
  * Local import
  */
-import Discoscreen from './Discoscreen';
-import Discomobile from './Discomobile';
+import Discoscreen from 'src/containers/Discoscreen';
+import Discomobile from 'src/containers/Discomobile';
 
 // Styles
 

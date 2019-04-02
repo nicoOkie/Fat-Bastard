@@ -19,7 +19,7 @@ const Fullscreen = ({ menuItems }) => (
     <nav className="nav-nav">
       <a href="#home" className="nav-nav-link">Accueil</a>
       {menuItems.map(link => (
-        <a href={`#${link}`} className="nav-nav-link">{link}</a>
+        <a key={link} href={`#${link}`} className="nav-nav-link">{link}</a>
       ))}
     </nav>
 

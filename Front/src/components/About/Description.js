@@ -6,28 +6,26 @@ import React from 'react';
 /**
  * Local import
  */
-import descriptData from 'src/descript';
 
 // Styles
-
+import './about.scss';
 
 /**
  * Code
  */
-const Description = () => {
-  const { title, texts } = descriptData;
-
-  return (
-    <div className="about-description">
+const Description = ({ aboutdescriptionItems, loaded }) => (
+  <div className="about-description">
+    {loaded ? (
       <div className="about-text">
-        <h1>{title}</h1>
-        {texts.map(text => (
-          <p>{text}</p>
-        ))}
+        <h1>{aboutdescriptionItems.title.rendered}</h1>
+        <p key={aboutdescriptionItems.id}>{aboutdescriptionItems.content.rendered}</p>
       </div>
-    </div>
-  );
-};
+    ) : (
+      <p>waiting</p>
+    )}
+  </div>
+);
+
 
 /**
  * Export

@@ -9,14 +9,24 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import reducer from 'src/store/reducer';
 
 // Middlewares
-import sectionMiddleware from './sectionsMiddleware';
+import sectionsMiddleware from './sectionsMiddleware';
+import middlewareDisco from './middlewareDisco';
+import middlewareAbout from './middlewareAbout';
+import middlewareAboutDescription from './middlewareAboutDescription';
+import middlewareSectionBackground from './middlewareSectionBackground';
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Composition des enchancers
 const enhancers = composeEnhancers(
-  applyMiddleware(sectionMiddleware),
+  applyMiddleware(
+    sectionsMiddleware,
+    middlewareDisco,
+    middlewareAbout,
+    middlewareAboutDescription,
+    middlewareSectionBackground,
+  ),
 );
 
 /**

@@ -17,14 +17,12 @@ import './section.scss';
  * Code
  */
 const Section = ({
-  name,
   title,
   background,
-  content,
 }) => (
-  <div id={name} className="section">
-    <Header title={title} bgp={background} name={name} />
-    <Content content={content} id={name} />
+  <div id={title} className="section">
+    <Header title={title} bgp={background} name={title} />
+    <Content id={title} />
   </div>
 );
 
