@@ -25,8 +25,8 @@ const Content = ({ id }) => (
     {id === 'news' && <News />}
     {id === 'tour' && <Tour />}
     {id === 'media' && <Media />}
-    {id === 'disco' && <Discography />}
-    {id === 'about' && <About />}
+    {id === 'discographie' && <Discography />}
+    {id === 'à propos' && <About />}
     {id === 'contact' && <Contact />}
   </div>
 );

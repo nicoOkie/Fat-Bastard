@@ -15,7 +15,7 @@ import './contact.scss';
  * Code
  */
 const Contact = () => (
-  <div id="contact">
+  <div className="contact">
     <ContactForm />
     <ContactBooking />
   </div>
