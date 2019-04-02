@@ -542,7 +542,7 @@ function custom_tourdates_columns_content($column)
 
     switch($column) {
         case 'concert_date':
-            echo get_post_meta($post->ID, 'dates', TRUE);
+            echo get_post_meta($post->ID, 'date', TRUE);
             break;
         case 'city':
             echo get_post_meta($post->ID, 'city', TRUE);
