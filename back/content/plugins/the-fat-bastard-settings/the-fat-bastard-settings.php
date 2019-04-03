@@ -349,22 +349,13 @@ function fat_discography_custom_box_html( $post )
     );
 
 ?>
-
     <div style="margin:30px 0px 20px;">
-        <label for="release_date" style="font-weight:bold;font-size:1.2rem;margin-right:17px;">Date de sortie</label>
+        <label for="release_date" style="font-weight:bold;font-size:1rem;margin-right:17px;">Date de sortie</label>
         <input type="date" name="release_date" id="release_date" value="<?= $date; ?>"" style="height: 30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="producter_name" style="font-weight:bold;font-size:1.2rem;margin-right:44px;">Producteur</label>
+        <label for="producter_name" style="font-weight:bold;font-size:1rem;margin-right:44px;">Producteur</label>
         <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>"style="height:30px;" />
-    </div>
-    <div style="margin-bottom: 20px;">
-        <label for="album_first_side" style="font-weight:bold;font-size:1.2rem;margin-right:10px;">Pochette recto</label>
-        <input type="file" name="album_first_side" id="album_first_side" value="<?= $first_side; ?>"style="height:30px;" />
-    </div>
-    <div style="margin-bottom: 20px;">
-        <label for="album_second_side" style="font-weight:bold;font-size:1.2rem;margin-right:8px;">Pochette verso</label>
-        <input type="file" name="album_second_side" id="album_second_side" value="<?= $second_side; ?>"style="height:30px;"  />
     </div>
 
     
@@ -454,19 +445,19 @@ function fat_group_custom_box_html( $post )
 ?>
 
     <div style="margin:30px 0px 20px;">
-        <label for="first_name" style="font-weight:bold;font-size:1.2rem;margin-right:49px;">Prénom</label>
+        <label for="first_name" style="font-weight:bold;font-size:1rem;margin-right:49px;">Prénom</label>
         <input type="text" name="first_name" id="first_name" value="<?= $first_name; ?>"" style="height: 30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="last_name" style="font-weight:bold;font-size:1.2rem;margin-right:76px;">Nom</label>
+        <label for="last_name" style="font-weight:bold;font-size:1rem;margin-right:76px;">Nom</label>
         <input type="text" name="last_name" id="last_name" value="<?= $last_name; ?>"style="height:30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="nickname" style="font-weight:bold;font-size:1.2rem;margin-right:49px;">Surnom</label>
+        <label for="nickname" style="font-weight:bold;font-size:1rem;margin-right:49px;">Surnom</label>
         <input type="text" name="nickname" id="nickname" value="<?= $nickname; ?>"style="height:30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="instruments" style="font-weight:bold;font-size:1.2rem;margin-right:8px;">Instruments</label>
+        <label for="instruments" style="font-weight:bold;font-size:1rem;margin-right:8px;">Instruments</label>
         <input type="text" name="instruments" id="instruments" value="<?= $instruments; ?>"style="height:30px;"  />
     </div>
 
@@ -655,10 +646,10 @@ function custom_discography_columns_content($column)
 
     switch($column) {
         case 'release_date':
-            echo get_post_meta($post->ID, '_release_date', TRUE);
+            echo get_post_meta($post->ID, 'release_date', TRUE);
             break;
         case 'producter':
-            echo get_post_meta($post->ID, '_producter_name', TRUE);
+            echo get_post_meta($post->ID, 'producter_name', TRUE);
             break;
     }
 }
