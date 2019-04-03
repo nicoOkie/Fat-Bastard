@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 /**
  * NPM import
  */
@@ -37,8 +38,8 @@ class ContactForm extends React.Component {
     })
       .then((result) => {
         this.setState({
-          mailSent: result.data.sent
-        })
+          mailSent: result.data.sent,
+        });
       })
       .catch(error => this.setState({ error: error.message }));
   }

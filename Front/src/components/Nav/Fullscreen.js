@@ -27,6 +27,10 @@ const Fullscreen = ({ menuItems }) => (
   </>
 );
 
+/**
+ * PropTypes
+ */
+
 Fullscreen.propTypes = {
   menuItems: PropTypes.arrayOf(
     PropTypes.string.isRequired,

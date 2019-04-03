@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -32,7 +33,15 @@ const Main = ({
   </>
 );
 
+/**
+ * Prop-types
+ */
 
+Main.propTypes = {
+  unitedItems: PropTypes.array.isRequired,
+  titlesLoaded: PropTypes.bool.isRequired,
+  backgroundLoaded: PropTypes.bool.isRequired,
+};
 
 /**
  * Export
