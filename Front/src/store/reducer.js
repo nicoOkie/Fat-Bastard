@@ -2,6 +2,7 @@
  * Local imports
  */
 import { cleanTourDates } from 'src/utils/tourCleaner';
+import { freshNews } from 'src/utils/newsCleaner';
 
 /**
  * Initial State
@@ -9,7 +10,7 @@ import { cleanTourDates } from 'src/utils/tourCleaner';
 const initialState = {
   sectionTitles: [],
   galery: [],
-  news: [], 
+  news: [],
   sectionPictures: [],
   gallery: [],
   tourDates: [],
@@ -89,7 +90,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.loadedData,
           newsLoaded: true,
         },
-        news: action.data,
+        news: freshNews(action.data),
       };
 
     case LOAD_TOUR_DATES:
