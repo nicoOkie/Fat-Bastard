@@ -2,39 +2,40 @@
  * NPM Import
  */
 import React from 'react';
-
-
-/**
- * Local Import
- */
-import endshow from '../../../../assets/end-show.jpg';
-// Styles
-
+import PropTypes from 'prop-types';
+import ReactHtmlParser from 'react-html-parser';
 
 /**
  * Code
  */
-const Article = () => (
+const Article = ({ title, date: { year, month, day }, content }) => (
   <article className="news-article">
     <div className="news-article-split" />
     <header className="news-article-header">
-      <h2 className="news-article-header-title">title.rendered</h2>
+      <h2 className="news-article-header-title">{ReactHtmlParser(title)}</h2>
     </header>
     <aside className="news-article-aside">
-      <p className="news-article-aside-date">customFunction(date)</p>
+      <p className="news-article-aside-date">{day}-{month}</p>
+      <p className="news-article-aside-date">{year}</p>
     </aside>
     <section className="news-article-section">
-      <img src={endshow} alt="the fat team after a gig" className="news-article-section-img" />
-      <p className="news-article-section-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Laborum magni molestias tempore officiis cumque id, repudiandae sint
-        perspiciatis ullam fugit, placeat porro dolorum exercitationem
-        voluptates? Nisi maiores sit facere doloremque?
-      </p>
+      <div className="news-article-section-content">
+        {ReactHtmlParser(content)}
+      </div>
     </section>
   </article>
 );
 
 
+Article.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.shape({
+    year: PropTypes.string.isRequired,
+    month: PropTypes.string.isRequired,
+    day: PropTypes.string.isRequired,
+  }).isRequired,
+  content: PropTypes.string.isRequired,
+};
 /**
  * Export
  */

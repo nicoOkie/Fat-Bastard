@@ -19,9 +19,9 @@ const ContactBookers = ({
   contactTel,
   contactMail,
 }) => (
-  <div id="contact-bookingDiv">
-    <div id="booking">
-      <h2 id="contact-bookingType">{contactType}</h2>
+  <div className="contact-bookingDiv">
+    <div className="contact-booking">
+      <h2 className="contact-bookingType">{contactType}</h2>
       <div>
         <p>{contactTitle}</p>
         <p>{contactName}</p>
