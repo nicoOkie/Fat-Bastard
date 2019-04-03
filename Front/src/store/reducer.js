@@ -297,11 +297,11 @@ export const receivedPictures = data => ({
 });
 
 export const loadVideos = () => ({
-  type: LOAD_PICTURES,
+  type: LOAD_VIDEOS,
 });
 
 export const receivedVideos = data => ({
-  type: RECEIVED_PICTURES,
+  type: RECEIVED_VIDEOS,
   data,
 });
 

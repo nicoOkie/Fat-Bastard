@@ -14,7 +14,6 @@ const tourMiddleware = store => next => (action) => {
       axios
         .get(`${apiURL}/fat/v1/customizer/medias/videos`)
         .then(({ data }) => {
-          console.log(data);
           store.dispatch(receivedVideos(data));
         })
         .catch(() => (
