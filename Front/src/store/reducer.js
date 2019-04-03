@@ -3,6 +3,7 @@
  */
 import { cleanTourDates } from 'src/utils/tourCleaner';
 import { freshNews } from 'src/utils/newsCleaner';
+import { videoIds } from 'src/utils/videosUtil';
 
 /**
  * Initial State
@@ -198,7 +199,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.loadedData,
           vidLoaded: true,
         },
-        videos: action.data,
+        videos: videoIds(action.data),
       };
 
     default:

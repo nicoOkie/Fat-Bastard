@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import Slider from 'react-slick';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -15,7 +16,7 @@ import './videoSlider.scss';
 /**
  * Code
  */
-const VideoSlider = () => {
+const VideoSlider = ({ videos }) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -50,6 +51,12 @@ const VideoSlider = () => {
       <div className="carousel-video-single">Vid 5</div>
     </Slider>
   );
+};
+
+VideoSlider.propTypes = {
+  videos: PropTypes.arrayOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
 };
 
 /**

@@ -10,7 +10,7 @@ import Proptypes from 'prop-types';
 import News from 'src/containers/News';
 import Tour from 'src/containers/Tour';
 import Contact from 'src/components/Contact';
-import Media from 'src/components/Media';
+import Media from 'src/containers/Media';
 import Discography from 'src/components/Discography';
 import About from 'src/components/About';
 
