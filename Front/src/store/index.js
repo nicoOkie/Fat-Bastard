@@ -15,6 +15,7 @@ import middlewareDisco from './middlewareDisco';
 import middlewareAbout from './middlewareAbout';
 import middlewareAboutDescription from './middlewareAboutDescription';
 import middlewareSectionBackground from './middlewareSectionBackground';
+import mediaMiddleware from './mediaMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -28,6 +29,7 @@ const enhancers = composeEnhancers(
     middlewareAbout,
     middlewareAboutDescription,
     middlewareSectionBackground,
+    mediaMiddleware,
   ),
 );
 

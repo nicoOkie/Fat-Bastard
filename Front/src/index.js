@@ -20,7 +20,9 @@ import {
   loadSectionAbout,
   loadSectionAboutDescription,
   loadSectionBackground,
+  loadPictures,
 } from 'src/store/reducer';
+
 
 /**
  * Render
@@ -44,3 +46,4 @@ store.dispatch(loadSectionDisco());
 store.dispatch(loadSectionAbout());
 store.dispatch(loadSectionAboutDescription());
 store.dispatch(loadSectionBackground());
+store.dispatch(loadPictures());

@@ -9,10 +9,12 @@ import { cleanTourDates } from 'src/utils/tourCleaner';
 const initialState = {
   sectionTitles: [],
   galery: [],
-  albums: [],
+  sectionPictures: [],
+  gallery: [],
   tourDates: [],
   loadedData: {
     tourdates: false,
+    mediaPictures: false,
   },
   sectionDisco: [],
   sectionAbout: [],
@@ -29,6 +31,8 @@ const initialState = {
 // Sections import
 export const LOAD_SECTION_TITLES = 'LOAD_SECTION_TITLES';
 export const RECEIVED_SECTION_TITLE = 'RECEIVED_SECTION_TITLE';
+export const LOAD_SECTION_BG_PICTURES = 'LOAD_SECTION_BG_PICTURES';
+export const RECEIVED_SECTION_BG_PICTURES = 'RECEIVED_SECTION_BG_PICTURES';
 // Tour Import
 export const LOAD_TOUR_DATES = 'LOAD_TOUR_DATES';
 export const RECEIVED_TOUR_DATES = 'RECEIVED_TOUR_DATES';
@@ -40,6 +44,9 @@ export const LOAD_SECTION_ABOUT_DESCRIPTION = 'LOAD_SECTION_ABOUT_DESCRIPTION';
 export const RECEIVED_SECTION_ABOUT_DESCRIPTION = 'RECEIVED_SECTION_ABOUT_DESCRIPTION';
 export const LOAD_SECTION_BACKGROUND = 'LOAD_SECTION_BACKGROUND';
 export const RECEIVED_SECTION_BACKGROUND = 'RECEIVED_SECTION_BACKGROUND';
+// Media Import
+export const LOAD_PICTURES = 'LOAD_PICTURES';
+export const RECEIVED_PICTURES = 'RECEIVED_PICTURES';
 
 /**
  * Reducer
@@ -54,6 +61,10 @@ const reducer = (state = initialState, action = {}) => {
     case RECEIVED_SECTION_TITLE:
       return {
         ...state,
+        loadedData: {
+          ...state.loadedData,
+          sectionTitles: true,
+        },
         sectionTitles: action.data,
         titlesLoaded: true,
       };
@@ -77,6 +88,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
       };
+
+    case LOAD_PICTURES:
+      return {
+        ...state,
+      };
+
 
     case RECEIVED_SECTION_DISCO:
       return {
@@ -119,6 +136,16 @@ const reducer = (state = initialState, action = {}) => {
         backgroundLoaded: true,
       };
 
+    case RECEIVED_PICTURES:
+      return {
+        ...state,
+        loadedData: {
+          ...state.loadedData,
+          mediaPictures: true,
+        },
+        gallery: action.data,
+      };
+
     default:
       return state;
   }
@@ -135,6 +162,15 @@ export const loadSectionTitles = () => ({
 
 export const receivedSectionTitles = data => ({
   type: RECEIVED_SECTION_TITLE,
+  data,
+});
+
+export const loadSectionBgPictures = () => ({
+  type: LOAD_SECTION_BG_PICTURES,
+});
+
+export const receivedSectionBgPictures = data => ({
+  type: RECEIVED_SECTION_BG_PICTURES,
   data,
 });
 
@@ -184,11 +220,20 @@ export const receivedSectionBackground = data => ({
   data,
 });
 
+// Media Import
+export const loadPictures = () => ({
+  type: LOAD_PICTURES,
+});
+
+export const receivedPictures = data => ({
+  type: RECEIVED_PICTURES,
+  data,
+});
+
 /**
  * Selectors
  */
 
-// Bonus : getSlug pour le active menu
 
 /**
  * Export
