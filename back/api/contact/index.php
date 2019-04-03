@@ -19,7 +19,9 @@ if (!isset($has_error)) {
     $email_to = get_post_meta($post->ID, 'email', TRUE);
     $subject = 'The Fat Bastard official - ' . $form_subject;
     $message = "Name: $name \n\nEmail: $email_from \n\nMessage: $comments";
-    $headers = 'De : <noreply@thefatbastardgangband.com>';
+    $headers = "Version: 1.0\r\n";
+	$headers.= "Content-type: text/html; charset=UTF-8\r\n";
+    $headers.= 'De : <noreply@thefatbastardgangband.com>';
 
     mail($email_to, $subject, $message, $headers);
 
