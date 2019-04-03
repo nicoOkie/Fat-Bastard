@@ -13,11 +13,13 @@ const initialState = {
   news: [],
   sectionPictures: [],
   gallery: [],
+  videos: [],
   tourDates: [],
   loadedData: {
     tourdates: false,
     mediaPictures: false,
     newsLoaded: false,
+    vidLoaded: false,
   },
   sectionDisco: [],
   sectionAbout: [],
@@ -46,6 +48,8 @@ export const RECEIVED_TOUR_DATES = 'RECEIVED_TOUR_DATES';
 export const LOAD_SECTION_DISCO = 'LOAD_DISCO_NAME';
 export const RECEIVED_SECTION_DISCO = 'RECEIVED_SECTION_DISCO';
 // Media Import
+export const LOAD_VIDEOS = 'LOAD_VIDEOS';
+export const RECEIVED_VIDEOS = 'RECEIVED_VIDEOS';
 export const LOAD_PICTURES = 'LOAD_PICTURES';
 export const RECEIVED_PICTURES = 'RECEIVED_PICTURES';
 // ABOUT Export
@@ -78,6 +82,8 @@ const reducer = (state = initialState, action = {}) => {
         titlesLoaded: true,
       };
 
+      // NEWS SECTION
+
     case LOAD_NEWS:
       return {
         ...state,
@@ -92,6 +98,8 @@ const reducer = (state = initialState, action = {}) => {
         },
         news: freshNews(action.data),
       };
+
+      // TOUR SECTION
 
     case LOAD_TOUR_DATES:
       return {
@@ -108,22 +116,20 @@ const reducer = (state = initialState, action = {}) => {
         tourDates: cleanTourDates(action.data),
       };
 
+      // DISCO SECTION
+
     case LOAD_SECTION_DISCO:
       return {
         ...state,
       };
-
-    case LOAD_PICTURES:
-      return {
-        ...state,
-      };
-
 
     case RECEIVED_SECTION_DISCO:
       return {
         ...state,
         sectionDisco: action.data,
       };
+
+      // ABOUT SECTION
 
     case LOAD_SECTION_ABOUT:
       return {
@@ -148,6 +154,8 @@ const reducer = (state = initialState, action = {}) => {
         aboutLoaded: true,
       };
 
+      // BACKGROUND SECTION PICTURES
+
     case LOAD_SECTION_BACKGROUND:
       return {
         ...state,
@@ -160,6 +168,13 @@ const reducer = (state = initialState, action = {}) => {
         backgroundLoaded: true,
       };
 
+      // MEDIA PHOTO GALLERY
+
+    case LOAD_PICTURES:
+      return {
+        ...state,
+      };
+
     case RECEIVED_PICTURES:
       return {
         ...state,
@@ -168,6 +183,22 @@ const reducer = (state = initialState, action = {}) => {
           mediaPictures: true,
         },
         gallery: action.data,
+      };
+
+      // MEDIA VIDEOS GALLERY
+    case LOAD_VIDEOS:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_VIDEOS:
+      return {
+        ...state,
+        loadedData: {
+          ...state.loadedData,
+          vidLoaded: true,
+        },
+        videos: action.data,
       };
 
     default:
@@ -261,6 +292,15 @@ export const loadPictures = () => ({
 });
 
 export const receivedPictures = data => ({
+  type: RECEIVED_PICTURES,
+  data,
+});
+
+export const loadVideos = () => ({
+  type: LOAD_PICTURES,
+});
+
+export const receivedVideos = data => ({
   type: RECEIVED_PICTURES,
   data,
 });
