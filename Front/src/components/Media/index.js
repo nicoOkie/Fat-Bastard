@@ -16,28 +16,34 @@ import './media.scss';
 /**
  * Code
  */
-const Media = ({ videos }) => (
+const Media = ({ videos: { main, vids }, loaded }) => (
   <div className="media special-width">
-    <section className="media-video">
-      <div className="media-video-one">
-        <YouTube
-          videoId={videos[0]}
-        />
-      </div>
+    {loaded && (
+      <section className="media-video">
+        <div className="media-video-one">
+          <YouTube
+            videoId={main}
+          />
+        </div>
 
-      <div className="media-video-carousel">
-        <VideoSlider {...videos} />
-      </div>
-    </section>
+        <div className="media-video-carousel">
+          <VideoSlider videos={vids} />
+        </div>
+      </section>
+    )}
 
     <Gallery />
   </div>
 );
 
 Media.propTypes = {
-  videos: PropTypes.arrayOf(
-    PropTypes.string.isRequired,
-  ).isRequired,
+  videos: PropTypes.shape({
+    main: PropTypes.string.isRequired,
+    vids: PropTypes.arrayOf(
+      PropTypes.string.isRequired,
+    ).isRequired,
+  }).isRequired,
+  loaded: PropTypes.bool.isRequired,
 };
 
 /**

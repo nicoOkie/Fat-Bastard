@@ -3,8 +3,16 @@ export const getVideoId = (url) => {
   return (match ? match['1'] : false);
 };
 
-export const videoIds = videos => (
-  videos.map(video => (
+export const videoIds = (videos) => {
+  const vidIds = videos.map(video => (
     getVideoId(video)
-  ))
-);
+  ));
+
+  const otherVids = vidIds.splice(1, 5);
+  const splitVids = {
+    main: vidIds[0],
+    vids: otherVids,
+  };
+
+  return splitVids;
+};
