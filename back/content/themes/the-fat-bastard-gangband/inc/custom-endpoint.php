@@ -107,3 +107,64 @@ function fat_customizer_media_photos_endpoint()
         ]
     );
 }
+
+add_action('rest_api_init', 'fat_customizer_media_videos_endpoint');
+
+function fat_customizer_media_videos_endpoint()
+{
+    register_rest_route(
+        'fat/v1',
+        'customizer/medias/videos',
+         [
+            'method'   => 'GET',
+            'callback' => function(){
+                $main_video = get_theme_mod('fat_theme_homepage_main_video');
+                $video_2 = get_theme_mod('fat_theme_homepage_video_2');
+                $video_3 = get_theme_mod('fat_theme_homepage_video_3');
+                $video_4 = get_theme_mod('fat_theme_homepage_video_4');
+                $video_5 = get_theme_mod('fat_theme_homepage_video_5');
+                $video_6 = get_theme_mod('fat_theme_homepage_video_6');
+
+                $medias_videos = [
+                                    $main_video,
+                                    $video_2,
+                                    $video_3,
+                                    $video_4,
+                                    $video_5,
+                                    $video_6
+                                ];
+                
+                return $medias_videos;
+            }
+        ]
+    );
+}
+
+add_action('rest_api_init', 'fat_contact_form_endpoint');
+
+function fat_contact_form_endpoint()
+{
+    register_rest_route(
+        'fat/v1',
+        'contact-form',
+        [
+            'method'   => 'POST',
+            'callback' => function(){
+                $name = '';
+                $email = '';
+                $subject = '';
+                $message = '';
+
+                $contact_data = [
+                    'name'    => $name,
+                    'email'   => $email,
+                    'subject' => $subject,
+                    'message' => $message
+                ];
+
+                return $contact_data;
+
+            }
+        ]
+    );
+}
