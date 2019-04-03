@@ -20,7 +20,7 @@ const ContactBookers = ({
   contactMail,
 }) => (
   <div className="contact-bookingDiv">
-    <div className="contact-booking">
+    <div className="contact-globalbooking">
       <h2 className="contact-bookingType">{contactType}</h2>
       <div>
         <p>{contactTitle}</p>
