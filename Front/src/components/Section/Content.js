@@ -7,7 +7,7 @@ import Proptypes from 'prop-types';
 /**
  * Local import
  */
-import News from 'src/components/News';
+import News from 'src/containers/News';
 import Tour from 'src/containers/Tour';
 import Contact from 'src/components/Contact';
 import Media from 'src/components/Media';
