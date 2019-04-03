@@ -20,15 +20,15 @@ const ContactForm = () => (
         <option value="pro">Je suis un pro</option>
         <option value="fan">Je suis un fan</option>
       </select>
-      <input type="text" name="name" id="name" placeholder="Name" required></input>
-      <input type="email" name="email" id="email" placeholder="Email" required></input>
-      <input type="text" name="subject" id="subject" placeholder="Subject"></input>
-      <textarea id="form-text" name="form-text" rows="10" cols="33"></textarea>
+      <input type="text" name="name" id="name" placeholder="Name" required />
+      <input type="email" name="email" id="email" placeholder="Email" required />
+      <input type="text" name="subject" id="subject" placeholder="Subject" />
+      <textarea id="form-text" name="form-text" rows="10" cols="33" />
       <div>
-      <input type="checkbox" id="newsletter-check" name="newsletter-check"></input>
-      <label htmlFor="newsletter-check">Souscrire à la newsletter</label>
+        <input type="checkbox" id="newsletter-check" name="newsletter-check" />
+        <label htmlFor="newsletter-check">Souscrire à la newsletter</label>
       </div>
-      <input type="submit" value="Envoyer"></input>
+      <input type="submit" value="Envoyer" />
     </form>
   </div>
 );

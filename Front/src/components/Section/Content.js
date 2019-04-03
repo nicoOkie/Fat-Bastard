@@ -7,8 +7,8 @@ import Proptypes from 'prop-types';
 /**
  * Local import
  */
-import News from 'src/components/News';
-import Tour from 'src/components/Tour';
+import News from 'src/containers/News';
+import Tour from 'src/containers/Tour';
 import Contact from 'src/components/Contact';
 import Media from 'src/components/Media';
 import Discography from 'src/components/Discography';
@@ -25,8 +25,8 @@ const Content = ({ id }) => (
     {id === 'news' && <News />}
     {id === 'tour' && <Tour />}
     {id === 'media' && <Media />}
-    {id === 'disco' && <Discography />}
-    {id === 'about' && <About />}
+    {id === 'discographie' && <Discography />}
+    {id === 'à propos' && <About />}
     {id === 'contact' && <Contact />}
   </div>
 );

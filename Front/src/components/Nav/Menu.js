@@ -17,7 +17,7 @@ const Menu = ({ burgerItems }) => (
   <Slide right>
     <a href="#home" className="nav-nav-link">Accueil</a>
     {burgerItems.map(link => (
-      <a href={`#${link}`} className="nav-nav-link">{link}</a>
+      <a key={link} href={`#${link}`} className="nav-nav-link">{link}</a>
     ))}
   </Slide>
 );
