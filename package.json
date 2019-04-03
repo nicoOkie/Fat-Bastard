@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-youtube": "^7.9.0"
+  }
+}
