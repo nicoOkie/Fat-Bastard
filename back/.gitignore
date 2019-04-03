@@ -4,7 +4,8 @@
 /wp-config.php
 
 /content/plugins/*
-!/content/plugins/the-fat-bastard-settings.php
+!/content/plugins/the-fat-bastard-settings
+!/content/plugins/the-fat-bastard-contact-form
 
 /content/debug.log
 
