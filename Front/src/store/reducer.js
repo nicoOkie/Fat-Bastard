@@ -9,12 +9,14 @@ import { cleanTourDates } from 'src/utils/tourCleaner';
 const initialState = {
   sectionTitles: [],
   galery: [],
+  news: [], 
   sectionPictures: [],
   gallery: [],
   tourDates: [],
   loadedData: {
     tourdates: false,
     mediaPictures: false,
+    newsLoaded: false,
   },
   sectionDisco: [],
   sectionAbout: [],
@@ -28,25 +30,31 @@ const initialState = {
 /**
  * Types
  */
-// Sections import
+// SECTIONS Export
 export const LOAD_SECTION_TITLES = 'LOAD_SECTION_TITLES';
 export const RECEIVED_SECTION_TITLE = 'RECEIVED_SECTION_TITLE';
 export const LOAD_SECTION_BG_PICTURES = 'LOAD_SECTION_BG_PICTURES';
 export const RECEIVED_SECTION_BG_PICTURES = 'RECEIVED_SECTION_BG_PICTURES';
-// Tour Import
+// NEWS Export
+export const LOAD_NEWS = 'LOAD_NEWS';
+export const RECEIVED_NEWS = 'RECEIVED_NEWS';
+// TOUR Export
 export const LOAD_TOUR_DATES = 'LOAD_TOUR_DATES';
 export const RECEIVED_TOUR_DATES = 'RECEIVED_TOUR_DATES';
+// DISCO Export
 export const LOAD_SECTION_DISCO = 'LOAD_DISCO_NAME';
 export const RECEIVED_SECTION_DISCO = 'RECEIVED_SECTION_DISCO';
+// Media Import
+export const LOAD_PICTURES = 'LOAD_PICTURES';
+export const RECEIVED_PICTURES = 'RECEIVED_PICTURES';
+// ABOUT Export
 export const LOAD_SECTION_ABOUT = 'LOAD_SECTION_ABOUT';
 export const RECEIVED_SECTION_ABOUT = 'RECEIVED_SECTION_ABOUT';
 export const LOAD_SECTION_ABOUT_DESCRIPTION = 'LOAD_SECTION_ABOUT_DESCRIPTION';
 export const RECEIVED_SECTION_ABOUT_DESCRIPTION = 'RECEIVED_SECTION_ABOUT_DESCRIPTION';
 export const LOAD_SECTION_BACKGROUND = 'LOAD_SECTION_BACKGROUND';
 export const RECEIVED_SECTION_BACKGROUND = 'RECEIVED_SECTION_BACKGROUND';
-// Media Import
-export const LOAD_PICTURES = 'LOAD_PICTURES';
-export const RECEIVED_PICTURES = 'RECEIVED_PICTURES';
+// CONTACT Export
 
 /**
  * Reducer
@@ -67,6 +75,21 @@ const reducer = (state = initialState, action = {}) => {
         },
         sectionTitles: action.data,
         titlesLoaded: true,
+      };
+
+    case LOAD_NEWS:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_NEWS:
+      return {
+        ...state,
+        loadedData: {
+          ...state.loadedData,
+          newsLoaded: true,
+        },
+        news: action.data,
       };
 
     case LOAD_TOUR_DATES:
@@ -173,6 +196,17 @@ export const receivedSectionBgPictures = data => ({
   type: RECEIVED_SECTION_BG_PICTURES,
   data,
 });
+
+// News Import
+export const loadNews = () => ({
+  type: LOAD_NEWS,
+});
+
+export const receivedNews = data => ({
+  type: RECEIVED_NEWS,
+  data,
+});
+
 
 // Tour Import
 export const loadTourDates = () => ({

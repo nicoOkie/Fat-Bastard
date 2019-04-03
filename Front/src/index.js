@@ -15,6 +15,7 @@ import store from 'src/store';
 
 import {
   loadTourDates,
+  loadNews,
   loadSectionTitles,
   loadSectionDisco,
   loadSectionAbout,
@@ -41,6 +42,7 @@ render(rootComponent, target);
 
 // Chargement des data
 store.dispatch(loadSectionTitles());
+store.dispatch(loadNews());
 store.dispatch(loadTourDates());
 store.dispatch(loadSectionDisco());
 store.dispatch(loadSectionAbout());
