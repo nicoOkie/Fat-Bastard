@@ -8,7 +8,7 @@ import React from 'react';
  * Local import
  */
 import VideoSlider from 'src/components/VideoSlider';
-import Gallery from 'src/components/Gallery';
+import Gallery from 'src/containers/Gallery';
 
 // Styles
 import './media.scss';

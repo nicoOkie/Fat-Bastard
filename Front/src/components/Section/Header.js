@@ -24,6 +24,7 @@ const Header = ({ name, title, bgp }) => (
           style={{
             height: '74vh',
             backgroundPosition: 'top',
+            backgroundSize: '100%',
           }}
           layers={[
             {

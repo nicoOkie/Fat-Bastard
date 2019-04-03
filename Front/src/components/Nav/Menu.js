@@ -13,15 +13,12 @@ import { slide as Slide } from 'react-burger-menu';
 /**
  * Code
  */
-const Menu = () => (
+const Menu = ({ burgerItems }) => (
   <Slide right>
     <a href="#home" className="nav-nav-link">Accueil</a>
-    <a href="#" className="nav-nav-link">News</a>
-    <a href="#" className="nav-nav-link">Tour</a>
-    <a href="#" className="nav-nav-link">Discographie</a>
-    <a href="#" className="nav-nav-link">Media</a>
-    <a href="#" className="nav-nav-link">À Propos</a>
-    <a href="#contact" className="nav-nav-link">Contact</a>
+    {burgerItems.map(link => (
+      <a key={link} href={`#${link}`} className="nav-nav-link">{link}</a>
+    ))}
   </Slide>
 );
 

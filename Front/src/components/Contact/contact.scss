@@ -1,4 +1,4 @@
-#contact {
+.contact {
     width: 70vw;
     margin: 0 auto;
     &-booking {
@@ -16,21 +16,6 @@
     }
     &-form {
         text-align: center;
-    }
-}
-@media screen and (min-width: 850px) {
-    #contact {
-        display: flex;
-
-        &-booking {
-            width: 50%;
-        }
-        &-form {
-            width: 50%;
-        }
-    }
-    form {
-        width: 500px;
     }
 }
 
@@ -52,4 +37,21 @@ input, select, textarea {
 
 #title-form {
     margin-bottom: 10px;
+}
+
+@media screen and (min-width: 850px) {
+  .contact {
+      display: flex;
+
+      &-booking {
+          width: 50%;
+      }
+      &-form {
+          width: 50%;
+      }
+  }
+  
+  form {
+      width: 500px;
+  }
 }

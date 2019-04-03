@@ -2,11 +2,11 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
  */
-import coverdata from 'src/coverdata';
 
 
 // Styles
@@ -15,41 +15,28 @@ import './discography.scss';
  * Code
  */
 
-const Discoscreen = () => (
+const Discoscreen = ({ discoItems }) => (
   <div className="discoscreen">
-    {coverdata.map(coverlarge => (
-      <div key={coverlarge.id} className="discoscreen-section">
-        <img src={coverlarge.cover} className="discoscreen-pic" alt={`cover-${coverlarge.name}`} />
-        <p className="discoscreen-text">{coverlarge.name}</p>
+    {discoItems.map(disco => (
+      <div key={disco.id} className="discoscreen-section">
+        <img src={disco.custom_fields.album_first_side} className="discoscreen-pic" alt={`cover-${disco.title.rendered}`} />
+        <p className="discoscreen-text">{disco.title.rendered}</p>
       </div>
     ))}
   </div>
 );
 
 /**
+ * Prop-types
+ */
+Discoscreen.propTypes = {
+  discoItems: PropTypes.arrayOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
+};
+
+
+/**
  * Export
  */
 export default Discoscreen;
-
-// class Discoscreen extends React.Component {
-//   state = {
-//     img: '',
-//   }
-
-//   render() {
-//     return (
-//       <div className="discoscreen">
-//         {coverdata.map(coverlarge => (
-//           <div key={coverlarge.id} className="discoscreen-section">
-//             {() => {
-//               this.setState({
-//                 img: coverlarge.cover,
-//               })
-//             }}
-//             <img
-//               src={this.state.img}
-//               onMouseEnter={() => {
-//                 this.setState({
-//                   img: coverlarge.overcover,
-//                 })
-//               }}

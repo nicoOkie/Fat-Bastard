@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import Tour from 'src/components/Tour';
+import Discomobile from 'src/components/Discography/Discomobile';
 
 // Action Creators
 
@@ -19,8 +19,7 @@ import Tour from 'src/components/Tour';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = state => ({
-  dates: state.tourDates,
-  loaded: state.loadedData.tourdates,
+  discoItems: state.sectionDisco,
 });
 
 /* === Actions ===
@@ -33,10 +32,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {};
 
 // Container
-const TourContainer = connect(
+const DiscoContainerMobile = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Tour);
+)(Discomobile);
 
 /* 2 temps
 const createContainer = connect(mapStateToProps, mapDispatchToProps);
@@ -46,4 +45,4 @@ const ExampleContainer = createContainer(Example);
 /**
  * Export
  */
-export default TourContainer;
+export default DiscoContainerMobile;

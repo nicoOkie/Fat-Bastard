@@ -7,7 +7,6 @@ import React from 'react';
  * Local import
  */
 import Section from 'src/components/Section';
-import sectionData from 'src/sections';
 
 
 // Styles
@@ -15,13 +14,32 @@ import './main.scss';
 /**
  * Code
  */
-const Main = () => (
-  <div id="main">
-    {sectionData.map(section => (
-      <Section key={section.name} {...section} />
-    ))}
-  </div>
+const Main = ({
+  unitedItems,
+  titlesLoaded,
+  backgroundLoaded,
+}) => (
+  <>
+    {(titlesLoaded && backgroundLoaded && (
+      <div id="main">
+        {unitedItems.map(unitedItem => (
+          <Section key={unitedItem.title} {...unitedItem} />
+        ))}
+      </div>
+    )) || (
+      <p>Waiting</p>
+    )}
+  </>
 );
+
+// {loaded ? (
+//   <div className="about-text">
+//     <h1>{aboutdescriptionItems.title.rendered}</h1>
+//     <p key={aboutdescriptionItems.id}>{aboutdescriptionItems.content.rendered}</p>
+//   </div>
+// ) : (
+//   <p>waiting</p>
+// )}
 
 /**
  * Export

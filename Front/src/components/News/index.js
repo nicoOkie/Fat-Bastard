@@ -2,6 +2,7 @@
  * NPM Import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -15,15 +16,18 @@ import './news.scss';
 /**
  * Code
  */
-const News = () => (
+const News = ({ news, loaded }) => (
   <div className="news special-width">
-    <Article />
-    <Article />
-    <Article />
+    {loaded ? (news.map(article => (
+      <Article key={article.id} {...article} />
+    ))) : (<p>waiting</p>)}
   </div>
 );
 
-
+News.propTypes = {
+  news: PropTypes.array.isRequired,
+  loaded: PropTypes.bool.isRequired,
+};
 /**
  * Export
  */

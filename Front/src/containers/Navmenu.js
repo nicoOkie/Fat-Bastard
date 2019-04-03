@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import Tour from 'src/components/Tour';
+import Menu from 'src/components/Nav/Menu';
 
 // Action Creators
 
@@ -19,8 +19,7 @@ import Tour from 'src/components/Tour';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = state => ({
-  dates: state.tourDates,
-  loaded: state.loadedData.tourdates,
+  burgerItems: state.sectionTitles,
 });
 
 /* === Actions ===
@@ -33,10 +32,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {};
 
 // Container
-const TourContainer = connect(
+const NavContainerMenu = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Tour);
+)(Menu);
 
 /* 2 temps
 const createContainer = connect(mapStateToProps, mapDispatchToProps);
@@ -46,4 +45,4 @@ const ExampleContainer = createContainer(Example);
 /**
  * Export
  */
-export default TourContainer;
+export default NavContainerMenu;

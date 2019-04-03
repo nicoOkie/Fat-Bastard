@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 /**
  * Local import
  */
-import Discoscreen from './Discoscreen';
-import Discomobile from './Discomobile';
+import Discoscreen from 'src/containers/Discoscreen';
+import Discomobile from 'src/containers/Discomobile';
 
 // Styles
 
@@ -20,7 +20,7 @@ const Discography = () => {
   const handleResize = () => setWidth(window.innerWidth);
   window.addEventListener('resize', handleResize);
   return (
-    <div className="discography">
+    <div id="disco" className="discography">
       {width > 1224 ? <Discoscreen /> : <Discomobile />}
     </div>
   );

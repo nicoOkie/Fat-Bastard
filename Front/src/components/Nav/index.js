@@ -7,7 +7,7 @@ import React, { useState } from 'react';
  * Local import
  */
 import FullScreen from 'src/containers/Fullscreen';
-import Menu from './Menu';
+import Menu from 'src/containers/Navmenu';
 
 // Styles
 import './nav.scss';
