@@ -30,6 +30,17 @@
     }
 }
 
+.about-hoverdiv {
+    background-color: grey;
+    border: solid 3px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.about-hoverp {
+    font-size: 20px;
+}
+
 // Tablettes
 @media (min-width: 768px) and (max-width: 1224px) {
     .about {

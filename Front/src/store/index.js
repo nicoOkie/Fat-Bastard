@@ -13,6 +13,7 @@ import sectionMiddleware from './middlewares/sectionMiddleware';
 import newsMiddleware from './middlewares/newsMiddleware';
 import tourMiddleware from './middlewares/tourMiddleware';
 import middlewareDisco from './middlewares/middlewareDisco';
+import videosMiddleware from './middlewares/videosMiddleware';
 import middlewareAbout from './middlewares/middlewareAbout';
 import middlewareAboutDescription from './middlewares/middlewareAboutDescription';
 import middlewareSectionBackground from './middlewares/middlewareSectionBackground';
@@ -28,6 +29,7 @@ const enhancers = composeEnhancers(
     newsMiddleware,
     tourMiddleware,
     middlewareDisco,
+    videosMiddleware,
     middlewareAbout,
     middlewareAboutDescription,
     middlewareSectionBackground,

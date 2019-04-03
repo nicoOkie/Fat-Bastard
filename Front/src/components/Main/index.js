@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -32,14 +33,15 @@ const Main = ({
   </>
 );
 
-// {loaded ? (
-//   <div className="about-text">
-//     <h1>{aboutdescriptionItems.title.rendered}</h1>
-//     <p key={aboutdescriptionItems.id}>{aboutdescriptionItems.content.rendered}</p>
-//   </div>
-// ) : (
-//   <p>waiting</p>
-// )}
+/**
+ * Prop-types
+ */
+
+Main.propTypes = {
+  unitedItems: PropTypes.array.isRequired,
+  titlesLoaded: PropTypes.bool.isRequired,
+  backgroundLoaded: PropTypes.bool.isRequired,
+};
 
 /**
  * Export

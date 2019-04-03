@@ -37,9 +37,10 @@ const Discomobile = ({ discoItems }) => {
 /**
  * Proptypes
  */
+
 Discomobile.propTypes = {
   discoItems: PropTypes.arrayOf(
-    PropTypes.string.isRequired,
+    PropTypes.object.isRequired,
   ).isRequired,
 };
 

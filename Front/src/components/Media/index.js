@@ -2,7 +2,8 @@
  * NPM import
  */
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import YouTube from 'react-youtube';
 
 /**
  * Local import
@@ -15,21 +16,35 @@ import './media.scss';
 /**
  * Code
  */
-const Media = () => (
+const Media = ({ videos: { main, vids }, loaded }) => (
   <div className="media special-width">
-    <section className="media-video">
-      <div className="media-video-one">
-        Video principale
-      </div>
+    {loaded && (
+      <section className="media-video">
+        <div className="media-video-one">
+          <YouTube
+            videoId={main}
+          />
+        </div>
 
-      <div className="media-video-carousel">
-        <VideoSlider />
-      </div>
-    </section>
+        <div className="media-video-carousel">
+          <VideoSlider videos={vids} />
+        </div>
+      </section>
+    )}
 
     <Gallery />
   </div>
 );
+
+Media.propTypes = {
+  videos: PropTypes.shape({
+    main: PropTypes.string.isRequired,
+    vids: PropTypes.arrayOf(
+      PropTypes.string.isRequired,
+    ).isRequired,
+  }).isRequired,
+  loaded: PropTypes.bool.isRequired,
+};
 
 /**
  * Export
