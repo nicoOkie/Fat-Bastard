@@ -5,7 +5,6 @@
 
 /content/plugins/*
 !/content/plugins/the-fat-bastard-settings
-!/content/plugins/the-fat-bastard-contact-form
 
 /content/debug.log
 
