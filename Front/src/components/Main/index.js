@@ -32,14 +32,7 @@ const Main = ({
   </>
 );
 
-// {loaded ? (
-//   <div className="about-text">
-//     <h1>{aboutdescriptionItems.title.rendered}</h1>
-//     <p key={aboutdescriptionItems.id}>{aboutdescriptionItems.content.rendered}</p>
-//   </div>
-// ) : (
-//   <p>waiting</p>
-// )}
+
 
 /**
  * Export
