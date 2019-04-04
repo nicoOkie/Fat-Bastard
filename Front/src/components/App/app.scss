@@ -1,20 +1,20 @@
-// Css de App
+@import 'src/styles/vars';
 
 #app {
   width: 100%;
-  background-color: #FEEFD4;
-  color: #002F3F;
+  background-color: $fat-white;
+  color: $fat-blue;
 }
 
 .special-width {
   width: 85%;
   margin: 0 auto;
 
-  @media screen and (min-width: 900px) {
+  @include for-tablet-landscape-up {
     width: 80vw;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop-up {
     width: 75vw;
   }
 }
