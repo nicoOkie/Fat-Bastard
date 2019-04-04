@@ -14,6 +14,7 @@ import App from 'src/components/App';
 import store from 'src/store';
 
 import {
+  loadVideos,
   loadTourDates,
   loadNews,
   loadSectionTitles,
@@ -49,3 +50,4 @@ store.dispatch(loadSectionAbout());
 store.dispatch(loadSectionAboutDescription());
 store.dispatch(loadSectionBackground());
 store.dispatch(loadPictures());
+store.dispatch(loadVideos());

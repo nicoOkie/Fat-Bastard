@@ -31,7 +31,7 @@ const Discoscreen = ({ discoItems }) => (
  */
 Discoscreen.propTypes = {
   discoItems: PropTypes.arrayOf(
-    PropTypes.string.isRequired,
+    PropTypes.object.isRequired,
   ).isRequired,
 };
 

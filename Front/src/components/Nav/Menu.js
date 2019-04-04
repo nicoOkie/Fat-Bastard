@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { slide as Slide } from 'react-burger-menu';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -21,6 +22,15 @@ const Menu = ({ burgerItems }) => (
     ))}
   </Slide>
 );
+
+/**
+ * PropTypes
+ */
+Menu.propTypes = {
+  burgerItems: PropTypes.arrayOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
+};
 
 /**
  * Export
