@@ -18,6 +18,13 @@
   &-nav {
     &-link {
       padding: 0 .4em;
+      transition: 0.3s ease;
+    }
+    &-link:hover {
+      border-bottom: 4px solid #D73B25;
+      padding-bottom: 5px;
+      border-top: 4px solid #D73B25;
+      padding-top: 5px;
     }
   }
 }

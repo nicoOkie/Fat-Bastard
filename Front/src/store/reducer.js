@@ -29,6 +29,7 @@ const initialState = {
   aboutLoaded: false,
   backgroundLoaded: false,
   titlesLoaded: false,
+  discoPics: [],
 };
 
 /**
@@ -48,6 +49,8 @@ export const RECEIVED_TOUR_DATES = 'RECEIVED_TOUR_DATES';
 // DISCO Export
 export const LOAD_SECTION_DISCO = 'LOAD_DISCO_NAME';
 export const RECEIVED_SECTION_DISCO = 'RECEIVED_SECTION_DISCO';
+export const LOAD_DISCO_PICS = 'LOAD_DISCO_PICS';
+export const RECEIVED_DISCO_PICS = 'RECEIVED_DISCO_PICS';
 // Media Import
 export const LOAD_VIDEOS = 'LOAD_VIDEOS';
 export const RECEIVED_VIDEOS = 'RECEIVED_VIDEOS';
@@ -128,6 +131,17 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         sectionDisco: action.data,
+      };
+
+    case LOAD_DISCO_PICS:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_DISCO_PICS:
+      return {
+        ...state,
+        discoPics: action.data,
       };
 
       // ABOUT SECTION
@@ -251,6 +265,8 @@ export const receivedTourDates = data => ({
   data,
 });
 
+// Disco Import
+
 export const loadSectionDisco = () => ({
   type: LOAD_SECTION_DISCO,
 });
@@ -259,6 +275,17 @@ export const receivedSectionDisco = data => ({
   type: RECEIVED_SECTION_DISCO,
   data,
 });
+
+export const loadDiscoPics = () => ({
+  type: LOAD_DISCO_PICS,
+});
+
+export const receivedDiscoPics = data => ({
+  type: RECEIVED_DISCO_PICS,
+  data,
+});
+
+// About Import
 
 export const loadSectionAbout = () => ({
   type: LOAD_SECTION_ABOUT,
