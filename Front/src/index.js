@@ -23,6 +23,7 @@ import {
   loadSectionAboutDescription,
   loadSectionBackground,
   loadPictures,
+  loadDiscoPics,
 } from 'src/store/reducer';
 
 
@@ -51,3 +52,4 @@ store.dispatch(loadSectionAboutDescription());
 store.dispatch(loadSectionBackground());
 store.dispatch(loadPictures());
 store.dispatch(loadVideos());
+store.dispatch(loadDiscoPics());
