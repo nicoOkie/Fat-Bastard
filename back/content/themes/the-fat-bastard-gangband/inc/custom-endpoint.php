@@ -140,31 +140,35 @@ function fat_customizer_media_videos_endpoint()
     );
 }
 
-add_action('rest_api_init', 'fat_contact_form_endpoint');
+add_action('rest_api_init', 'fat_group_photos_endpoint');
 
-function fat_contact_form_endpoint()
+function fat_group_photos_endpoint()
 {
+    global $post;
+
     register_rest_route(
         'fat/v1',
-        'contact-form',
-        [
-            'method'   => 'POST',
+        'group/photos',
+         [
+            'method'   => 'GET',
             'callback' => function(){
-                $name = '';
-                $email = '';
-                $subject = '';
-                $message = '';
+                $group_post = get_posts([
+                    'post_type' => 'group',
+                    'posts_per_page' => -1,
+                    'orderby' => 'ID',
+                    'order' => 'ASC'
+                    
+                ]);
+                $group_id = [];
 
-                $contact_data = [
-                    'name'    => $name,
-                    'email'   => $email,
-                    'subject' => $subject,
-                    'message' => $message
-                ];
-
-                return $contact_data;
-
+                foreach($group_post as $musician){
+                    $group_id [] = get_the_post_thumbnail_url($musician->ID);
+                
+               }
+                return $group_id;
             }
+            
         ]
     );
 }
+
