@@ -14,21 +14,18 @@ import axios from 'axios';
  * Code
  */
 class ContactForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contactSelect: '',
-      inputName: '',
-      inputMail: '',
-      inputSubject: '',
-      inputText: '',
-      newsletterCheck: '',
-      mailSent: false,
-      error: null,
-    };
-  }
+  state = {
+    contactSelect: '',
+    inputName: '',
+    inputMail: '',
+    inputSubject: '',
+    inputText: '',
+    newsletterCheck: false,
+    mailSent: false,
+    error: null,
+  };
 
-  handleFormSubmit(event) {
+  handleFormSubmit = (event) => {
     event.preventDefault();
     axios({
       method: 'post',
@@ -39,6 +36,12 @@ class ContactForm extends React.Component {
       .then((result) => {
         this.setState({
           mailSent: result.data.sent,
+          contactSelect: '',
+          inputName: '',
+          inputMail: '',
+          inputSubject: '',
+          inputText: '',
+          newsletterCheck: '',
         });
       })
       .catch(error => this.setState({ error: error.message }));
@@ -62,7 +65,7 @@ class ContactForm extends React.Component {
             <input type="checkbox" id="newsletter-check" name="newsletter-check" value={this.state.newsletterCheck} onChange={e => this.setState({ newsletterCheck: e.target.value })} />
             <label id="newsletter-check" htmlFor="newsletter-check">Souscrire à la newsletter</label>
           </div>
-          <input type="submit" onClick={e => this.handleFormSubmit(e)} value="Envoyer" />
+          <input type="submit" onSubmit={e => this.handleFormSubmit(e)} value="Envoyer" />
         </form>
       </div>
     );

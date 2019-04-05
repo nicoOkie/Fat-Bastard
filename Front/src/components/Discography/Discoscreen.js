@@ -15,12 +15,12 @@ import './discography.scss';
  * Code
  */
 
-const Discoscreen = ({ discoItems }) => (
+const Discoscreen = ({ discoImages, discoDatas }) => (
   <div className="discoscreen">
-    {discoItems.map(disco => (
+    {discoDatas.map(disco => (
       <div key={disco.id} className="discoscreen-section">
-        <img src={disco.custom_fields.album_first_side} className="discoscreen-pic" alt={`cover-${disco.title.rendered}`} />
         <p className="discoscreen-text">{disco.title.rendered}</p>
+        <img src={disco} className="discoscreen-pic" alt={`cover-${disco.title.rendered}`} />
       </div>
     ))}
   </div>
@@ -29,11 +29,11 @@ const Discoscreen = ({ discoItems }) => (
 /**
  * Prop-types
  */
-Discoscreen.propTypes = {
-  discoItems: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
-};
+// Discoscreen.propTypes = {
+//   discoItems: PropTypes.arrayOf(
+//     PropTypes.object.isRequired,
+//   ).isRequired,
+// };
 
 
 /**

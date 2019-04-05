@@ -19,7 +19,8 @@ import Discomobile from 'src/components/Discography/Discomobile';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = state => ({
-  discoItems: state.sectionDisco,
+  discoImages: state.discoPics,
+  discoDatas: state.sectionDisco,
 });
 
 /* === Actions ===

@@ -336,25 +336,13 @@ function fat_discography_custom_box_html( $post )
         true
     );
 
-    $first_side = get_post_meta(
-        $post->ID,
-        'album_first_side',
-        true
-    );
-
-    $second_side = get_post_meta(
-        $post->ID,
-        'album_second_side',
-        true
-    );
-
 ?>
     <div style="margin:30px 0px 20px;">
-        <label for="release_date" style="font-weight:bold;font-size:1rem;margin-right:17px;">Date de sortie</label>
+        <label for="release_date" style="font-weight:bold; margin-right:17px;">Date de sortie</label>
         <input type="date" name="release_date" id="release_date" value="<?= $date; ?>"" style="height: 30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="producter_name" style="font-weight:bold;font-size:1rem;margin-right:44px;">Producteur</label>
+        <label for="producter_name" style="font-weight:bold; margin-right:34px;">Producteur</label>
         <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>"style="height:30px;" />
     </div>
 
@@ -383,21 +371,6 @@ function fat_discography_save_postdata( $post_ID )
         );
     }
 
-    if ( isset($_POST['album_first_side']) ) {
-        update_post_meta(
-            $post_ID,
-            'album_first_side',
-            $_POST['album_first_side']
-        );
-    }
-
-    if ( isset($_POST['album_second_side']) ) {
-        update_post_meta(
-            $post_ID,
-            'album_second_side',
-            $_POST['album_second_side']
-        );
-    }
 }
 
 /* 
@@ -445,19 +418,19 @@ function fat_group_custom_box_html( $post )
 ?>
 
     <div style="margin:30px 0px 20px;">
-        <label for="first_name" style="font-weight:bold;font-size:1rem;margin-right:49px;">Prénom</label>
+        <label for="first_name" style="font-weight:bold;margin-right:37px;">Prénom</label>
         <input type="text" name="first_name" id="first_name" value="<?= $first_name; ?>"" style="height: 30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="last_name" style="font-weight:bold;font-size:1rem;margin-right:76px;">Nom</label>
+        <label for="last_name" style="font-weight:bold;margin-right:56px;">Nom</label>
         <input type="text" name="last_name" id="last_name" value="<?= $last_name; ?>"style="height:30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="nickname" style="font-weight:bold;font-size:1rem;margin-right:49px;">Surnom</label>
+        <label for="nickname" style="font-weight:bold;margin-right:38px;">Surnom</label>
         <input type="text" name="nickname" id="nickname" value="<?= $nickname; ?>"style="height:30px;" />
     </div>
     <div style="margin-bottom: 20px;">
-        <label for="instruments" style="font-weight:bold;font-size:1rem;margin-right:8px;">Instruments</label>
+        <label for="instruments" style="font-weight:bold;margin-right:8px;">Instruments</label>
         <input type="text" name="instruments" id="instruments" value="<?= $instruments; ?>"style="height:30px;"  />
     </div>
 
@@ -531,7 +504,7 @@ function fat_contact_custom_box_html( $post )
 ?>
 
     <div style="margin:30px 0px 20px;">
-        <label for="email" style="font-weight:bold;font-size:1.2rem;margin-right:17px;">Email</label>
+        <label for="email" style="font-weight:bold; margin-right:17px;">Email</label>
         <input type="email" name="email" id="email" value="<?= $email; ?>"" style="height: 30px;" />
     </div>
 
@@ -633,7 +606,7 @@ function custom_discography_columns($columns)
         'producter'     => 'Producteur',
     ];
 
-    $columns = array_slice($columns, 0, true) + ['album_jacket' => 'Pochette de l\'album'] + array_slice($columns, 1, count($columns) - 1, true); 
+    $columns = array_slice($columns, 0, true) + ['album_jacket' => ''] + array_slice($columns, 1, count($columns) - 1, true); 
 
     return $columns;
 }
@@ -645,6 +618,11 @@ function custom_discography_columns_content($column)
     global $post;
 
     switch($column) {
+        case 'album_jacket':
+            $album_first_side = get_field('pochette_recto', $post->ID);
+            $album_first_side_url = $album_first_side ['url'];
+            echo "<img src= $album_first_side_url style= 'width: 75px; height: 75px;'>";
+            break;
         case 'release_date':
             echo get_post_meta($post->ID, 'release_date', TRUE);
             break;
@@ -664,7 +642,7 @@ add_filter('manage_group_posts_columns', 'custom_group_columns');
 function custom_group_columns($columns)
 {
     $columns = [
-        'cb'            => '',
+        'cb'          => '',
         'title'       => 'Groupe / Musiciens',
         'photo'       => '',
         'first_name'  => 'Prénom',
