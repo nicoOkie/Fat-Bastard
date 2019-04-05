@@ -24,6 +24,7 @@ const initialState = {
   },
   sectionDisco: [],
   sectionAbout: [],
+  aboutPics: [],
   sectionBackground: [],
   sectionAboutDescription: [],
   aboutLoaded: false,
@@ -65,6 +66,8 @@ export const LOAD_SECTION_ABOUT_DESCRIPTION = 'LOAD_SECTION_ABOUT_DESCRIPTION';
 export const RECEIVED_SECTION_ABOUT_DESCRIPTION = 'RECEIVED_SECTION_ABOUT_DESCRIPTION';
 export const LOAD_SECTION_BACKGROUND = 'LOAD_SECTION_BACKGROUND';
 export const RECEIVED_SECTION_BACKGROUND = 'RECEIVED_SECTION_BACKGROUND';
+export const LOAD_ABOUT_PICS = 'LOAD_ABOUT_PICS';
+export const RECEIVED_ABOUT_PICS = 'RECEIVED_ABOUT_PICS';
 // CONTACT Export
 
 /**
@@ -159,6 +162,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         sectionAbout: action.data,
+        loadaboutItems: true,
       };
 
     case LOAD_SECTION_ABOUT_DESCRIPTION:
@@ -171,6 +175,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         sectionAboutDescription: action.data,
         aboutLoaded: true,
+      };
+
+    case LOAD_ABOUT_PICS:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_ABOUT_PICS:
+      return {
+        ...state,
+        aboutPics: action.data,
+        loadaboutPics: true,
       };
 
       // BACKGROUND SECTION PICTURES
@@ -315,6 +331,15 @@ export const loadSectionBackground = () => ({
 
 export const receivedSectionBackground = data => ({
   type: RECEIVED_SECTION_BACKGROUND,
+  data,
+});
+
+export const loadAboutPics = () => ({
+  type: LOAD_ABOUT_PICS,
+});
+
+export const receivedAboutPics = data => ({
+  type: RECEIVED_ABOUT_PICS,
   data,
 });
 
