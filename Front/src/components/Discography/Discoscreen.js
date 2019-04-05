@@ -15,26 +15,42 @@ import './discography.scss';
  * Code
  */
 
-const Discoscreen = ({ discoImages, discoDatas }) => (
-  <div className="discoscreen">
-    {discoDatas.map(disco => (
-      <div key={disco.id} className="discoscreen-section">
-        <p className="discoscreen-text">{disco.title.rendered}</p>
-        <img src={disco} className="discoscreen-pic" alt={`cover-${disco.title.rendered}`} />
+const Discoscreen = ({
+  discoImages,
+  discoDatas,
+  loaddiscoImages,
+  loaddiscoDatas,
+}) => {
+  const newArray = [];
+  for (let index = 0; index < discoDatas.length; index += 1) {
+    const array = [discoDatas[index], discoImages[index]];
+    newArray.push(array);
+  }
+
+  return (
+    <>
+      {(loaddiscoDatas && loaddiscoImages && (
+      <div className="discoscreen">
+        {newArray.map(disco => (
+          <div key={disco[0].id} className="discoscreen-section">
+            <img src={disco[1]} className="discoscreen-pic" alt={`cover-${disco[0].title.rendered}`} />
+            <p className="discoscreen-text">{disco[0].title.rendered}</p>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-);
+      )) || ((
+      <p>Waiting</p>
+      ))}
+    </>
+  );
+};
 
-/**
- * Prop-types
- */
-// Discoscreen.propTypes = {
-//   discoItems: PropTypes.arrayOf(
-//     PropTypes.object.isRequired,
-//   ).isRequired,
-// };
-
+Discoscreen.propTypes = {
+  discoImages: PropTypes.array.isRequired,
+  discoDatas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  loaddiscoDatas: PropTypes.bool.isRequired,
+  loaddiscoImages: PropTypes.bool.isRequired,
+};
 
 /**
  * Export

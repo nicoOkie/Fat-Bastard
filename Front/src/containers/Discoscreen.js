@@ -44,6 +44,8 @@ import Discoscreen from 'src/components/Discography/Discoscreen';
 const mapStateToProps = state => ({
   discoImages: state.discoPics,
   discoDatas: state.sectionDisco,
+  loaddiscoImages: state.loaddiscoPics,
+  loaddiscoDatas: state.loadDisco,
 });
 
 

@@ -30,6 +30,8 @@ const initialState = {
   backgroundLoaded: false,
   titlesLoaded: false,
   discoPics: [],
+  loaddiscoPics: false,
+  loadDisco: false,
 };
 
 /**
@@ -131,6 +133,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         sectionDisco: action.data,
+        loadDisco: true,
       };
 
     case LOAD_DISCO_PICS:
@@ -142,6 +145,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         discoPics: action.data,
+        loaddiscoPics: true,
       };
 
       // ABOUT SECTION
