@@ -21,3 +21,7 @@ export const freshNews = (news) => {
 
   return cleanNews;
 };
+
+export const onlyThreeNews = news => (
+  freshNews(news).slice(0, 3)
+);
