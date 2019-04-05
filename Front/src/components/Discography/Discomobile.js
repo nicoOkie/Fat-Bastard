@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 /**
  * Code
  */
-const Discomobile = ({ discoItems }) => {
+const Discomobile = ({ discoImages, discoDatas }) => {
   const settings = {
     infinite: true,
     speed: 500,
