@@ -1,5 +1,53 @@
 // CSS News
 
+.news {  
+  &-article {
+    &-split {
+      width: 100%;
+      height: 10px;
+      margin: 2em 0 1em;
+      background: url('../../../../assets/barre-hr.png');
+      background-size: 100% 10px;
+    }
+
+    &-header {
+      margin-top: 1.2em;
+      font-weight: bold;
+      font-size: 1.2em;      
+    }
+
+    &-aside {
+      margin-top: .4em;
+      font-size: .7em;
+      font-style: italic;
+
+      p {
+        display: inline-block;
+        margin-right: .4em;
+      }
+    }
+
+    &-section {
+      margin-top: .4em;
+      font-size: .9em;
+
+      p {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+.wp-block-image {
+  margin-top: .7em;
+
+  figcaption {
+    margin-top: .2em;
+  }
+}
+
+
+
 // .news {
 //   &-article {
 //     display: grid;
