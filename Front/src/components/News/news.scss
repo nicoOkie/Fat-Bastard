@@ -1,4 +1,5 @@
 // CSS News
+@import 'src/styles/vars';
 
 .news {  
   &-article {
@@ -8,12 +9,22 @@
       margin: 2em 0 1em;
       background: url('../../../../assets/barre-hr.png');
       background-size: 100% 10px;
+
+      @include for-tablet-portrait-up {
+        height: 15px;
+        background-size: 100% 15px;
+        margin: 3em 0 2em;
+      }
     }
 
     &-header {
       margin-top: 1.2em;
       font-weight: bold;
-      font-size: 1.2em;      
+      font-size: 1.2em;   
+      
+      @include for-tablet-portrait-up {
+        font-size: 1.5em;
+      }
     }
 
     &-aside {
@@ -25,6 +36,8 @@
         display: inline-block;
         margin-right: .4em;
       }
+
+      
     }
 
     &-section {
