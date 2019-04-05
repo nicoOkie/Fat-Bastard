@@ -2,8 +2,8 @@
  * Local imports
  */
 import { cleanTourDates } from 'src/utils/tourCleaner';
-import { freshNews } from 'src/utils/newsCleaner';
 import { videoIds } from 'src/utils/videosUtil';
+import { onlyThreeNews } from 'src/utils/newsCleaner';
 
 /**
  * Initial State
@@ -100,7 +100,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.loadedData,
           newsLoaded: true,
         },
-        news: freshNews(action.data),
+        news: onlyThreeNews(action.data),
       };
 
       // TOUR SECTION
