@@ -33,6 +33,8 @@ const initialState = {
   discoPics: [],
   loaddiscoPics: false,
   loadDisco: false,
+  discoVerso: [],
+  loadVerso: false,
 };
 
 /**
@@ -54,6 +56,8 @@ export const LOAD_SECTION_DISCO = 'LOAD_DISCO_NAME';
 export const RECEIVED_SECTION_DISCO = 'RECEIVED_SECTION_DISCO';
 export const LOAD_DISCO_PICS = 'LOAD_DISCO_PICS';
 export const RECEIVED_DISCO_PICS = 'RECEIVED_DISCO_PICS';
+export const LOAD_DISCO_VERSO = 'LOAD_DISCO_VERSO';
+export const RECEIVED_DISCO_VERSO = 'RECEIVEID_DISCO_VERSO';
 // Media Import
 export const LOAD_VIDEOS = 'LOAD_VIDEOS';
 export const RECEIVED_VIDEOS = 'RECEIVED_VIDEOS';
@@ -149,6 +153,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         discoPics: action.data,
         loaddiscoPics: true,
+      };
+
+    case LOAD_DISCO_VERSO:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_DISCO_VERSO:
+      return {
+        ...state,
+        discoVerso: action.data,
+        loadVerso: true,
       };
 
       // ABOUT SECTION
@@ -302,6 +318,15 @@ export const loadDiscoPics = () => ({
 
 export const receivedDiscoPics = data => ({
   type: RECEIVED_DISCO_PICS,
+  data,
+});
+
+export const loadDiscoVerso = () => ({
+  type: LOAD_DISCO_VERSO,
+});
+
+export const receivedDiscoVerso = data => ({
+  type: RECEIVED_DISCO_VERSO,
   data,
 });
 

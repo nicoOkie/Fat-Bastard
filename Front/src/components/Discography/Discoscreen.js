@@ -20,10 +20,11 @@ const Discoscreen = ({
   discoDatas,
   loaddiscoImages,
   loaddiscoDatas,
+  discoVerso,
 }) => {
   const newArray = [];
   for (let index = 0; index < discoDatas.length; index += 1) {
-    const array = [discoDatas[index], discoImages[index]];
+    const array = [discoDatas[index], discoImages[index], discoVerso[index]];
     newArray.push(array);
   }
 
@@ -33,7 +34,10 @@ const Discoscreen = ({
       <div className="discoscreen">
         {newArray.map(disco => (
           <div key={disco[0].id} className="discoscreen-section">
-            <img src={disco[1]} className="discoscreen-pic" alt={`cover-${disco[0].title.rendered}`} />
+            <div className="flip">
+              <img src={disco[1]} className="flip-back flip-card" alt={`cover-${disco[0].title.rendered}`} />
+              <img src={disco[2]} className="flip-front flip-card" alt={`cover-${disco[0].title.rendered}`} />
+            </div>
             <p className="discoscreen-text">{disco[0].title.rendered}</p>
           </div>
         ))}
@@ -50,6 +54,7 @@ Discoscreen.propTypes = {
   discoDatas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   loaddiscoDatas: PropTypes.bool.isRequired,
   loaddiscoImages: PropTypes.bool.isRequired,
+  discoVerso: PropTypes.array.isRequired,
 };
 
 /**
