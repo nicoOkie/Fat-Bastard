@@ -27,6 +27,7 @@ const Fullscreen = ({ menuItems }) => (
   </>
 );
 
+
 /**
  * PropTypes
  */
