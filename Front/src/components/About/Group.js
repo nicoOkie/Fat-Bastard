@@ -16,52 +16,64 @@ import './about.scss';
 /**
  * Code
  */
+const Group = ({
+  aboutItems,
+  aboutPictures,
+}) => {
+  const optionsCursorTrueWithMargin = {
+    followCursor: true,
+    shiftX: 0,
+    shiftY: 40,
+  };
+  const aboutPicture = [];
+  for (let i = 0; i < aboutPictures.length; i += 1) {
+    if (aboutPictures[i] !== false) {
+      aboutPicture.push(aboutPictures[i]);
+    }
+  }
+  const aboutThinks = [];
+  for (let x = 0; x < aboutItems.length; x += 1) {
+    if (aboutItems[x] !== aboutItems[7]) {
+      aboutThinks.push(aboutItems[x]);
+    }
+  }
+  const newArrayAbout = [];
+  for (let index = 0; index < aboutThinks.length; index += 1) {
+    const array = [aboutThinks[index], aboutPicture[index]];
+    newArrayAbout.push(array);
+  }
 
-const optionsCursorTrueWithMargin = {
-  followCursor: true,
-  shiftX: 0,
-  shiftY: 40,
+  return (
+    <div className="about-group">
+      {newArrayAbout.map(about => (
+        <div key={about[0].id} className="about-person" {...about}>
+          <ReactHover
+            options={optionsCursorTrueWithMargin}
+          >
+            <ReactHover.Trigger type="trigger">
+              <img className="about-picture" src={about[1]} alt="person" />
+            </ReactHover.Trigger>
+            <ReactHover.Hover type="hover">
+              <div className="about-hoverdiv">
+                <div className="about-picturetext about-hoverp">{about[0].custom_fields.first_name}</div>
+                <div className="about-hoverp">{about[0].custom_fields.last_name}</div>
+                <div className="about-hoverp">{ReactHtmlParser(about[0].content.rendered)}</div>
+                <div className="about-hoverp">{about[0].custom_fields.instruments}</div>
+              </div>
+            </ReactHover.Hover>
+          </ReactHover>
+        </div>
+      ))}
+    </div>
+  );
 };
-
-const Group = ({ aboutItems }) => (
-  <div className="about-group">
-    {aboutItems.map(about => (
-      <div key={about.id} className="about-person" {...about}>
-        <ReactHover
-          options={optionsCursorTrueWithMargin}>
-          <ReactHover.Trigger type="trigger">
-            <img className="about-picture" src={about.musicienpicture} alt="person" />
-          </ReactHover.Trigger>
-          <ReactHover.Hover type="hover">
-            <div className="about-hoverdiv">
-              <p className="about-picturetext about-hoverp">{about.custom_fields.first_name}</p>
-              <p className="about-hoverp">{about.custom_fields.last_name}</p>
-              <p className="about-hoverp">{ReactHtmlParser(about.content.rendered)}</p>
-              <p className="about-hoverp">{about.custom_fields.instruments}</p>
-            </div>
-          </ReactHover.Hover>
-        </ReactHover>
-      </div>
-    ))}
-  </div>
-);
 
 Group.propTypes = {
   aboutItems: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
+  aboutPictures: PropTypes.array.isRequired,
 };
-
-// const Group = ({ aboutItems }) => (
-//   <div className="about-group">
-//     {aboutItems.map(about => (
-//       <div key={about.id} className="about-person" {...about}>
-//         <img className="about-picture" src={about.musicienpicture} alt="person" />
-//         <p className="about-picturetext">{about.custom_fields.first_name}</p>
-//       </div>
-//     ))}
-//   </div>
-// );
 
 /**
  * Export

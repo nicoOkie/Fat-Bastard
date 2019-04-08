@@ -14,20 +14,25 @@ import PropTypes from 'prop-types';
 /**
  * Code
  */
-const Discomobile = ({ discoItems }) => {
+const Discomobile = ({ discoImages, discoDatas }) => {
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const newArray = [];
+  for (let index = 0; index < discoDatas.length; index += 1) {
+    const array = [discoDatas[index], discoImages[index]];
+    newArray.push(array);
+  }
 
   return (
     <Slider {...settings}>
-      {discoItems.map(disco => (
-        <div key={disco.id} className="discomobile" {...disco}>
-          <img className="discomobile-pic" src={disco.custom_fields.album_first_side} alt={disco.title.rendered} />
-          <p className="discomobile-text">{disco.title.rendered}</p>
+      {newArray.map(disco => (
+        <div key={disco[0].id} className="discomobile" {...disco}>
+          <img className="discomobile-pic" src={disco[1]} alt={`cover-${disco[0].title.rendered}`} />
+          <p className="discomobile-text">{disco[0].title.rendered}</p>
         </div>
       ))}
     </Slider>
@@ -39,9 +44,8 @@ const Discomobile = ({ discoItems }) => {
  */
 
 Discomobile.propTypes = {
-  discoItems: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
+  discoImages: PropTypes.array.isRequired,
+  discoDatas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 
 /**

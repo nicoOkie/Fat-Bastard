@@ -140,31 +140,100 @@ function fat_customizer_media_videos_endpoint()
     );
 }
 
-add_action('rest_api_init', 'fat_contact_form_endpoint');
+add_action('rest_api_init', 'fat_group_photos_endpoint');
 
-function fat_contact_form_endpoint()
+function fat_group_photos_endpoint()
 {
+
     register_rest_route(
         'fat/v1',
-        'contact-form',
-        [
-            'method'   => 'POST',
+        'group/photos',
+         [
+            'method'   => 'GET',
             'callback' => function(){
-                $name = '';
-                $email = '';
-                $subject = '';
-                $message = '';
+                $group_post = get_posts([
+                    'post_type' => 'group',
+                    'posts_per_page' => -1,
+                    'orderby' => 'ID',
+                    'order' => 'ASC'
+                    
+                ]);
+                $group_url = [];
 
-                $contact_data = [
-                    'name'    => $name,
-                    'email'   => $email,
-                    'subject' => $subject,
-                    'message' => $message
-                ];
-
-                return $contact_data;
-
+                foreach($group_post as $musician){
+                    $group_url [] = get_the_post_thumbnail_url($musician->ID);
+                
+               }
+                return $group_url;
             }
+            
         ]
     );
 }
+
+add_action('rest_api_init', 'fat_discography_recto_endpoint');
+
+function fat_discography_recto_endpoint()
+{
+
+    register_rest_route(
+        'fat/v1',
+        'discography/recto',
+         [
+            'method'   => 'GET',
+            'callback' => function(){
+                $disco_post = get_posts([
+                    'post_type' => 'discography',
+                    'posts_per_page' => -1,
+                    'orderby' => 'ID',
+                    'order' => 'ASC'
+                ]);
+
+                $album_first_side_url = [];
+
+                foreach($disco_post as $disco){
+                    $album_first_side = get_field('pochette_recto', $disco->ID);
+                    $album_first_side_url[] = $album_first_side ['url'];
+                
+               }
+
+                return $album_first_side_url;
+            }
+            
+        ]
+    );
+}
+
+add_action('rest_api_init', 'fat_discography_verso_endpoint');
+
+function fat_discography_verso_endpoint()
+{
+
+    register_rest_route(
+        'fat/v1',
+        'discography/verso',
+         [
+            'method'   => 'GET',
+            'callback' => function(){
+                $disco_post = get_posts([
+                    'post_type' => 'discography',
+                    'posts_per_page' => -1,
+                    'orderby' => 'ID',
+                    'order' => 'ASC'
+                ]);
+
+                $album_second_side_url = [];
+
+                foreach($disco_post as $disco){
+                    $album_second_side = get_field('pochette_verso', $disco->ID);
+                    $album_second_side_url[] = $album_second_side ['url'];
+                
+               }
+
+                return $album_second_side_url;
+            }
+            
+        ]
+    );
+}
+

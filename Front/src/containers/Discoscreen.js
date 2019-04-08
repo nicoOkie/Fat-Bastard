@@ -20,9 +20,36 @@ import Discoscreen from 'src/components/Discography/Discoscreen';
  *  - ownProps : les props passées au container
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
+// const mapStateToProps = (state) => {
+//   const {
+//     sectionDisco,
+//     discoPics,
+//   } = state;
+//   const unitedDiscos = [];
+//   let i = 0;
+//   for (i = 0; i < sectionDisco.length; i += 1) {
+//     const unitedDisco = {
+//       Discodata: sectionDisco[i],
+//       Discopics: discoPics[i],
+//     };
+//     unitedDiscos.push(unitedDisco);
+//   }
+
+
+//   return ({
+//     unitedDiscos,
+//   });
+// };
+
 const mapStateToProps = state => ({
-  discoItems: state.sectionDisco,
+  discoImages: state.discoPics,
+  discoDatas: state.sectionDisco,
+  loaddiscoImages: state.loaddiscoPics,
+  loaddiscoDatas: state.loadDisco,
+  discoVerso: state.discoVerso,
+  laoddiscoVerso: state.loadVerso,
 });
+
 
 /* === Actions ===
  * - mapDispatchToProps retroune un objet de props pour le composant de présentation

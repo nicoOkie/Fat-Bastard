@@ -15,26 +15,47 @@ import './discography.scss';
  * Code
  */
 
-const Discoscreen = ({ discoItems }) => (
-  <div className="discoscreen">
-    {discoItems.map(disco => (
-      <div key={disco.id} className="discoscreen-section">
-        <img src={disco.custom_fields.album_first_side} className="discoscreen-pic" alt={`cover-${disco.title.rendered}`} />
-        <p className="discoscreen-text">{disco.title.rendered}</p>
-      </div>
-    ))}
-  </div>
-);
+const Discoscreen = ({
+  discoImages,
+  discoDatas,
+  loaddiscoImages,
+  loaddiscoDatas,
+  discoVerso,
+}) => {
+  const newArray = [];
+  for (let index = 0; index < discoDatas.length; index += 1) {
+    const array = [discoDatas[index], discoImages[index], discoVerso[index]];
+    newArray.push(array);
+  }
 
-/**
- * Prop-types
- */
-Discoscreen.propTypes = {
-  discoItems: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
-  ).isRequired,
+  return (
+    <>
+      {(loaddiscoDatas && loaddiscoImages && (
+      <div className="discoscreen">
+        {newArray.map(disco => (
+          <div key={disco[0].id} className="discoscreen-section">
+            <div className="flip">
+              <img src={disco[1]} className="flip-back flip-card" alt={`cover-${disco[0].title.rendered}`} />
+              <img src={disco[2]} className="flip-front flip-card" alt={`cover-${disco[0].title.rendered}`} />
+            </div>
+            <p className="discoscreen-text">{disco[0].title.rendered}</p>
+          </div>
+        ))}
+      </div>
+      )) || ((
+      <p>Waiting</p>
+      ))}
+    </>
+  );
 };
 
+Discoscreen.propTypes = {
+  discoImages: PropTypes.array.isRequired,
+  discoDatas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  loaddiscoDatas: PropTypes.bool.isRequired,
+  loaddiscoImages: PropTypes.bool.isRequired,
+  discoVerso: PropTypes.array.isRequired,
+};
 
 /**
  * Export

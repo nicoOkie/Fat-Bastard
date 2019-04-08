@@ -13,6 +13,11 @@
     &-picture {
         width: 50%;
         height: 100px;
+        transition: transform .2s;
+        border-radius: 50%;
+    }
+    &-picture:hover {
+        transform: scale(1.3);
     }
     &-picturetext {
         width: 50%;
@@ -89,7 +94,8 @@
             width: 25%;
         }
         &-picture {
-            width: 100px;
+            width: 125px;
+            height: 125px;
         }
     }
 }

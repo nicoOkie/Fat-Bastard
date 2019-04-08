@@ -4,15 +4,18 @@
 .header {
 
   &-title {
+    font-family: 'mailart_rubberstamp', serif;
+    font-variant: small-caps;
     position: absolute;
-    bottom: 1em;
-    right: 2em;
+    bottom: .4em;
+    right: .6em;
     font-size: 4em;
     font-weight: bold;
-    color: white;
+    color: $fat-white;
+    text-transform: capitalize;
   }
 }
 
 .content {
-  // margin: 1em 0;
+  margin: 1em 0;
 }
