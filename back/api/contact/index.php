@@ -17,8 +17,7 @@ if (empty (trim($_POST['inputName'])) || empty(trim($_POST['inputMail'])) || !fi
     $has_error = true;
 }
 if (!isset($has_error)) {
-
-    http_response_code (200);
+    http_response_code(200);
     $name = trim($_POST['inputName']);
     $email = trim($_POST['inputMail']);
     $form_subject = trim($_POST['inputSubject']);
@@ -53,12 +52,12 @@ if (!isset($has_error)) {
     $mail->From = 'chapon.nicola@gmail.com';	            // L'adresse mail de l'emetteur du mail (en général identique à l'adresse utilisée pour l'authentification SMTP)
     $mail->FromName = 'The Fat Bastard official';           // Le nom de l'emetteur qui s'affichera dans le mail
     $mail->addAddress('chapon.nicola@gmail.com');	        // Un premier destinataire
-    /* if(!empty($second_email_to)){ 
+    /* if(!empty($second_email_to)){
     $mail->addAddress($second_email_to);
     }
     if(!empty($third_email_to)){		    // Un second destinataire (facultatif)
     $mail->addAddress($third_email_to); */
-    }                                       // Possibilité de répliquer la ligne pour plus de destinataires
+    // Possibilité de répliquer la ligne pour plus de destinataires
     $mail->addReplyTo($email);			    // Pour ajouter l'adresse à laquelle répondre (en général celle de la personne ayant rempli le formulaire)
     //$mail->addCC('cc@example.com');	    // Pour ajouter un champ Cc
     //$mail->addBCC('bcc@example.com');	    // Pour ajouter un champ Cci
@@ -68,9 +67,10 @@ if (!isset($has_error)) {
     $mail->AltBody = "Name: $name \n\n<br>Email: $email \n\n<br>Message: $comments";	// Le contenu du mail au format texte
 
 
-        if(!$mail->send()) { 
+        if (!$mail->send()) {
             echo 'Une erreur est survenue : le message ne peut être envoyé.';
             echo 'Erreur: ' . $mail->ErrorInfo;
         } else {
             echo 'Message envoyé';
         }
+}

@@ -9,12 +9,7 @@
 .special-width {
   width: 85%;
   margin: 0 auto;
-
-  // @include for-tablet-landscape-up {
-  //   width: 80vw;
-  // }
-
-  // @include for-desktop-up {
-  //   width: 75vw;
-  // }
+  @include for-desktop-up {
+    width: 60%;
+  }
 }
