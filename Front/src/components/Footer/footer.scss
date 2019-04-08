@@ -1,7 +1,14 @@
 // Css de Footerooter
 
-footer {
+.footer {
+  align-items: center;
   background-color: #002F3F;
   color: #F7F1E3;
+  display: flex;
   height: 8vh;
+  justify-content: center;
+
+  &-content {
+    font-size: 0.9rem;
+  }
 }
