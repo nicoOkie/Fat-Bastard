@@ -36,10 +36,15 @@
 }
 
 .about-hoverdiv {
-    background-color: grey;
+    background-color: #002F40;
     border: solid 3px solid black;
     border-radius: 5px;
     padding: 10px;
+    color: #FEEFD4;
+    :nth-child(1) {
+        font-weight: 700;
+        font-style: italic;
+    }
 }
 
 .about-hoverp {

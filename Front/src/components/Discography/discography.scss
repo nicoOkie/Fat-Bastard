@@ -24,6 +24,15 @@ img {
         font-weight: 700;
         font-size: 1.7rem;
     }
+    &-link {
+        font-weight: 700;
+        position: relative;
+        display: block;
+        margin-left: 35%;
+        margin-right: 25%;
+        width: 40%;
+        padding-top: 10px;
+    }
 }
 
 // Tablette
@@ -85,10 +94,18 @@ img {
         padding: 2vh 12vh;
     }
     &-text {
-       padding-top: 4vh;
-       text-align: center;
-       margin-bottom: 1vh; 
-       font-weight: 700;
-       font-size: 1.7rem;
+        padding-top: 4vh;
+        text-align: center;
+        margin-bottom: 1vh; 
+        font-weight: 700;
+        font-size: 1.7rem;
+    }
+    a {
+        font-weight: 700;
+        position: relative;
+        display: block;
+        margin-left: 35%;
+        margin-right: 25%;
+        width: 40%;
     }
 }

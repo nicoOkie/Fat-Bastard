@@ -18,6 +18,8 @@ import middlewareAbout from './middlewares/middlewareAbout';
 import middlewareAboutDescription from './middlewares/middlewareAboutDescription';
 import middlewareSectionBackground from './middlewares/middlewareSectionBackground';
 import mediaMiddleware from './middlewares/mediaMiddleware';
+import playerV1Midlleware from './middlewares/playerV1Middleware';
+import playerV2Middleware from './middlewares/playerV2Middleware';
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -34,6 +36,8 @@ const enhancers = composeEnhancers(
     middlewareAboutDescription,
     middlewareSectionBackground,
     mediaMiddleware,
+    playerV1Midlleware,
+    playerV2Middleware,
   ),
 );
 

@@ -22,18 +22,30 @@ const Nav = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const handleResize = () => setWidth(window.innerWidth);
   window.addEventListener('resize', handleResize);
+
+  // const newArrayPlayer = [];
+  // for (let index = 0; index < playerDatas.length; index += 1) {
+  //   const arrayPlayer = [playerDatas[index], playerMusic[index]];
+  //   newArrayPlayer.push(arrayPlayer);
+  // }
+
   const playlist = [
     {
       src: 'src/assets/audios/the-fat-bastard-gang-band-official-all-bastards.mp3',
-      title: 'All Bastard',
+      title: 'All Bastards',
       artist: 'FAT',
     },
     {
       src: 'src/assets/audios/the-fat-bastard-gangband-official-king-of-the-world.mp3',
-      title: 'King of the World',
+      title: 'King of The World',
       artist: 'FAT',
     },
   ];
+
+  // {unitedItems.map(unitedItem => (
+  //   <Section key={unitedItem.title} {...unitedItem} />
+  // ))}
+
   return (
     <>
       <div className="nav">
