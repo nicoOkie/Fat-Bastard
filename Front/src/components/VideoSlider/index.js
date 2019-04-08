@@ -49,6 +49,9 @@ const VideoSlider = ({ videos }) => {
         <YouTube
           key={video}
           videoId={video}
+          opts={{
+            width: '100%',
+          }}
         />
       ))}
     </Slider>

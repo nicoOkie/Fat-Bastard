@@ -20,6 +20,7 @@
     &-link {
       padding: 0 .4em;
       transition: 0.3s ease;
+      font-size: 1.3em;
     }
     &-link:hover {
       border-bottom: 4px solid $fat-red;
@@ -27,6 +28,12 @@
       border-top: 4px solid $fat-red;
       padding-top: 5px;
     }
+  }
+}
+
+@media (max-width: 899px) {
+  .onglet-audio {
+    top: 0px !important;
   }
 }
 
@@ -109,7 +116,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 // PLayer Audio
 
-.audio-player {
+.audio-player { 
   width: 50% !important;
   position:fixed;
   top: 100px;
@@ -117,6 +124,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
   flex-wrap: wrap;
   padding: 2vh;
   z-index: 2000;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .player-audio {
@@ -133,11 +142,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background-color: #002F3F;
   text-align: center;
   z-index: 2000;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .onglet-audio p {
   color: white;
   padding: 1.1vh;
+  padding-right: 1.5vh;
   font-size: 1.7em;
 }
 

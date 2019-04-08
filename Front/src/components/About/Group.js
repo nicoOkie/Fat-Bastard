@@ -26,6 +26,7 @@ const Group = ({
     shiftY: 40,
   };
   const aboutPicture = [];
+  aboutPictures.reverse();
   for (let i = 0; i < aboutPictures.length; i += 1) {
     if (aboutPictures[i] !== false) {
       aboutPicture.push(aboutPictures[i]);

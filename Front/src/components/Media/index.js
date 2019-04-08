@@ -23,6 +23,10 @@ const Media = ({ videos: { main, vids }, loaded }) => (
         <div className="media-video-one">
           <YouTube
             videoId={main}
+            opts={{
+              height: '363',
+              width: '100%',
+            }}
           />
         </div>
 
