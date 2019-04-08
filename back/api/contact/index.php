@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+require '../../wp/wp-blog-header.php';
+>>>>>>> develop
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -15,7 +19,6 @@ $_POST = json_decode ($rest_json, true);
 if (empty (trim($_POST['inputName'])) || empty(trim($_POST['inputMail'])) || !filter_var (trim($_POST['inputMail']), FILTER_VALIDATE_EMAIL) || empty(trim($_POST['inputText']))) {
     $has_error = true;
 }
-
 if (!isset($has_error)) {
 
     http_response_code (200);
@@ -31,14 +34,12 @@ if (!isset($has_error)) {
     $name_from = get_post_meta($contact[0]->ID, 'name', true);
     $server_SMTP = get_post_meta($contact[0]->ID, 'server_SMTP', true);
     $type_of_encription = get_post_meta($contact[0]->ID, 'type_of_encription', true);
-    $port_SMTP = get_post_meta($contact[0]->ID, 'port_SMTP', true);
+    $port_SMTP = intval(get_post_meta($contact[0]->ID, 'port_SMTP', true));
     $username = get_post_meta($contact[0]->ID, 'username', true);
     $password = get_post_meta($contact[0]->ID, 'password', true);
     $email_to = get_post_meta($contact[0]->ID, 'first_recipient', true);
     $second_email_to = get_post_meta($contact[0]->ID, 'second_recipient', true);
     $third_email_to = get_post_meta($contact[0]->ID, 'third_recipient', true);
-
-
 
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
