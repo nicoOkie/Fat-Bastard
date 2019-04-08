@@ -336,6 +336,12 @@ function fat_discography_custom_box_html( $post )
         true
     );
 
+    $purchase_link = get_post_meta(
+        $post->ID,
+        'purchase_link',
+        true
+    );
+
 ?>
     <div style="margin:30px 0px 20px;">
         <label for="release_date" style="font-weight:bold; margin-right:17px;">Date de sortie</label>
@@ -344,6 +350,10 @@ function fat_discography_custom_box_html( $post )
     <div style="margin-bottom: 20px;">
         <label for="producter_name" style="font-weight:bold; margin-right:34px;">Producteur</label>
         <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>"style="height:30px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="purchase_link" style="font-weight:bold; margin-right:34px;">Lien vers une boutique d'achat</label>
+        <input type="url" name="purchase_link" id="purchase_link" value="<?= $purchase_link; ?>"style="height:30px;" />
     </div>
 
     
@@ -368,6 +378,14 @@ function fat_discography_save_postdata( $post_ID )
             $post_ID,
             'producter_name',
             $_POST['producter_name']
+        );
+    }
+
+    if ( isset($_POST['purchase_link']) ) {
+        update_post_meta(
+            $post_ID,
+            'purchase_link',
+            $_POST['purchase_link']
         );
     }
 
