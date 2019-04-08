@@ -533,19 +533,19 @@ function fat_group_save_postdata( $post_ID )
  * Ajout de metabox au CPT contact
  */
 
-add_action( 'add_meta_boxes', 'fat_contact_custom_box' );
+add_action( 'add_meta_boxes', 'fat_contact_settings_custom_box' );
 
-function fat_contact_custom_box()
+function fat_contact_settings_custom_box()
 {
     add_meta_box(
         'fat_contact_box_id',          
-        'Personne à contacter', 
-        'fat_contact_custom_box_html',  
+        'Configuration', 
+        'fat_contact_settings_custom_box_html',  
         'contact'                   
     );
 }
 
-function fat_contact_custom_box_html( $post )
+function fat_contact_settings_custom_box_html( $post )
 {
     $email = get_post_meta(
         $post->ID,
@@ -553,21 +553,82 @@ function fat_contact_custom_box_html( $post )
         true
     );
 
+    $name = get_post_meta(
+        $post->ID,
+        'name',
+        true
+    );
+
+    $server = get_post_meta(
+        $post->ID,
+        'server_SMTP',
+        true
+    );
+
+    $secure = get_post_meta(
+        $post->ID,
+        'type_of_encription',
+        true
+    );
+
+    $port = get_post_meta(
+        $post->ID,
+        'port_SMTP',
+        true
+    );
+
+    $username = get_post_meta(
+        $post->ID,
+        'username',
+        true
+    );
+
+    $password = get_post_meta(
+        $post->ID,
+        'password',
+        true
+    );
+
+
 
 ?>
 
     <div style="margin:30px 0px 20px;">
-        <label for="email" style="font-weight:bold; margin-right:17px;">Email</label>
+        <label for="email" style="font-weight:bold; margin-right:56px;">Adresse email</label>
         <input type="email" name="email" id="email" value="<?= $email; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="name" style="font-weight:bold; margin-right:26px;">Nom de l'émetteur</label>
+        <input type="text" name="name" id="name" value="<?= $name; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="server_SMTP" style="font-weight:bold; margin-right:54px;">Serveur SMTP</label>
+        <input type="text" name="server_SMTP" id="server_SMTP" value="<?= $server; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="type_of_encription" style="font-weight:bold; margin-right:8px;">Protocole de sécurité</label>
+        <input type="text" name="type_of_encription" id="type_of_encription" value="<?= $secure; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="port_SMTP" style="font-weight:bold; margin-right:74px;">Port SMTP</label>
+        <input type="number" name="port_SMTP" id="port_SMTP" value="<?= $port; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="username" style="font-weight:bold; margin-right:34px;">SMTP Utilisateur</label>
+        <input type="email" name="username" id="username" value="<?= $username; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="password" style="font-weight:bold; margin-right:17px;">SMTP Mot de passe</label>
+        <input type="password" name="password" id="password" value="<?= $password; ?>"" style="height: 30px;" />
     </div>
 
     
 <?php
 }
 
-add_action( 'save_post', 'fat_contact_save_postdata' );
+add_action( 'save_post', 'fat_contact_settings_save_postdata' );
 
-function fat_contact_save_postdata( $post_ID )
+function fat_contact_settings_save_postdata( $post_ID )
 {
 
     if ( isset($_POST['email']) ) {
@@ -578,6 +639,131 @@ function fat_contact_save_postdata( $post_ID )
         );
     }
 
+    if ( isset($_POST['name']) ) {
+        update_post_meta(
+            $post_ID,
+            'name',
+            $_POST['name']
+        );
+    }
+
+    if ( isset($_POST['server_SMTP']) ) {
+        update_post_meta(
+            $post_ID,
+            'server_SMTP',
+            $_POST['server_SMTP']
+        );
+    }
+
+    if ( isset($_POST['type_of_encription']) ) {
+        update_post_meta(
+            $post_ID,
+            'type_of_encription',
+            $_POST['type_of_encription']
+        );
+    }
+
+    if ( isset($_POST['port_SMTP']) ) {
+        update_post_meta(
+            $post_ID,
+            'port_SMTP',
+            $_POST['port_SMTP']
+        );
+    }
+
+    if ( isset($_POST['username']) ) {
+        update_post_meta(
+            $post_ID,
+            'username',
+            $_POST['username']
+        );
+    }
+
+    if ( isset($_POST['password']) ) {
+        update_post_meta(
+            $post_ID,
+            'password',
+            $_POST['password']
+        );
+    }
+}
+
+add_action( 'add_meta_boxes', 'fat_contact_recipients_custom_box' );
+
+function fat_contact_recipients_custom_box()
+{
+    add_meta_box(
+        'fat_contact_recipients_box_id',          
+        'Destinataires du formulaire de contact', 
+        'fat_contact_recipients_custom_box_html',  
+        'contact'                   
+    );
+}
+
+function fat_contact_recipients_custom_box_html( $post )
+{
+    $first_recipient = get_post_meta(
+        $post->ID,
+        'first_recipient',
+        true
+    );
+
+    $second_recipient = get_post_meta(
+        $post->ID,
+        'second_recipient',
+        true
+    );
+
+    $third_recipient = get_post_meta(
+        $post->ID,
+        'third_recipient',
+        true
+    );
+    ?>
+
+    <div style="margin:30px 0px 20px;">
+        <label for="first_recipient" style="font-weight:bold; margin-right:26px;">Premier destinataire</label>
+        <input type="email" name="first_recipient" id="first_recipient" value="<?= $first_recipient; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="second_recipient" style="font-weight:bold; margin-right:13px;">Deuxième destinataire</label>
+        <input type="email" name="second_recipient" id="second_recipient" value="<?= $second_recipient; ?>"" style="height: 30px;" />
+    </div>
+    <div style="margin:30px 0px 20px;">
+        <label for="third_recipient" style="font-weight:bold; margin-right:14px;">Troisième destinataire</label>
+        <input type="email" name="third_recipient" id="third_recipient" value="<?= $third_recipient; ?>"" style="height: 30px;" />
+    </div>
+    <?php
+}
+
+add_action( 'save_post', 'fat_contact_recipients_save_postdata' );
+
+function fat_contact_recipients_save_postdata( $post_ID )
+{
+
+    if ( isset($_POST['first_recipient']) ) {
+        update_post_meta(
+            $post_ID,
+            'first_recipient',
+            $_POST['first_recipient']
+        );
+    }
+
+    if ( isset($_POST['second_recipient']) ) {
+        update_post_meta(
+            $post_ID,
+            'second_recipient',
+            $_POST['second_recipient']
+        );
+    }
+
+    if ( isset($_POST['third_recipient']) ) {
+        update_post_meta(
+            $post_ID,
+            'third_recipient',
+            $_POST['third_recipient']
+        );
+    }
 }
 
 /* 
@@ -664,6 +850,7 @@ function fat_player_save_postdata( $post_ID )
          'tourdates',
          'discography',
          'group',
+         'contact',
          'player'
         ],
          'custom_fields',

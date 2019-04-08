@@ -24,7 +24,7 @@ const Content = ({ id }) => (
   <div className="content">
     {id === 'news' && <News />}
     {id === 'tour' && <Tour />}
-    {/* {id === 'media' && <Media />} */}
+    {id === 'media' && <Media />}
     {id === 'discographie' && <Discography />}
     {id === 'à propos' && <About />}
     {id === 'contact' && <Contact />}

@@ -19,8 +19,12 @@
   &-nav {
     &-link {
       padding: 0 .4em;
+      -webkit-transition: 0.3s ease;
+      -moz-transition: 0.3s ease;
+      -o-transition: 0.3s ease;
       transition: 0.3s ease;
       font-size: 1.3em;
+      font-weight: 700;
     }
     &-link:hover {
       border-bottom: 4px solid $fat-red;
@@ -117,15 +121,26 @@ Note: Beware of modifying this element as it can break the animations - you shou
 // PLayer Audio
 
 .audio-player { 
-  width: 50% !important;
+  width: 100% !important;
   position:fixed;
-  top: 100px;
-  background-color: #002F3F;
+  top: 50px;
+  background-color: #323234;
   flex-wrap: wrap;
   padding: 2vh;
   z-index: 2000;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  color: white !important;
+
+  @media screen and (min-width: 899px) {
+    width: 50% !important;
+    position:fixed;
+    top: 100px;
+    background-color: #002F3F;
+    flex-wrap: wrap;
+    padding: 2vh;
+    z-index: 2000;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
 }
 
 .player-audio {
@@ -144,6 +159,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
   z-index: 2000;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
+  @media screen and (min-width: 899px) {
+    top: 100px;
+    position: fixed;
+    background-color: #002F3F;
+    text-align: center;
+    z-index: 2000;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
 }
 
 .onglet-audio p {
@@ -151,44 +175,93 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 1.1vh;
   padding-right: 1.5vh;
   font-size: 1.7em;
+  @media screen and (min-width: 899px) {
+    color: white;
+    padding: 1.1vh;
+    padding-right: 1.5vh;
+    font-size: 1.7em;
+  }
 }
 
 #play {
   width: 2em;
+  margin-left: 12vh;
+  @media screen and (min-width: 899px) {
+    width: 2em;
+  }
 }
 #play-icon {
   height: 2em !important;
   padding-right: 10px;
+  @media screen and (min-width: 899px) {
+    height: 2em !important;
+    padding-right: 10px;
+  }
 }
 
 #rewind {
   width: 2em;
+  @media screen and (min-width: 899px) {
+    width: 2em;
+  }
 }
 
 #rewind-icon {
   height: 2em !important;
   padding-right: 10px;
+  @media screen and (min-width: 899px) {
+    height: 2em !important;
+    padding-right: 10px;
+  }
 }
 
 #forward {
   width: 2em;
+  @media screen and (min-width: 899px) {
+    width: 2em;
+  }
 }
 
 #forward-icon {
   height: 2em !important;
   padding-right: 10px;
+  @media screen and (min-width: 899px) {
+    height: 2em !important;
+    padding-right: 10px;
+  }
 }
 
 
 #loop {
   width: 2em;
+  @media screen and (min-width: 899px) {
+    width: 2em;
+  }
 }
 
 #loop-icon {
   height: 2em !important;
   padding-right: 10px;
+  @media screen and (min-width: 899px) {
+    height: 2em !important;
+    padding-right: 10px;
+  }
 }
 
-#audio-player-track-name {
-  width: 50px;
+.audio-player-track-name {
+  width: 100px;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  @media screen and (min-width: 899px) {
+    width: 50px;
+  }
 }
+
+.marquee {
+  width: 150px;
+  font-size: 15px;
+}
+
+// .audio-player-seeker {
+  
+// }
