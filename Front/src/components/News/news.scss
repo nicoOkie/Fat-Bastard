@@ -98,54 +98,11 @@
   margin-top: .7em;
   width: 50%;
 
+  img {
+    width: 100% !important;
+  }
+
   figcaption {
     margin-top: .2em;
   }
 }
-
-// .wrapper {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-//   grid-template-rows: auto;
-// }
-
-// .news {
-//   &-article {
-//     display: grid;
-//     grid-template-columns: 1fr 15% 55% 1fr;
-//     grid-template-rows: auto;
-//     grid-template-areas:
-//       "split split split split"
-//       ". header header ."
-//       ". date content ."
-//       ". cat content .";
-//       justify-content: center;
-
-//       &-split {
-//         grid-area: split;
-//         margin: 2em 0 1em;
-//         height: 10px;
-//         width: 100%;
-//         background: url('../../../../assets/barre-hr.png');
-//         background-size: 100% 10px;
-//       }
-
-//       &-header {
-//         grid-area: header;
-//         width: 100%;
-//         margin: 1rem auto;
-//         font-size: 1.1em;
-//         font-weight: 700;
-//       }
-    
-//       &-aside {
-//         grid-area: date;
-//         margin-top: .2rem;
-//       }
-    
-//       &-section {
-//         grid-area: content;
-//         margin-top: .2em;
-//         }
-//   }  
-// }
