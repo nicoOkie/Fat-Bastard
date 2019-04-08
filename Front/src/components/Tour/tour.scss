@@ -1,15 +1,21 @@
 // CSS Tour
+@import 'src/styles/vars';
 
 .tour {
   padding: 2em 0;
   text-align: center;
+
+  @include for-desktop-up {
+    font-size: 1.5em;
+    padding: .5em .7em;
+  }
 
   &-date {
     margin-top: 1em;
     margin-bottom: 1.5em;
     padding: 1em 1em;
     font-size: .8em;
-    border: 1px solid black;
+    border: 1px solid $fat-blue;
     display: grid;
     grid-template-columns: 20% 30% 30% 10% 10%;
     grid-template-areas: "date city venue map ticket";
@@ -20,6 +26,9 @@
       grid-area: date;
       font-weight: 600;
       line-height: 1.3em;
+      @include for-tablet-portrait-up {
+        padding-left: 2em;
+      }
 
       &-star {
         font-size: .6em;
