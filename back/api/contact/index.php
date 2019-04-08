@@ -1,7 +1,7 @@
 <?php
 
-use PHPMail\PHPMailer\PHPMailer;
-use PHPMail\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 require '../../PHPMailer/PHPMailer.php';
 require '../../PHPMailer/Exception.php';
 require '../../PHPMailer/SMTP.php'; 
@@ -30,7 +30,7 @@ if (!isset($has_error)) {
     $mail->isSMTP();					            // Active l'envoi via SMTP
     $mail->Host = 'smtp.gmail.com';			        // À remplacer par le nom de votre serveur SMTP
     $mail->SMTPAuth = true;				        // Active l'authentification par SMTP
-    $mail->Username = 'chapon.nicola.com';         // Nom d'utilisateur SMTP (votre adresse email complète)
+    $mail->Username = 'chapon.nicola@gmail.com';         // Nom d'utilisateur SMTP (votre adresse email complète)
     $mail->Password = '79trompette';			        // Mot de passe de l'adresse email indiquée précédemment
     $mail->Port = 465;					            // Port SMTP
     $mail->SMTPSecure = "ssl";				        // Utiliser SSL
