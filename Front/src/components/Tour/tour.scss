@@ -7,7 +7,8 @@
   &-date {
     margin-top: 1em;
     margin-bottom: 1.5em;
-    padding: 1em 2.5em;
+    padding: 1em 1em;
+    font-size: .8em;
     border: 1px solid black;
     display: grid;
     grid-template-columns: 20% 30% 30% 10% 10%;
@@ -42,6 +43,7 @@
     &-venue {
       grid-area: venue;
       font-weight: 100;
+      text-align: left;
     }
 
     &-map {
