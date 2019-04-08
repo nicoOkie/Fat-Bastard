@@ -1,13 +1,10 @@
 <?php
 
-var_dump();
-die();
-
-use PHPMailer\PHPMailer;
-use PHPMailer\Exception;
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php'; 
+use PHPMail\PHPMailer\PHPMailer;
+use PHPMail\PHPMailer\Exception;
+require '../../PHPMailer/PHPMailer.php';
+require '../../PHPMailer/Exception.php';
+require '../../PHPMailer/SMTP.php'; 
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
@@ -15,7 +12,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 $rest_json = file_get_contents ("php://input");
 $_POST = json_decode ($rest_json, true);
 
-if (empty (trim($_POST['inputName'])) || empty(trim($_POST['inputMail'])) || filter_var (trim($_POST['inputMail']), FILTER_VALIDATE_EMAIL) || empty(trim($_POST['inputText']))) {
+if (empty (trim($_POST['inputName'])) || empty(trim($_POST['inputMail'])) || !filter_var (trim($_POST['inputMail']), FILTER_VALIDATE_EMAIL) || empty(trim($_POST['inputText']))) {
     $has_error = true;
 }
 
@@ -31,17 +28,17 @@ if (!isset($has_error)) {
     $mail->CharSet = 'UTF-8';
 
     $mail->isSMTP();					            // Active l'envoi via SMTP
-    $mail->Host = 'smtp.orange.fr';			        // À remplacer par le nom de votre serveur SMTP
-    $mail->SMTPAuth = false;				        // Active l'authentification par SMTP
-    //$mail->Username = 'user@example.com';         // Nom d'utilisateur SMTP (votre adresse email complète)
-    //$mail->Password = 'secret';			        // Mot de passe de l'adresse email indiquée précédemment
+    $mail->Host = 'smtp.gmail.com';			        // À remplacer par le nom de votre serveur SMTP
+    $mail->SMTPAuth = true;				        // Active l'authentification par SMTP
+    $mail->Username = 'chapon.nicola.com';         // Nom d'utilisateur SMTP (votre adresse email complète)
+    $mail->Password = '79trompette';			        // Mot de passe de l'adresse email indiquée précédemment
     $mail->Port = 465;					            // Port SMTP
     $mail->SMTPSecure = "ssl";				        // Utiliser SSL
     $mail->isHTML(true);					        // Format de l'email en HTML
 
-    $mail->From = 'k.bochet@orange.fr';			    // L'adresse mail de l'emetteur du mail (en général identique à l'adresse utilisée pour l'authentification SMTP)
+    $mail->From = 'chapon.nicola@gmail.com';			    // L'adresse mail de l'emetteur du mail (en général identique à l'adresse utilisée pour l'authentification SMTP)
     $mail->FromName = 'The Fat Bastard GangBand';   // Le nom de l'emetteur qui s'affichera dans le mail
-    $mail->addAddress('k.bochet@orange.fr');		// Un premier destinataire
+    $mail->addAddress('nikochapon@hotmail.com');		// Un premier destinataire
     //$mail->addAddress('ellen@example.com');		// Un second destifataire (facultatif)
                                                     // Possibilité de répliquer la ligne pour plus de destinataires
     $mail->addReplyTo($email);			            // Pour ajouter l'adresse à laquelle répondre (en général celle de la personne ayant rempli le formulaire)
@@ -49,8 +46,8 @@ if (!isset($has_error)) {
     //$mail->addBCC('bcc@example.com');			    // Pour ajouter un champ Cci
 
     $mail->Subject = 'The Fat Bastard official - ' . $form_subject;			        // Le sujet de l'email
-    $mail->Body    = "Name: $name \n\nEmail: $email_from \n\nMessage: $comments";	// Le contenu du mail en HTML
-    $mail->AltBody = "Name: $name \n\nEmail: $email_from \n\nMessage: $comments";	// Le contenu du mail au format texte
+    $mail->Body    = "Name: $name \n\nEmail: $email \n\nMessage: $comments";	// Le contenu du mail en HTML
+    $mail->AltBody = "Name: $name \n\nEmail: $email \n\nMessage: $comments";	// Le contenu du mail au format texte
 
     //$email_to = get_post_meta($post->ID, 'email', TRUE);
 
