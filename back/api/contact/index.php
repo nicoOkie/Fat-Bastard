@@ -74,4 +74,3 @@ if (!isset($has_error)) {
         } else {
             echo 'Message envoyé';
         }
-}
