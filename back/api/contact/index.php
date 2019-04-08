@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
 require '../../wp/wp-blog-header.php';
->>>>>>> develop
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
