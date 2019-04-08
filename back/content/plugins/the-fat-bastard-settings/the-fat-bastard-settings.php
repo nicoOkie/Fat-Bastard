@@ -598,12 +598,6 @@ function fat_player_custom_box()
 
 function fat_player_custom_box_html( $post )
 {
-    $src_file = get_post_meta(
-        $post->ID,
-        'source_file',
-        true
-    );
-
     $title = get_post_meta(
         $post->ID,
         'title',
@@ -622,10 +616,6 @@ function fat_player_custom_box_html( $post )
     <table>
         <tbody>
             <tr>
-                <th style="text-align:left; padding:1.5rem;"><label for="source_file">Télécharger le fichier</label></th>
-                <td style="padding:1.5rem;"><input type="file" name="source_file" id="source_file" value="<?= $src_file; ?>" /></td>
-            </tr>
-            <tr>
                 <th style="text-align:left; padding:1.5rem;"><label for="title">Titre de la musique</label></th>
                 <td style="padding:1.5rem;"><input type="text" name="title" id="title" value="<?= $title; ?>" /></td>
             </tr>
@@ -643,15 +633,6 @@ add_action( 'save_post', 'fat_player_save_postdata' );
 
 function fat_player_save_postdata( $post_ID )
 {
-
-    if ( isset($_POST['source_file']) ) {
-        update_post_meta(
-            $post_ID,
-            'source_file',
-            $_POST['source_file']
-        );
-    }
-
     if ( isset($_POST['title']) ) {
         update_post_meta(
             $post_ID,
