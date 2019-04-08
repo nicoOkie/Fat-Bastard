@@ -29,7 +29,13 @@
   }
 }
 
-@media screen and (min-width: 850px) {
+@media (max-width: 899px) {
+  .onglet-audio {
+    top: 0px !important;
+  }
+}
+
+@media screen and (min-width: 899px) {
   .nav {
     height: 6vh;
   }
@@ -107,7 +113,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 // PLayer Audio
 
-.audio-player {
+.audio-player { 
   width: 50% !important;
   position:fixed;
   top: 100px;
@@ -115,6 +121,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
   flex-wrap: wrap;
   padding: 2vh;
   z-index: 2000;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .player-audio {
@@ -131,11 +139,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background-color: #002F3F;
   text-align: center;
   z-index: 2000;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .onglet-audio p {
   color: white;
   padding: 1.1vh;
+  padding-right: 1.5vh;
   font-size: 1.7em;
 }
 
