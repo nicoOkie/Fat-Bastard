@@ -13,8 +13,8 @@ import './footer.scss';
  * Code
  */
 const Footer = () => (
-  <footer>
-    <h1>Je suis le footer</h1>
+  <footer className="footer">
+    <p className="footer-content">&#169; 2019 THE FAT BASTARD GANGBAND BY TANK</p>
   </footer>
 );
 
