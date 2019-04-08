@@ -4,6 +4,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
+import { FaCartArrowDown } from 'react-icons/fa';
 
 /**
  * Local import
@@ -33,6 +34,7 @@ const Discomobile = ({ discoImages, discoDatas }) => {
         <div key={disco[0].id} className="discomobile" {...disco}>
           <img className="discomobile-pic" src={disco[1]} alt={`cover-${disco[0].title.rendered}`} />
           <p className="discomobile-text">{disco[0].title.rendered}</p>
+          <a className="discomobile-link" href={disco[0].custom_fields.purchase_link}><FaCartArrowDown /> Acheter</a>
         </div>
       ))}
     </Slider>
