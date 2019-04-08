@@ -18,14 +18,14 @@ import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 const Header = ({ name, title, bgp }) => (
   <React.Fragment>
     <ParallaxProvider>
-      <div className="header">
+      <div>
         <ParallaxBanner
           id={name}
-          style={{
-            height: '74vh',
-            backgroundPosition: 'top',
-            backgroundSize: '100%',
-          }}
+          // style={{
+          //   height: '74vh',
+          //   backgroundPosition: 'bottom left',
+          //   backgroundSize: '100%',
+          // }}
           layers={[
             {
               image: `${bgp}`,

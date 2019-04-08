@@ -1,25 +1,21 @@
 // CSS de Section
+@import 'src/styles/vars';
 
 .header {
-  // position: relative;
-  height: 74vh;
-  width: 100%;
-  background-size: 100% 100%;
-  border-top-left-radius: 3vw;
-  border-top-right-radius: 3vw;
-  background-size: 100%;
 
   &-title {
+    font-family: 'mailart_rubberstamp', serif;
+    font-variant: small-caps;
     position: absolute;
-    bottom: 1em;
-    right: 2em;
+    bottom: .4em;
+    right: .6em;
     font-size: 4em;
     font-weight: bold;
-    color: white;
+    color: $fat-white;
     text-transform: capitalize;
   }
 }
 
 .content {
-  margin: 2em 0;
+  margin: 1em 0;
 }

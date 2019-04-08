@@ -1,26 +1,23 @@
 // CSS News
+@import 'src/styles/vars';
 
-.news {
 
+
+.news {  
   &-article {
-    display: grid;
-    grid-template-columns: 1fr 15% 55% 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "split split split split"
-      ". header header ."
-      ". date content ."
-      ". cat content .";
-      justify-content: center;
+    &-split {
+      width: 100%;
+      height: 10px;
+      margin: 2em 0 1em;
+      background: url('../../../../assets/barre-hr.png');
+      background-size: 100% 10px;
 
-      &-split {
-        grid-area: split;
-        margin: 3em 0;
-        height: 10px;
-        width: 100%;
-        background: url('../../../../assets/barre-hr.png');
-        background-size: 100% 10px;
+      @include for-tablet-portrait-up {
+        height: 15px;
+        background-size: 100% 15px;
+        margin: 3em 0 2em;
       }
+    }
 
       &-header {
         font-family: 'mailart_rubberstampregular', serif;
@@ -29,17 +26,126 @@
         padding-left: 2rem;
         font-size: 1.3em;
         font-weight: 700;
-      }
-    
-      &-aside {
-        grid-area: date;
-        padding-left: 2rem;
-        margin-top: 1rem;
-      }
-    
-      &-section {
-        grid-area: content;
-        margin-top: 1em;
+
+        @include for-tablet-portrait-up {
+          padding-left: 5rem;
         }
-  }  
+
+        @include for-desktop-up {
+          font-size: 1.5em;
+          padding-left: 10rem;
+        }
+      }
+
+    &-aside {
+      margin-top: .4em;
+      padding-left: 2rem;
+      font-size: .7em;
+      font-style: italic;
+
+      &-date {
+        display: inline-block;
+        margin-right: .4rem;
+
+        @include for-desktop-up {
+          display: block;
+          font-size: 1.5em;
+        }
+      }
+
+      @include for-tablet-portrait-up {
+        padding-left: 5rem;
+        font-size: .8em;
+      }
+
+      @include for-desktop-up {
+        display: inline-block;
+        vertical-align: top;
+        width: 25%;
+        padding-left: 10rem;
+      }
+    }
+
+    &-section {
+      margin-top: .4rem;
+      padding-left: 2em;
+      font-size: .9em;
+
+      p {
+        margin-top: 1em;
+
+        @include for-desktop-up {
+          margin-top: 0;
+        }
+      }
+
+      @include for-tablet-portrait-up {
+        padding-left: 5rem;
+      }
+
+      @include for-desktop-up {
+        display: inline-block;
+        width: 70%;
+        font-size: 1.2em;
+        padding-left: 0;
+      }
+    }
+  }
 }
+
+
+.wp-block-image {
+  margin-top: .7em;
+  width: 50%;
+
+  figcaption {
+    margin-top: .2em;
+  }
+}
+
+// .wrapper {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+//   grid-template-rows: auto;
+// }
+
+// .news {
+//   &-article {
+//     display: grid;
+//     grid-template-columns: 1fr 15% 55% 1fr;
+//     grid-template-rows: auto;
+//     grid-template-areas:
+//       "split split split split"
+//       ". header header ."
+//       ". date content ."
+//       ". cat content .";
+//       justify-content: center;
+
+//       &-split {
+//         grid-area: split;
+//         margin: 2em 0 1em;
+//         height: 10px;
+//         width: 100%;
+//         background: url('../../../../assets/barre-hr.png');
+//         background-size: 100% 10px;
+//       }
+
+//       &-header {
+//         grid-area: header;
+//         width: 100%;
+//         margin: 1rem auto;
+//         font-size: 1.1em;
+//         font-weight: 700;
+//       }
+    
+//       &-aside {
+//         grid-area: date;
+//         margin-top: .2rem;
+//       }
+    
+//       &-section {
+//         grid-area: content;
+//         margin-top: .2em;
+//         }
+//   }  
+// }
