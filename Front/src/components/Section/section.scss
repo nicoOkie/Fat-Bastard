@@ -6,10 +6,12 @@
   &-title {
     font-family: 'mailart_rubberstamp', serif;
     font-variant: small-caps;
+    // width: 100%;
+    // text-align: center;
     position: absolute;
     bottom: .4em;
     right: .6em;
-    font-size: 4em;
+    font-size: 3em;
     font-weight: bold;
     color: $fat-white;
     text-transform: capitalize;
