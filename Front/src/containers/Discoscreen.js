@@ -46,6 +46,8 @@ const mapStateToProps = state => ({
   discoDatas: state.sectionDisco,
   loaddiscoImages: state.loaddiscoPics,
   loaddiscoDatas: state.loadDisco,
+  discoVerso: state.discoVerso,
+  laoddiscoVerso: state.loadVerso,
 });
 
 

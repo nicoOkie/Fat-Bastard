@@ -104,3 +104,77 @@ Note: Beware of modifying this element as it can break the animations - you shou
   top: 0px;
   left: 0px;
 }
+
+// PLayer Audio
+
+.audio-player {
+  width: 50% !important;
+  position:fixed;
+  top: 100px;
+  background-color: #002F3F;
+  flex-wrap: wrap;
+  padding: 2vh;
+  z-index: 2000;
+}
+
+.player-audio {
+  display: none;
+}
+
+.onglet-audio:hover .player-audio {
+  display: block;
+}
+
+.onglet-audio {
+  top: 100px;
+  position: fixed;
+  background-color: #002F3F;
+  text-align: center;
+  z-index: 2000;
+}
+
+.onglet-audio p {
+  color: white;
+  padding: 1.1vh;
+  font-size: 1.7em;
+}
+
+#play {
+  width: 2em;
+}
+#play-icon {
+  height: 2em !important;
+  padding-right: 10px;
+}
+
+#rewind {
+  width: 2em;
+}
+
+#rewind-icon {
+  height: 2em !important;
+  padding-right: 10px;
+}
+
+#forward {
+  width: 2em;
+}
+
+#forward-icon {
+  height: 2em !important;
+  padding-right: 10px;
+}
+
+
+#loop {
+  width: 2em;
+}
+
+#loop-icon {
+  height: 2em !important;
+  padding-right: 10px;
+}
+
+#audio-player-track-name {
+  width: 50px;
+}

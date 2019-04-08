@@ -55,10 +55,10 @@ const Group = ({
             </ReactHover.Trigger>
             <ReactHover.Hover type="hover">
               <div className="about-hoverdiv">
-                <p className="about-picturetext about-hoverp">{about[0].custom_fields.first_name}</p>
-                <p className="about-hoverp">{about[0].custom_fields.last_name}</p>
-                <p className="about-hoverp">{ReactHtmlParser(about[0].content.rendered)}</p>
-                <p className="about-hoverp">{about[0].custom_fields.instruments}</p>
+                <div className="about-picturetext about-hoverp">{about[0].custom_fields.first_name}</div>
+                <div className="about-hoverp">{about[0].custom_fields.last_name}</div>
+                <div className="about-hoverp">{ReactHtmlParser(about[0].content.rendered)}</div>
+                <div className="about-hoverp">{about[0].custom_fields.instruments}</div>
               </div>
             </ReactHover.Hover>
           </ReactHover>

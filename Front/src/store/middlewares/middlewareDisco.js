@@ -9,6 +9,8 @@ import {
   receivedSectionDisco,
   LOAD_DISCO_PICS,
   receivedDiscoPics,
+  LOAD_DISCO_VERSO,
+  receivedDiscoVerso,
 } from 'src/store/reducer';
 
 const middlewareDisco = store => next => (action) => {
@@ -31,7 +33,18 @@ const middlewareDisco = store => next => (action) => {
           store.dispatch(receivedDiscoPics(data));
         })
         .catch(() => (
-          console.log('Hoooooooooo !')
+          console.log('Ho disco pics !')
+        ));
+      break;
+
+    case LOAD_DISCO_VERSO:
+      axios
+        .get('http://92.243.8.90/fat/back/wp-json/fat/v1/discography/verso')
+        .then(({ data }) => {
+          store.dispatch(receivedDiscoVerso(data));
+        })
+        .catch(() => (
+          console.log('Ho disco verso !')
         ));
       break;
 

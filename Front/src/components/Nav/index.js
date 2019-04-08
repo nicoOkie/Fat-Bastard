@@ -2,6 +2,8 @@
  * NPM import
  */
 import React, { useState } from 'react';
+import AudioPlayer from 'react-modular-audio-player';
+import { MdHeadset } from 'react-icons/md';
 
 /**
  * Local import
@@ -20,10 +22,35 @@ const Nav = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const handleResize = () => setWidth(window.innerWidth);
   window.addEventListener('resize', handleResize);
+  const playlist = [
+    {
+      src: 'src/assets/audios/the-fat-bastard-gang-band-official-all-bastards.mp3',
+      title: 'All Bastard',
+      artist: 'FAT',
+    },
+    {
+      src: 'src/assets/audios/the-fat-bastard-gangband-official-king-of-the-world.mp3',
+      title: 'King of the World',
+      artist: 'FAT',
+    },
+  ];
   return (
-    <div className="nav">
-      {width > 899 ? <FullScreen /> : <Menu />}
-    </div>
+    <>
+      <div className="nav">
+        {width > 899 ? <FullScreen /> : <Menu />}
+      </div>
+      <div className="onglet-audio">
+        <p className="onglet-title"><MdHeadset /></p>
+        <div className="player-audio">
+          <AudioPlayer
+            audioFiles={playlist}
+            playerWidth="10em"
+            fontSize="1.5rem"
+            iconSize="1.5rem"
+          />
+        </div>
+      </div>
+    </>
   );
 };
 
