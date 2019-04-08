@@ -11,9 +11,7 @@ import ReactHtmlParser from 'react-html-parser';
 const Article = ({ title, date: { year, month, day }, content }) => (
   <article className="news-article">
     <div className="news-article-split" />
-    <header className="news-article-header">
-      <h2 className="news-article-header-title">{ReactHtmlParser(title)}</h2>
-    </header>
+    <h2 className="news-article-header">{ReactHtmlParser(title)}</h2>
     <aside className="news-article-aside">
       <p className="news-article-aside-date">{day}-{month}</p>
       <p className="news-article-aside-date">{year}</p>
