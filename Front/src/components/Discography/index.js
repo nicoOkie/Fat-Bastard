@@ -21,7 +21,7 @@ const Discography = () => {
   window.addEventListener('resize', handleResize);
   return (
     <div id="disco" className="discography">
-      {width > 1224 ? <Discoscreen /> : <Discomobile />}
+      {width > 1200 ? <Discoscreen /> : <Discomobile />}
     </div>
   );
 };

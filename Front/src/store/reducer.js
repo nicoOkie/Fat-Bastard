@@ -2,8 +2,8 @@
  * Local imports
  */
 import { cleanTourDates } from 'src/utils/tourCleaner';
-import { freshNews } from 'src/utils/newsCleaner';
 import { videoIds } from 'src/utils/videosUtil';
+import { onlyThreeNews } from 'src/utils/newsCleaner';
 
 /**
  * Initial State
@@ -24,12 +24,17 @@ const initialState = {
   },
   sectionDisco: [],
   sectionAbout: [],
+  aboutPics: [],
   sectionBackground: [],
   sectionAboutDescription: [],
   aboutLoaded: false,
   backgroundLoaded: false,
   titlesLoaded: false,
   discoPics: [],
+  loaddiscoPics: false,
+  loadDisco: false,
+  discoVerso: [],
+  loadVerso: false,
 };
 
 /**
@@ -51,6 +56,8 @@ export const LOAD_SECTION_DISCO = 'LOAD_DISCO_NAME';
 export const RECEIVED_SECTION_DISCO = 'RECEIVED_SECTION_DISCO';
 export const LOAD_DISCO_PICS = 'LOAD_DISCO_PICS';
 export const RECEIVED_DISCO_PICS = 'RECEIVED_DISCO_PICS';
+export const LOAD_DISCO_VERSO = 'LOAD_DISCO_VERSO';
+export const RECEIVED_DISCO_VERSO = 'RECEIVEID_DISCO_VERSO';
 // Media Import
 export const LOAD_VIDEOS = 'LOAD_VIDEOS';
 export const RECEIVED_VIDEOS = 'RECEIVED_VIDEOS';
@@ -63,6 +70,8 @@ export const LOAD_SECTION_ABOUT_DESCRIPTION = 'LOAD_SECTION_ABOUT_DESCRIPTION';
 export const RECEIVED_SECTION_ABOUT_DESCRIPTION = 'RECEIVED_SECTION_ABOUT_DESCRIPTION';
 export const LOAD_SECTION_BACKGROUND = 'LOAD_SECTION_BACKGROUND';
 export const RECEIVED_SECTION_BACKGROUND = 'RECEIVED_SECTION_BACKGROUND';
+export const LOAD_ABOUT_PICS = 'LOAD_ABOUT_PICS';
+export const RECEIVED_ABOUT_PICS = 'RECEIVED_ABOUT_PICS';
 // CONTACT Export
 
 /**
@@ -100,7 +109,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.loadedData,
           newsLoaded: true,
         },
-        news: freshNews(action.data),
+        news: onlyThreeNews(action.data),
       };
 
       // TOUR SECTION
@@ -131,6 +140,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         sectionDisco: action.data,
+        loadDisco: true,
       };
 
     case LOAD_DISCO_PICS:
@@ -142,6 +152,19 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         discoPics: action.data,
+        loaddiscoPics: true,
+      };
+
+    case LOAD_DISCO_VERSO:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_DISCO_VERSO:
+      return {
+        ...state,
+        discoVerso: action.data,
+        loadVerso: true,
       };
 
       // ABOUT SECTION
@@ -155,6 +178,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         sectionAbout: action.data,
+        loadaboutItems: true,
       };
 
     case LOAD_SECTION_ABOUT_DESCRIPTION:
@@ -167,6 +191,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         sectionAboutDescription: action.data,
         aboutLoaded: true,
+      };
+
+    case LOAD_ABOUT_PICS:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_ABOUT_PICS:
+      return {
+        ...state,
+        aboutPics: action.data,
+        loadaboutPics: true,
       };
 
       // BACKGROUND SECTION PICTURES
@@ -285,6 +321,15 @@ export const receivedDiscoPics = data => ({
   data,
 });
 
+export const loadDiscoVerso = () => ({
+  type: LOAD_DISCO_VERSO,
+});
+
+export const receivedDiscoVerso = data => ({
+  type: RECEIVED_DISCO_VERSO,
+  data,
+});
+
 // About Import
 
 export const loadSectionAbout = () => ({
@@ -311,6 +356,15 @@ export const loadSectionBackground = () => ({
 
 export const receivedSectionBackground = data => ({
   type: RECEIVED_SECTION_BACKGROUND,
+  data,
+});
+
+export const loadAboutPics = () => ({
+  type: LOAD_ABOUT_PICS,
+});
+
+export const receivedAboutPics = data => ({
+  type: RECEIVED_ABOUT_PICS,
   data,
 });
 

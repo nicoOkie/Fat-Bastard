@@ -24,6 +24,8 @@ import {
   loadSectionBackground,
   loadPictures,
   loadDiscoPics,
+  loadAboutPics,
+  loadDiscoVerso,
 } from 'src/store/reducer';
 
 
@@ -53,3 +55,5 @@ store.dispatch(loadSectionBackground());
 store.dispatch(loadPictures());
 store.dispatch(loadVideos());
 store.dispatch(loadDiscoPics());
+store.dispatch(loadAboutPics());
+store.dispatch(loadDiscoVerso());

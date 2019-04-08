@@ -237,3 +237,33 @@ function fat_discography_verso_endpoint()
     );
 }
 
+add_action('rest_api_init', 'fat_player_endpoint');
+
+function fat_player_endpoint()
+{
+
+    register_rest_route(
+        'fat/v1',
+        'player',
+         [
+            'method'   => 'GET',
+            'callback' => function(){
+                $player_post = get_posts([
+                    'post_type' => 'player',
+                    'posts_per_page' => -1,
+                    'orderby' => 'ID',
+                    'order' => 'ASC'
+                    
+                ]);
+                $musics_src = [];
+
+                foreach($player_post as $player){
+                    $music = get_field('music_src', $player->ID);
+                    $musics_src[] = $music ['url'];
+                }
+                return $musics_src;
+            }
+            
+        ]
+    );
+}

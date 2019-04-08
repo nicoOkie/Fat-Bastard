@@ -157,7 +157,7 @@ function the_fat_register_post_type()
             'show_ui'             => true,
             'show_in_nav_menus'   => true, 
             'show_in_admin_bar'   => true,
-            'menu_position'       => 10,
+            'menu_position'       => 12,
             'menu_icon'           => 'dashicons-email',
             'hierarchical'        => false, 
             'supports'            => [
@@ -165,6 +165,41 @@ function the_fat_register_post_type()
             ],
             'has_archive'         => false, 
             'can_export'          => false, 
+            'delete_with_user'    => false,
+            'show_in_rest'        => true,
+        ]
+    ); 
+
+    // CPT pour le lecteur audio
+    register_post_type(
+        'player',
+        [
+            'labels' => [ 
+                'name'               => 'Lecteur audio',
+                'add_new_item'       => 'Ajouter une nouvelle musique',
+                'edit_item'          => 'Editer la musique',
+                'new_item'           => 'Nouvelle musique',
+                'view_item'          => 'Voir la musique',
+                'view_items'         => 'Voir les musiques',
+                'search_items'       => 'Rechercher des musiques',
+                'not_found'          => 'Aucune musique trouvée',
+                'not_found_in_trash' => 'Aucune musique trouvée dans la corbeille',
+                'all_items'          => 'Toutes les musiques',
+                'archives'           => 'Archives des musiques'
+            ],
+            'exclude_from_search' => false, 
+            'publicly_queryable'  => true, 
+            'show_ui'            => true,
+            'show_in_nav_menus'   => true, 
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 11,
+            'menu_icon'           => 'dashicons-controls-volumeon',
+            'hierarchical'        => false, 
+            'supports'            => [
+                'title'
+            ],
+            'has_archive'         => true, 
+            'can_export'          => true, 
             'delete_with_user'    => false,
             'show_in_rest'        => true,
         ]
@@ -336,6 +371,12 @@ function fat_discography_custom_box_html( $post )
         true
     );
 
+    $purchase_link = get_post_meta(
+        $post->ID,
+        'purchase_link',
+        true
+    );
+
 ?>
     <div style="margin:30px 0px 20px;">
         <label for="release_date" style="font-weight:bold; margin-right:17px;">Date de sortie</label>
@@ -344,6 +385,10 @@ function fat_discography_custom_box_html( $post )
     <div style="margin-bottom: 20px;">
         <label for="producter_name" style="font-weight:bold; margin-right:34px;">Producteur</label>
         <input type="text" name="producter_name" id="producter_name" value="<?= $producter; ?>"style="height:30px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="purchase_link" style="font-weight:bold; margin-right:34px;">Lien vers une boutique d'achat</label>
+        <input type="url" name="purchase_link" id="purchase_link" value="<?= $purchase_link; ?>"style="height:30px;" />
     </div>
 
     
@@ -368,6 +413,14 @@ function fat_discography_save_postdata( $post_ID )
             $post_ID,
             'producter_name',
             $_POST['producter_name']
+        );
+    }
+
+    if ( isset($_POST['purchase_link']) ) {
+        update_post_meta(
+            $post_ID,
+            'purchase_link',
+            $_POST['purchase_link']
         );
     }
 
@@ -713,6 +766,77 @@ function fat_contact_recipients_save_postdata( $post_ID )
     }
 }
 
+/* 
+ * Ajout de metabox au CPT player
+ */
+
+add_action( 'add_meta_boxes', 'fat_player_custom_box' );
+
+function fat_player_custom_box()
+{
+    add_meta_box(
+        'fat_player_box_id',          
+        'Détails de la musique', 
+        'fat_player_custom_box_html',  
+        'player'                   
+    );
+}
+
+function fat_player_custom_box_html( $post )
+{
+    $title = get_post_meta(
+        $post->ID,
+        'title',
+        true
+    );
+
+    $artist = get_post_meta(
+        $post->ID,
+        'artist',
+        true
+    );
+
+
+?>
+
+    <table>
+        <tbody>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="title">Titre de la musique</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="title" id="title" value="<?= $title; ?>" /></td>
+            </tr>
+            <tr>
+                <th style="text-align:left; padding:1.5rem;"><label for="artist">Nom de l'artiste</label></th>
+                <td style="padding:1.5rem;"><input type="text" name="artist" id="artist" value="<?= $artist; ?>" /></td>
+            </tr>
+        </tbody>
+    </table>
+    
+<?php
+}
+
+add_action( 'save_post', 'fat_player_save_postdata' );
+
+function fat_player_save_postdata( $post_ID )
+{
+    if ( isset($_POST['title']) ) {
+        update_post_meta(
+            $post_ID,
+            'title',
+            $_POST['title']
+        );
+    }
+
+    if ( isset($_POST['artist']) ) {
+        update_post_meta(
+            $post_ID,
+            'artist',
+            $_POST['artist']
+        );
+    }
+
+}
+
 /*
  * Custom-fields -> API REST
  */
@@ -726,7 +850,8 @@ function fat_contact_recipients_save_postdata( $post_ID )
          'tourdates',
          'discography',
          'group',
-         'contact'
+         'contact',
+         'player'
         ],
          'custom_fields',
         [

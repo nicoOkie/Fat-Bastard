@@ -20,6 +20,9 @@ import Group from 'src/components/About/Group';
  */
 const mapStateToProps = state => ({
   aboutItems: state.sectionAbout,
+  aboutPictures: state.aboutPics,
+  loadaboutItems: state.loadaboutItems,
+  loadaboutPictures: state.loadaboutPictures,
 });
 
 /* === Actions ===

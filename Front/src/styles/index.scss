@@ -2,7 +2,12 @@
 @import 'src/styles/vars';
 @import "~slick-carousel/slick/slick.css"; 
 @import "~slick-carousel/slick/slick-theme.css";
+@import './fonts/stylesheet.css';
 
 body {
-  font-family: sans-serif;
+  font-family: 'gentium_basicregular', serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
