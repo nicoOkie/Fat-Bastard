@@ -1,0 +1,50 @@
+body {
+  background: black;  
+}
+body.login { 
+    background-image: url('end-show.jpg'); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+   }
+
+.login h1 a { 
+    background-image: url('Logo_FAT.jpg'); 
+    height:100px;
+    width:320px;
+   }
+
+body.login div#login form#loginform {
+    background: none;
+}
+
+body.login div#login form#loginform p label {
+    color:white;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+body.login div#login form#loginform input {
+    border: 1px solid #002f40;
+}
+
+body.login div#login form#loginform input#user_login {
+    color: #002f40;
+    font-size: 400;
+}
+
+body.login div#login form#loginform input#user_pass {
+    color: #002f40;
+}
+
+body.login div#login form#loginform p.submit input#wp-submit {
+    background: #d73b25;
+    border-color:#d73b25#d73b25#d73b25;
+    box-shadow: 0 1px 0#d73b25;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 10px;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px#d73b25, 1px 0 1px#d73b25, 0 1px 1px#d73b25, -1px 0 1px#d73b25;
+}
+
