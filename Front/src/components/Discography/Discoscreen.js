@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FaCartArrowDown } from 'react-icons/fa';
 
 /**
  * Local import
@@ -39,6 +40,7 @@ const Discoscreen = ({
               <img src={disco[2]} className="flip-front flip-card" alt={`cover-${disco[0].title.rendered}`} />
             </div>
             <p className="discoscreen-text">{disco[0].title.rendered}</p>
+            <a className="discoscreen-link" href={disco[0].custom_fields.purchase_link}><FaCartArrowDown /> Acheter</a>
           </div>
         ))}
       </div>

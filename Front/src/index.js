@@ -26,6 +26,8 @@ import {
   loadDiscoPics,
   loadAboutPics,
   loadDiscoVerso,
+  loadPlayerV1,
+  loadPlayerV2,
 } from 'src/store/reducer';
 
 
@@ -57,3 +59,5 @@ store.dispatch(loadVideos());
 store.dispatch(loadDiscoPics());
 store.dispatch(loadAboutPics());
 store.dispatch(loadDiscoVerso());
+store.dispatch(loadPlayerV1());
+store.dispatch(loadPlayerV2());

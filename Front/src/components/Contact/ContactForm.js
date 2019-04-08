@@ -50,7 +50,7 @@ class ContactForm extends React.Component {
   render() {
     return (
       <div id="contact-form">
-        <form action="/action_page.php">
+        <form action="">
           <h3 id="title-form">Vous pouvez contacter le groupe ici :</h3>
           <select id="contact-choice" required value={this.state.contactSelect} onChange={e => this.setState({ contactSelect: e.target.value })}>
             <option value="">Motif</option>

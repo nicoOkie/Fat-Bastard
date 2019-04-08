@@ -35,6 +35,8 @@ const initialState = {
   loadDisco: false,
   discoVerso: [],
   loadVerso: false,
+  playerDatas: [],
+  playerMusic: [],
 };
 
 /**
@@ -72,7 +74,11 @@ export const LOAD_SECTION_BACKGROUND = 'LOAD_SECTION_BACKGROUND';
 export const RECEIVED_SECTION_BACKGROUND = 'RECEIVED_SECTION_BACKGROUND';
 export const LOAD_ABOUT_PICS = 'LOAD_ABOUT_PICS';
 export const RECEIVED_ABOUT_PICS = 'RECEIVED_ABOUT_PICS';
-// CONTACT Export
+// MUSIC Export
+export const LOAD_PLAYER_V1 = 'LOAD_PLAYER_V1';
+export const RECEIVED_PLAYER_V1 = 'RECEIVED_PLAYER_V1';
+export const LOAD_PLAYER_V2 = 'LOAD_PLAYER_V2';
+export const RECEIVED_PLAYER_V2 = 'RECEIVED_PLAYER_V2';
 
 /**
  * Reducer
@@ -252,6 +258,29 @@ const reducer = (state = initialState, action = {}) => {
         videos: videoIds(action.data),
       };
 
+    // MUSIC
+    case LOAD_PLAYER_V1:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_PLAYER_V1:
+      return {
+        ...state,
+        playerMusic: action.data,
+      };
+
+    case LOAD_PLAYER_V2:
+      return {
+        ...state,
+      };
+
+    case RECEIVED_PLAYER_V2:
+      return {
+        ...state,
+        playerDatas: action.data,
+      };
+
     default:
       return state;
   }
@@ -384,6 +413,24 @@ export const loadVideos = () => ({
 
 export const receivedVideos = data => ({
   type: RECEIVED_VIDEOS,
+  data,
+});
+
+export const loadPlayerV1 = () => ({
+  type: LOAD_PLAYER_V1,
+});
+
+export const receivedPlayerV1 = data => ({
+  type: RECEIVED_PLAYER_V1,
+  data,
+});
+
+export const loadPlayerV2 = () => ({
+  type: LOAD_PLAYER_V2,
+});
+
+export const receivedPlayerV2 = data => ({
+  type: RECEIVED_PLAYER_V2,
   data,
 });
 

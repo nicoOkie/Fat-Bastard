@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Local import
  */
-import Nav from 'src/components/Nav';
+import Nav from 'src/containers/Player';
 import Main from 'src/containers/Mainsection';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home';

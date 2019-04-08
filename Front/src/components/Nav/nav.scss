@@ -118,20 +118,22 @@ Note: Beware of modifying this element as it can break the animations - you shou
   left: 0px;
 }
 
-// PLayer Audio
+// PLayer Audio - Mobile First
+
+// Zone de lecteur
 
 .audio-player { 
   width: 100% !important;
   position:fixed;
   top: 50px;
-  background-color: #323234;
+  background-color: #002F3F;
   flex-wrap: wrap;
   padding: 2vh;
   z-index: 2000;
   color: white !important;
 
   @media screen and (min-width: 899px) {
-    width: 50% !important;
+    width: 300px !important;
     position:fixed;
     top: 100px;
     background-color: #002F3F;
@@ -143,125 +145,194 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 }
 
+// Conteneur de la zone lecteur
+
 .player-audio {
-  display: none;
+  display: none !important;
 }
 
 .onglet-audio:hover .player-audio {
-  display: block;
+  display: block !important;
 }
+
+// Onglet casque pour ouvrir le lecteur audio
 
 .onglet-audio {
-  top: 100px;
-  position: fixed;
-  background-color: #002F3F;
-  text-align: center;
-  z-index: 2000;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
+  top: 7px !important;
+  position: fixed !important;
+  background-color: #002F3F !important;
+  text-align: center !important;
+  z-index: 2000 !important;
+  border-top-right-radius: 50% !important;
+  border-bottom-right-radius: 50% !important;
   @media screen and (min-width: 899px) {
-    top: 100px;
-    position: fixed;
-    background-color: #002F3F;
-    text-align: center;
-    z-index: 2000;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
+    top: 100px !important;
+    position: fixed !important;
+    background-color: #002F3F !important;
+    text-align: center !important;
+    z-index: 2000 !important;
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
   }
 }
+
+// Icone de l'onglet
 
 .onglet-audio p {
-  color: white;
-  padding: 1.1vh;
-  padding-right: 1.5vh;
-  font-size: 1.7em;
+  color: white !important;
+  padding: 1.1vh !important;
+  padding-right: 1.5vh !important;
+  font-size: 1.7em !important;
   @media screen and (min-width: 899px) {
-    color: white;
-    padding: 1.1vh;
-    padding-right: 1.5vh;
-    font-size: 1.7em;
+    color: white !important;
+    padding: 1.1vh !important;
+    padding-right: 1.5vh !important;
+    font-size: 1.7em !important;
   }
 }
+
+// Bouton Play
 
 #play {
-  width: 2em;
-  margin-left: 12vh;
+  width: 12.5% !important;
+  margin-left: 25% !important;
   @media screen and (min-width: 899px) {
-    width: 2em;
-  }
-}
-#play-icon {
-  height: 2em !important;
-  padding-right: 10px;
-  @media screen and (min-width: 899px) {
-    height: 2em !important;
-    padding-right: 10px;
+    width: 20% !important;
+    margin-left: 10% !important;
   }
 }
 
-#rewind {
-  width: 2em;
+// Image bouton play
+
+#play-icon {
+  height: 2em !important;
+  padding-right: 10px !important;
   @media screen and (min-width: 899px) {
-    width: 2em;
+    height: 50px !important;
+    padding-right: 10px !important;
   }
 }
+
+// Bouton rewind
+
+#rewind {
+  width: 12.5% !important;
+  @media screen and (min-width: 899px) {
+    width: 20% !important;
+  }
+}
+
+// Image bouton rewind
 
 #rewind-icon {
   height: 2em !important;
-  padding-right: 10px;
+  padding-right: 10px !important;
   @media screen and (min-width: 899px) {
-    height: 2em !important;
-    padding-right: 10px;
+    height: 50px !important;
+    padding-right: 10px !important;
   }
 }
 
+// Bouton forward
+
 #forward {
-  width: 2em;
+  width: 12.5% !important;
   @media screen and (min-width: 899px) {
-    width: 2em;
+    width: 20% !important;
   }
 }
+
+// Image bouton forward
 
 #forward-icon {
   height: 2em !important;
-  padding-right: 10px;
+  padding-right: 10px !important;
   @media screen and (min-width: 899px) {
-    height: 2em !important;
-    padding-right: 10px;
+    height: 50px !important;
+    padding-right: 10px !important;
   }
 }
 
+// Bouton loop
 
 #loop {
-  width: 2em;
+  width: 12.5% !important;
+  margin-right: 25% !important;
   @media screen and (min-width: 899px) {
-    width: 2em;
+    width: 20% !important;
+    margin-right: 10% !important;
   }
 }
+
+// Image bouton loop
 
 #loop-icon {
   height: 2em !important;
-  padding-right: 10px;
+  padding-right: 10px !important;
   @media screen and (min-width: 899px) {
-    height: 2em !important;
-    padding-right: 10px;
+    height: 50px !important;
+    padding-right: 10px !important;
   }
 }
 
 .audio-player-track-name {
-  width: 100px;
-  margin-left: 10vh;
-  margin-right: 10vh;
+  width: 100% !important;
+  margin-left: 25% !important;
+  margin-right: 25% !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
   @media screen and (min-width: 899px) {
-    width: 50px;
+    width: 100% !important;
   }
 }
 
 .marquee {
-  width: 150px;
-  font-size: 15px;
+  width: 150px !important;
+  font-size: 20px !important;
 }
 
-// .audio-player-seeker {
-  
-// }
+.audio-player-seeker {
+  margin-left: 20% !important;
+  margin-right: 20% !important;
+  width: 60% !important;
+}
+
+.audio-player-time {
+  margin-left: 40% !important;
+  margin-right: 20% !important;
+  width: 40% !important;
+  text-align: center !important;
+  margin-top: 10px;
+}
+
+.audio-player-volume {
+  width: 100% !important;
+  margin-top: 5px;
+}
+
+.audio-player-volume #volume {
+  width: 12.5% !important;
+  margin-left: 20% !important;
+  @media screen and (min-width: 899px) {
+    margin-left: 10% !important;
+  }
+}
+
+.audio-player-volume .slide-container {
+  width: 45% !important;
+  margin-right: 10% !important;
+  @media screen and (min-width: 899px) {
+    width: 55% !important;
+    margin-left: 25px;
+  }
+}
+
+// Image volume
+
+#volume-icon {
+  height: 2em !important;
+  @media screen and (min-width: 899px) {
+    height: 50px !important;
+    width: 50px;
+  }
+}
