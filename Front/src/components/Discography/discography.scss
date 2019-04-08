@@ -1,3 +1,5 @@
+@import 'src/styles/vars';
+
 .discoscreen {
     display: flex;
     flex-wrap: wrap;
@@ -9,20 +11,22 @@
 
 img {
     width: 100%;
+    margin: 0;
 }
 
 .slick-next:before, .slick-prev:before, .slick-next:before {
-    color: black;
+    color: $fat-blue;
 }
 
 // Mobile 
 
 .discomobile {
     &-text {
+        font-family: 'mailart_rubberstamp', 'Times New Roman', Times, serif;
         padding-top: 5vh;
         text-align: center;
         font-weight: 700;
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
 }
 
