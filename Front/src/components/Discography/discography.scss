@@ -4,8 +4,10 @@
   display: flex;
   flex-wrap: wrap;
   width: 70vw;
+  margin: 0 auto;
   &-section {
-      width: 50%;
+      margin: 0 auto;
+      width: 40%;
       padding: 2vh 12vh;
   }
   &-text {
@@ -34,7 +36,7 @@ img {
 // Mobile 
 
 .discomobile {
-    height: 40vh;
+    height: 35vh;
     &-text {
         font-family: 'mailart_rubberstamp', 'Times New Roman', Times, serif;
         padding-top: 5vh;
