@@ -4,11 +4,11 @@
 .media {
   
   &-video-one {
-    height: 20vh;
-    margin: 0 4vh;
-    @media (max-width: 750px) {
-      margin-bottom: 40vh;
-    }
+    // height: 20vh;
+    margin: 2rem 0;
+    // @media (max-width: 750px) {
+    //   margin-bottom: 40vh;
+    // }
 
     @media screen and (min-width: 750px) {
       height: 35vh;

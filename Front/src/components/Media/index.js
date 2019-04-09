@@ -24,7 +24,7 @@ const Media = ({ videos: { main, vids }, loaded }) => (
           <YouTube
             videoId={main}
             opts={{
-              height: '363',
+              height: 'auto%',
               width: '100%',
             }}
           />

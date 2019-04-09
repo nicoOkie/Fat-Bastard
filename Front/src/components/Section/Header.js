@@ -21,11 +21,6 @@ const Header = ({ name, title, bgp }) => (
       <div>
         <ParallaxBanner
           id={name}
-          // style={{
-          //   height: '74vh',
-          //   backgroundPosition: 'bottom left',
-          //   backgroundSize: '100%',
-          // }}
           layers={[
             {
               image: `${bgp}`,
