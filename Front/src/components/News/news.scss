@@ -20,7 +20,7 @@
     }
 
       &-header {
-        font-family: 'mailart_rubberstampregularregular', serif;
+        font-family: 'mailart_rubberstampregular', serif;
         grid-area: header;
         margin: 1rem 0;
         padding-left: 2rem;
@@ -70,9 +70,12 @@
       margin-top: .4rem;
       padding-left: 2em;
       font-size: .9em;
+      font-family: 'gentium_basicregular', serif;
 
       p {
         margin-top: 1em;
+        font-family: 'gentium_basicregular', serif;
+
 
         @include for-desktop-up {
           margin-top: 0;
