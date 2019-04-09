@@ -990,3 +990,32 @@ function custom_group_columns_content($column)
     }
 }
 
+/*
+ * Modification des colonnes d'administration du lecteur audio
+ */
+add_filter('manage_player_posts_columns', 'custom_player_columns');
+
+
+function custom_player_columns($columns)
+{
+    $columns = [
+        'cb'          => '',
+        'title'       => 'Titre',
+        'artist'       => 'Artiste'
+    ];
+    return $columns;
+}
+
+add_action('manage_player_posts_custom_column', 'custom_player_columns_content');
+
+function custom_player_columns_content($column)
+{
+    global $post;
+
+    switch($column) { 
+        case 'artist':
+            echo get_post_meta($post->ID, 'artist', TRUE);
+            break; 
+    }
+}
+
