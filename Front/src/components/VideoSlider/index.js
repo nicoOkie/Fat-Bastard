@@ -51,6 +51,7 @@ const VideoSlider = ({ videos }) => {
           videoId={video}
           opts={{
             width: '100%',
+            height: '',
           }}
         />
       ))}
