@@ -1,10 +1,11 @@
 // Social
+@import 'src/styles/vars';
 
 .social {
   display: flex;
   align-items: stretch;
   font-size: 1.4em;
-  color: #FEEFD4;
+  color: $fat-white;
 
   &-link {
     padding: 0 .5em;

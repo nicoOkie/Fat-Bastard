@@ -1,3 +1,5 @@
+@import 'src/styles/vars';
+
 .about {
     &-group {
         display: flex;
@@ -28,6 +30,7 @@
         padding: 7vh;
     }
     &-text h1 {
+        font-family: 'mailart_rubberstamp', 'Times New Roman', Times, serif;
         font-size: 20px;
         font-weight: 600;
     }

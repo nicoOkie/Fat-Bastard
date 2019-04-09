@@ -1,5 +1,4 @@
 <?php
-//require '../../wp/wp-blog-header.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

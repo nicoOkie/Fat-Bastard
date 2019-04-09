@@ -21,7 +21,7 @@ const VideoSlider = ({ videos }) => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 4,
     slidesToScroll: 1,
     swipeToSlide: true,
     responsive: [
@@ -46,13 +46,19 @@ const VideoSlider = ({ videos }) => {
   return (
     <Slider {...settings}>
       {videos.map(video => (
-        <YouTube
-          key={video}
-          videoId={video}
-          opts={{
-            width: '100%',
-          }}
-        />
+        <div className="video-div">
+          <YouTube
+            key={video}
+            videoId={video}
+            opts={{
+              width: '100%',
+              height: '100%',
+              postion: 'absollute',
+              top: '0',
+              left: '0',
+            }}
+          />
+        </div>
       ))}
     </Slider>
   );
