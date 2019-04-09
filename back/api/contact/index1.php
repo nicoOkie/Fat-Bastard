@@ -1,8 +1,6 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 require '../../PHPMailer/Exception.php';
 require '../../PHPMailer/PHPMailer.php';
 require '../../PHPMailer/SMTP.php'; 
@@ -23,20 +21,19 @@ if (!isset($has_error)) {
     $email = trim($_POST['inputMail']);
     $form_subject = trim($_POST['inputSubject']);
     $comments = trim($_POST['inputText']);
-
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();					            // Active l'envoi via SMTP
-    $mail->Host = 'smtp.gmail.com';			        // À remplacer par le nom de votre serveur SMTP
-    $mail->SMTPAuth = true;				        // Active l'authentification par SMTP
-    $mail->Username = 'chapon.nicola@gmail.com';         // Nom d'utilisateur SMTP (votre adresse email complète)
-    $mail->Password = '79trompette';			        // Mot de passe de l'adresse email indiquée précédemment
+    $mail->Host = 'smtp.orange.fr';			        // À remplacer par le nom de votre serveur SMTP
+    $mail->SMTPAuth = false;				        // Active l'authentification par SMTP
+    //$mail->Username = 'user@example.com';         // Nom d'utilisateur SMTP (votre adresse email complète)
+    //$mail->Password = 'secret';			        // Mot de passe de l'adresse email indiquée précédemment
     $mail->Port = 465;					            // Port SMTP
-    $mail->SMTPSecure = 'SSL';				        // Utiliser SSL
+    $mail->SMTPSecure = "ssl";				        // Utiliser SSL
     $mail->isHTML(true);					        // Format de l'email en HTML
-    $mail->From = 'chapon.nicola@gmail.com';			    // L'adresse mail de l'emetteur du mail (en général identique à l'adresse utilisée pour l'authentification SMTP)
+    $mail->From = 'k.bochet@orange.fr';			    // L'adresse mail de l'emetteur du mail (en général identique à l'adresse utilisée pour l'authentification SMTP)
     $mail->FromName = 'The Fat Bastard GangBand';   // Le nom de l'emetteur qui s'affichera dans le mail
-    $mail->addAddress('chapon.nicola@gmail.com');		// Un premier destinataire
+    $mail->addAddress('k.bochet@orange.fr');		// Un premier destinataire
     //$mail->addAddress('ellen@example.com');		// Un second destifataire (facultatif)
                                                     // Possibilité de répliquer la ligne pour plus de destinataires
     $mail->addReplyTo($email);			            // Pour ajouter l'adresse à laquelle répondre (en général celle de la personne ayant rempli le formulaire)

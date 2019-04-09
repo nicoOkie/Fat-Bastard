@@ -1,6 +1,22 @@
+@import 'src/styles/vars';
+
 .discoscreen {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70vw;
+  margin: 0 auto;
+  &-section {
+      margin: 0 auto;
+      width: 40%;
+      padding: 2vh 12vh;
+  }
+  &-text {
+     padding-top: 4vh;
+     text-align: center;
+     margin-bottom: 1vh; 
+     font-weight: 700;
+     font-size: 1.7rem;
+  }
 }
 
 .discography {
@@ -9,20 +25,24 @@
 
 img {
     width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
-.slick-next:before, .slick-prev:before, .slick-next:before {
-    color: black;
+.slick-next:before, .slick-prev:before {
+    color: $fat-blue;
 }
 
 // Mobile 
 
 .discomobile {
+    height: 35vh;
     &-text {
+        font-family: 'mailart_rubberstamp', 'Times New Roman', Times, serif;
         padding-top: 5vh;
         text-align: center;
         font-weight: 700;
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
     &-link {
         font-weight: 700;
@@ -84,28 +104,5 @@ img {
         -moz-transform: rotateY(0deg);
         -o-transform: rotateY(0deg);
         transform: rotateY(0deg);
-    }
-}
-
-.discoscreen {
-    width: 70vw;
-    &-section {
-        width: 50%;
-        padding: 2vh 12vh;
-    }
-    &-text {
-        padding-top: 4vh;
-        text-align: center;
-        margin-bottom: 1vh; 
-        font-weight: 700;
-        font-size: 1.7rem;
-    }
-    a {
-        font-weight: 700;
-        position: relative;
-        display: block;
-        margin-left: 35%;
-        margin-right: 25%;
-        width: 40%;
     }
 }

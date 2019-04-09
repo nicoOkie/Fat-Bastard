@@ -1,23 +1,26 @@
 // CSS Media
-
+@import 'src/styles/vars';
 
 .media {
 
   padding-top: 3vh;
   
   &-video-one {
-    height: 20vh;
-    margin: 0 4vh;
-    @media (max-width: 750px) {
-      margin-bottom: 40vh;
-    }
+    margin: 2rem 0;
+
 
     @media screen and (min-width: 750px) {
-      height: 35vh;
+      // height: 35vh;
     }
     
     @media screen and (min-width: 1024px) {
-      height: 40vh;
+      margin: 2rem 15rem;
+    }
+
+    iframe {
+      @include for-desktop-up {
+        height: 500px;
+      }
     }
   }
 
@@ -26,8 +29,8 @@
     margin: 5vh auto;
     
     @media screen and (min-width:1024px){
-      width: 93%;
-      margin-top: 0;
+      width: 100%;
+      margin: 2rem auto;
     }
   }
 }
