@@ -29,7 +29,7 @@ class ContactForm extends React.Component {
     event.preventDefault();
     axios({
       method: 'post',
-      url: 'http://92.243.8.90/fat/back/api/contact/index.php',
+      url: 'http://site-fat.com/api/contact/index.php',
       headers: { 'content-type': 'application/json' },
       data: this.state,
     })
