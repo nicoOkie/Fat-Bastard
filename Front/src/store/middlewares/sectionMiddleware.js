@@ -22,8 +22,8 @@ const sectionMiddleware = store => next => (action) => {
         .then(({ data }) => {
           store.dispatch(receivedSectionTitles(data));
         })
-        .catch(() => (
-          console.log('Hoooooooooo !')
+        .catch(error => (
+          console.log(error)
         ));
       break;
 
@@ -33,8 +33,8 @@ const sectionMiddleware = store => next => (action) => {
         .then(({ data }) => {
           store.dispatch(receivedSectionBgPictures(data));
         })
-        .catch(() => (
-          console.log('Hoooooooooo !')
+        .catch(error => (
+          console.log(error)
         ));
       break;
 

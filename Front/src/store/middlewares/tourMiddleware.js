@@ -16,8 +16,8 @@ const tourMiddleware = store => next => (action) => {
         .then(({ data }) => {
           store.dispatch(receivedTourDates(data));
         })
-        .catch(() => (
-          console.log('Hoooooooooo !')
+        .catch(error => (
+          console.log(error)
         ));
       break;
 

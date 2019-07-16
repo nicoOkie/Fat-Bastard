@@ -8,7 +8,7 @@ import { LOAD_NEWS, receivedNews } from 'src/store/reducer';
 const apiURL = 'http://92.243.8.90/fat/back/wp-json';
 
 
-const tourMiddleware = store => next => (action) => {
+const newsMiddleware = store => next => (action) => {
   switch (action.type) {
     case LOAD_NEWS:
       axios
@@ -16,8 +16,8 @@ const tourMiddleware = store => next => (action) => {
         .then(({ data }) => {
           store.dispatch(receivedNews(data));
         })
-        .catch(() => (
-          console.log('Hoooooooooo !')
+        .catch(error => (
+          console.log(error)
         ));
       break;
 
@@ -29,4 +29,4 @@ const tourMiddleware = store => next => (action) => {
   next(action);
 };
 
-export default tourMiddleware;
+export default newsMiddleware;

@@ -26,7 +26,7 @@ if (!isset($has_error)) {
 
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
-    $mail->isSMTP();					            // Active l'envoi via SMTP
+    $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';			        // À remplacer par le nom de votre serveur SMTP
     $mail->SMTPAuth = true;				        // Active l'authentification par SMTP
     $mail->Username = 'chapon.nicola@gmail.com';         // Nom d'utilisateur SMTP (votre adresse email complète)

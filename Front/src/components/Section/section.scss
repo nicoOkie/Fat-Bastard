@@ -3,6 +3,9 @@
 
 .header {
 
+  border-bottom: 15px solid transparent;
+  border-image: url(/assets/ad4eed471eeb8b7c40f6620ba65cec7b.png) 100;
+
   &-title {
     font-family: 'mailart_rubberstampregular', serif;
     font-variant: small-caps;
@@ -20,4 +23,9 @@
 
 .content {
   margin: 1em 0;
+}
+
+.banner-container {
+  width: 100vw;
+  height: 60vh;
 }

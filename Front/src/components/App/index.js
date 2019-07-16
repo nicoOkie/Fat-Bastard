@@ -2,7 +2,7 @@
  * NPM import
  */
 import React from 'react';
-
+import { ParallaxProvider } from 'react-scroll-parallax';
 /**
  * Local import
  */
@@ -16,12 +16,14 @@ import './app.scss';
  * Code
  */
 const App = () => (
-  <div id="app">
-    <Nav />
-    <Home />
-    <Main />
-    <Footer />
-  </div>
+  <ParallaxProvider>
+    <div id="app">
+      <Nav />
+      <Home />
+      <Main />
+      <Footer />
+    </div>
+  </ParallaxProvider>
 );
 
 

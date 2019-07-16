@@ -1,4 +1,3 @@
-
 export const cleanDates = (date) => {
   const newDate = date.slice(0, 10).split('-');
   const cleanDate = {
